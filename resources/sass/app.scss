@@ -1,11 +1,29 @@
 @tailwind base;
-@tailwind components;
+//@tailwind components;
 @tailwind utilities;
 
 
-
 $background: #009688;
+$darkerBackground: #00897B;
+$front: #E9FFDE;
+$deep: #046D63;
+
+
 
 body, html {
     background:  $background !important;
+}
+
+header {
+    font-family: 'Montserrat Alternates', sans-serif;
+    height: 45px;
+    width: 100%;
+    @apply bg-green-600
+}
+
+
+#logo {
+    font-family: 'Righteous', cursive;
+    font-size: 1.8rem;
+    color: white;
 }

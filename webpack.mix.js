@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+require('laravel-mix-postcss-config');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -12,11 +12,10 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
-    .options({
-        postCss: [
-            require('postcss-import'),
-            require('tailwindcss'),
-            require('autoprefixer'),
-        ]
-    });
+    .browserSync('localhost:8000')
+    .postCss('resources/css/app.css', 'public/css', [
+        require('postcss-import'),
+        require('tailwindcss'),
+        require('autoprefixer'),
+    ]);
+
