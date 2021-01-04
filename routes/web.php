@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::any('/test',function (\Illuminate\Http\Request $request) {
+    dd($request->input('post_data'));
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

@@ -27,7 +27,9 @@
     },
     "dependencies": {
         "laravel-mix-postcss-config": "^1.4.0",
+        "postcss": "^8.2.2",
         "postcss-custom-properties": "^10.0.0",
+        "postcss-loader": "^3.0.0",
         "postcss-sass": "^0.4.4",
         "postcss-scss": "^3.0.4",
         "sass": "^1.32.0"

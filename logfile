@@ -1,0 +1,193 @@
+2021-01-03 19:04:33.313 MSK [93263] LOG:  starting PostgreSQL 13.1 on x86_64-apple-darwin18.7.0, compiled by Apple clang version 11.0.0 (clang-1100.0.33.17), 64-bit
+2021-01-03 19:04:33.315 MSK [93263] LOG:  listening on IPv6 address "::1", port 5432
+2021-01-03 19:04:33.315 MSK [93263] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2021-01-03 19:04:33.316 MSK [93263] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2021-01-03 19:04:33.319 MSK [93264] LOG:  database system was shut down at 2021-01-03 19:04:24 MSK
+2021-01-03 19:04:33.322 MSK [93263] LOG:  database system is ready to accept connections
+2021-01-03 19:05:35.441 MSK [93479] FATAL:  role "postgres" does not exist
+2021-01-03 19:05:46.930 MSK [93508] FATAL:  role "postgres" does not exist
+2021-01-03 19:06:52.385 MSK [93690] FATAL:  role "USER_NAME" does not exist
+2021-01-03 19:08:10.586 MSK [93754] ERROR:  syntax error at or near "ALTER" at character 57
+2021-01-03 19:08:10.586 MSK [93754] STATEMENT:  CREATE USER postgres WITH SUPERUSER PASSWORD 'postgres'
+	ALTER DATABASE postgres OWNER TO postgres;
+2021-01-03 19:15:22.498 MSK [95147] ERROR:  operator does not exist: ` bigint at character 8
+2021-01-03 19:15:22.498 MSK [95147] HINT:  No operator matches the given name and argument type. You might need to add an explicit type cast.
+2021-01-03 19:15:22.498 MSK [95147] STATEMENT:  SELECT `id`, `title`, `preview`, `views`,  `created_at`, similarity(title, $1) as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:16:06.220 MSK [95269] ERROR:  operator does not exist: ` bigint at character 8
+2021-01-03 19:16:06.220 MSK [95269] HINT:  No operator matches the given name and argument type. You might need to add an explicit type cast.
+2021-01-03 19:16:06.220 MSK [95269] STATEMENT:  SELECT `id`, `title`, `preview`, `views`,  `created_at`, similarity(title, $1) as similarity
+	            FROM posts
+	            WHERE float::similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:39:21.356 MSK [99425] ERROR:  operator does not exist: ` bigint at character 8
+2021-01-03 19:39:21.356 MSK [99425] HINT:  No operator matches the given name and argument type. You might need to add an explicit type cast.
+2021-01-03 19:39:21.356 MSK [99425] STATEMENT:  SELECT `id`, `title`, `preview`, `views`,  `created_at`, similarity(title, $1) as similarity
+	            FROM posts
+	            WHERE float::similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:40:23.393 MSK [99594] ERROR:  syntax error at or near "f" at character 152
+2021-01-03 19:40:23.393 MSK [99594] STATEMENT:  SELECT `id`, `title`, `preview`, `views`,  `created_at`, similarity(title, $1) as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5f
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:40:23.635 MSK [99596] ERROR:  syntax error at or near "f" at character 152
+2021-01-03 19:40:23.635 MSK [99596] STATEMENT:  SELECT `id`, `title`, `preview`, `views`,  `created_at`, similarity(title, $1) as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5f
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:40:31.396 MSK [99617] ERROR:  syntax error at or near "//" at character 117
+2021-01-03 19:40:31.396 MSK [99617] STATEMENT:  SELECT `id`, `title`, `preview`, `views`,  `created_at`, similarity(title, $1) as similarity
+	            FROM posts
+	//            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:40:31.500 MSK [99620] ERROR:  syntax error at or near "//" at character 117
+2021-01-03 19:40:31.500 MSK [99620] STATEMENT:  SELECT `id`, `title`, `preview`, `views`,  `created_at`, similarity(title, $1) as similarity
+	            FROM posts
+	//            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:40:38.773 MSK [99646] ERROR:  operator does not exist: ` bigint at character 8
+2021-01-03 19:40:38.773 MSK [99646] HINT:  No operator matches the given name and argument type. You might need to add an explicit type cast.
+2021-01-03 19:40:38.773 MSK [99646] STATEMENT:  SELECT `id`, `title`, `preview`, `views`,  `created_at`, similarity(title, $1) as similarity
+	            FROM posts
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:40:38.823 MSK [99649] ERROR:  operator does not exist: ` bigint at character 8
+2021-01-03 19:40:38.823 MSK [99649] HINT:  No operator matches the given name and argument type. You might need to add an explicit type cast.
+2021-01-03 19:40:38.823 MSK [99649] STATEMENT:  SELECT `id`, `title`, `preview`, `views`,  `created_at`, similarity(title, $1) as similarity
+	            FROM posts
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:42:03.449 MSK [99858] ERROR:  function similarity(character varying, unknown) does not exist at character 48
+2021-01-03 19:42:03.449 MSK [99858] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2021-01-03 19:42:03.449 MSK [99858] STATEMENT:  SELECT id, title, preview, views,  created_at, similarity(title, $1) as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:42:03.553 MSK [99865] ERROR:  function similarity(character varying, unknown) does not exist at character 48
+2021-01-03 19:42:03.553 MSK [99865] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2021-01-03 19:42:03.553 MSK [99865] STATEMENT:  SELECT id, title, preview, views,  created_at, similarity(title, $1) as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:42:41.183 MSK [99969] ERROR:  function similarity(character varying, unknown) does not exist at character 48
+2021-01-03 19:42:41.183 MSK [99969] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2021-01-03 19:42:41.183 MSK [99969] STATEMENT:  SELECT id, title, preview, views,  created_at, similarity(title, $1) as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:42:41.275 MSK [99971] ERROR:  function similarity(character varying, unknown) does not exist at character 48
+2021-01-03 19:42:41.275 MSK [99971] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2021-01-03 19:42:41.275 MSK [99971] STATEMENT:  SELECT id, title, preview, views,  created_at, similarity(title, $1) as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:43:51.157 MSK [333] ERROR:  zero-length delimited identifier at or near """" at character 66
+2021-01-03 19:43:51.157 MSK [333] STATEMENT:  SELECT id, title, preview, views,  created_at, similarity(title, "") as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:43:51.244 MSK [335] ERROR:  zero-length delimited identifier at or near """" at character 66
+2021-01-03 19:43:51.244 MSK [335] STATEMENT:  SELECT id, title, preview, views,  created_at, similarity(title, "") as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:43:52.961 MSK [348] ERROR:  column "dawd" does not exist at character 66
+2021-01-03 19:43:52.961 MSK [348] STATEMENT:  SELECT id, title, preview, views,  created_at, similarity(title, "dawd") as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:43:53.006 MSK [350] ERROR:  column "dawd" does not exist at character 66
+2021-01-03 19:43:53.006 MSK [350] STATEMENT:  SELECT id, title, preview, views,  created_at, similarity(title, "dawd") as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:44:21.584 MSK [434] ERROR:  function similarity(character varying, text) does not exist at character 48
+2021-01-03 19:44:21.584 MSK [434] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2021-01-03 19:44:21.584 MSK [434] STATEMENT:  SELECT id, title, preview, views,  created_at, similarity(title, CAST ($1 as text)) as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:44:21.672 MSK [436] ERROR:  function similarity(character varying, text) does not exist at character 48
+2021-01-03 19:44:21.672 MSK [436] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2021-01-03 19:44:21.672 MSK [436] STATEMENT:  SELECT id, title, preview, views,  created_at, similarity(title, CAST ($1 as text)) as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:46:28.061 MSK [775] ERROR:  function similarity(character varying, character varying) does not exist at character 48
+2021-01-03 19:46:28.061 MSK [775] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2021-01-03 19:46:28.061 MSK [775] STATEMENT:  SELECT id, title, preview, views,  created_at, similarity(title, CAST ($1 as varchar)) as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:46:28.153 MSK [777] ERROR:  function similarity(character varying, character varying) does not exist at character 48
+2021-01-03 19:46:28.153 MSK [777] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2021-01-03 19:46:28.153 MSK [777] STATEMENT:  SELECT id, title, preview, views,  created_at, similarity(title, CAST ($1 as varchar)) as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:47:51.510 MSK [1009] ERROR:  function similarity(character varying, character varying) does not exist at character 48
+2021-01-03 19:47:51.510 MSK [1009] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2021-01-03 19:47:51.510 MSK [1009] STATEMENT:  SELECT id, title, preview, views,  created_at, similarity(title, CAST ($1 as varchar)) as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:49:53.112 MSK [1321] ERROR:  function similarity(character varying, character varying) does not exist at character 48
+2021-01-03 19:49:53.112 MSK [1321] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2021-01-03 19:49:53.112 MSK [1321] STATEMENT:  SELECT id, title, preview, views,  created_at, similarity(title, CAST ($1 as varchar)) as similarity
+	            FROM posts
+	            WHERE similarity >= 0.5
+	            ORDER BY similarity DESC, created_at DESC
+	            LIMIT 5
+	        
+2021-01-03 19:50:15.796 MSK [93263] LOG:  received fast shutdown request
+2021-01-03 19:50:15.797 MSK [93263] LOG:  aborting any active transactions
+2021-01-03 19:50:15.799 MSK [93263] LOG:  background worker "logical replication launcher" (PID 93270) exited with exit code 1
+2021-01-03 19:50:15.802 MSK [977] FATAL:  terminating connection due to administrator command
+2021-01-03 19:50:15.802 MSK [94204] FATAL:  terminating connection due to administrator command
+2021-01-03 19:50:15.804 MSK [93265] LOG:  shutting down
+2021-01-03 19:50:15.814 MSK [93263] LOG:  database system is shut down

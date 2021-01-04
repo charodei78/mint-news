@@ -31463,6 +31463,7 @@ select {
 }
 
 body, html {
+  font-family: 'Montserrat Alternates', sans-serif;
   background: #009688;
 }
 
@@ -31476,6 +31477,10 @@ header {
 #logo {
   font-family: 'Righteous', cursive;
   font-size: 1.8rem;
+}
+
+.w-inherit {
+  width: inherit;
 }
 
 .user_menu {
@@ -31500,6 +31505,61 @@ header {
 #search::placeholder {
   font-weight: bold;
   color: rgba(233, 255, 222, 0.58);
+}
+
+#blackout {
+  height: calc(100vh - 45px);
+  margin-top: 45px;
+  display: none;
+  transition: 0.3s;
+  z-index: 0;
+}
+
+.search-wrapper {
+  width: 30vw;
+  min-width: 270px;
+}
+
+@-webkit-keyframes search_animation {
+  from {
+    margin-top: -300px;
+    opacity: 0;
+  }
+
+  80% {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  to {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    opacity: 1;
+  }
+}
+
+@keyframes search_animation {
+  from {
+    margin-top: -300px;
+    opacity: 0;
+  }
+
+  80% {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  to {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    opacity: 1;
+  }
+}
+
+.post_in_search {
+  min-width: 270px;
+  -webkit-animation: search_animation 0.6s ease-out;
+          animation: search_animation 0.6s ease-out;
 }
 
 @media (min-width: 640px) {
