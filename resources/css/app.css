@@ -1,6 +1,5 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
 .shadow-filter {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -12,7 +11,7 @@
 
 body, html {
     font-family: 'Montserrat Alternates', sans-serif;
-    background: #009688;
+    @apply bg-green-500
 }
 
 header {
@@ -24,7 +23,6 @@ header {
 
 #logo {
     font-family: 'Righteous', cursive;
-    font-size: 1.8rem;
 }
 
 .w-inherit {
@@ -35,8 +33,7 @@ header {
     @apply cursor-pointer rounded-full;
 }
 
-
-#search {
+.bg-dark-green {
     background-color: #046D63;
 }
 
@@ -76,3 +73,13 @@ header {
     min-width: 270px;
     animation: search_animation 0.6s ease-out;
 }
+
+.side-info-items {
+    @apply text-xs font-bold opacity-70 text-green-100 leading-5
+}
+
+.side-menu-button {
+    @apply flex justify-items-center justify-start rounded-lg w-44 text-white p-1.5 cursor-pointer space-x-1 capitalize text-xl ;
+}
+
+@tailwind utilities;

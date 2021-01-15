@@ -14,9 +14,17 @@
     <title>@yield('title', 'Mint')</title>
 </head>
 <body >
-<div id="blackout" class="bg-black opacity-30 w-full absolute"></div>
-<x-header></x-header>
-@yield('content')
+<div id="blackout" class="bg-black opacity-30 w-full top-0 absolute"></div>
+<x-header.index></x-header.index>
+<div class="flex w-2/3 mx-auto justify-between mt-24">
+    <x-sidebar.index class="w-2/3"></x-sidebar.index>
+    <div clas="w-5/12">
+        @yield('content')
+    </div>
+    <div class="w-1/4">
+        fwafawfwafw
+    </div>
+</div>
 @yield('script')
 @livewireScripts
 </body>

@@ -10,6 +10,17 @@ module.exports = {
                 sans: ['Montserrat Alternates', 'sans-serif'],
                 righteous: ['Righteous', 'cursive'],
             },
+            colors: {
+                'primary': '#3490dc',
+                'secondary': '#ffed4a',
+                'danger': '#e3342f',
+                'green': {
+                    '900': '#046D63',
+                    '600': '#00897B',
+                    '500': '#009688',
+                    '100': '#E9FFDE',
+                }
+            }
         },
         boxShadow: {
             sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',

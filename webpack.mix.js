@@ -14,8 +14,9 @@ require('laravel-mix-postcss-config');
 mix.js('resources/js/app.js', 'public/js')
     .browserSync('localhost:8000')
     .postCss('resources/css/app.css', 'public/css', [
-        require('postcss-import'),
         require('tailwindcss'),
+        require('postcss-cached'),
+        require('postcss-import'),
         require('autoprefixer'),
     ]);
 
