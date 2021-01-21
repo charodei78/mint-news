@@ -2,26 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="185fd07c-5e64-4c88-b739-d059ea74db33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/sidebar/button.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/sidebar/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/sidebar/side-info-links.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/sidebar/side-menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/post/full-width-post.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/notifications.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header/notifications.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/notify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header/notify.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/post-in-search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/search/post-in-search.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/user-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header/user-menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/header/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/post-views.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/elements/post-views.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/search/post-in-search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/post/post-in-search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/star.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/elements/star.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/base.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/search.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +153,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\32-ko\Desktop\mint-news\resources\views\components\elements" />
+      <recent name="C:\Users\32-ko\Desktop\mint-news\resources\views\components\post" />
       <recent name="C:\Users\32-ko\Desktop\mint-news\resources\views\components\header" />
       <recent name="C:\Users\32-ko\Desktop\mint-news\resources\views\components\search" />
     </key>
@@ -205,6 +199,8 @@
       <workItem from="1610631834654" duration="2999000" />
       <workItem from="1610687034367" duration="30000" />
       <workItem from="1610719345906" duration="9014000" />
+      <workItem from="1610946033810" duration="115000" />
+      <workItem from="1611234639257" duration="13049000" />
     </task>
     <servers />
   </component>

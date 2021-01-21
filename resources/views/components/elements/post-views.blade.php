@@ -1,4 +1,4 @@
-<div class="{{ $class }} items-center flex justify-start space-x-0.5 px-0.5">
+<div {{ $attributes->merge(['class' => 'items-center flex justify-start space-x-0.5 px-0.5']) }}>
     <img class="h-full" src="/ico/eye.svg">
     <span>
         {{ $views > 1000000

@@ -777,8 +777,37 @@ select {
   }
 }
 
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 0.5rem
+}
+
 .shadow-filter {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.post_preview_image {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  height: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+.post_preview_title {
+  font-weight: 700;
+  height: 3.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post_preview_body {
+  display: block;
+  height: 3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .shadow-filter:hover {
@@ -809,6 +838,10 @@ header {
 .user_menu {
   border-radius: 9999px;
   cursor: pointer;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  width: 2rem;
 }
 
 .bg-dark-green {
@@ -840,7 +873,18 @@ header {
 
 .search-wrapper {
   width: 30vw;
-  min-width: 270px;
+  min-width: 70px;
+}
+
+.result-wrapper {
+  right: 40vw;
+}
+
+@media (min-width: 640px) {
+  .result-wrapper {
+    right: auto;
+    left: 0px
+  }
 }
 
 @-webkit-keyframes search_animation {
@@ -886,13 +930,21 @@ header {
 }
 
 .side-info-items {
+  cursor: pointer;
   font-weight: 700;
   font-size: 0.75rem;
   line-height: 1rem;
   line-height: 1.25rem;
-  opacity: 0.7;
+  opacity: 0.7
+}
+
+.side-info-items:hover {
+  opacity: 0.9;
+}
+
+.side-info-items {
   --tw-text-opacity: 1;
-  color: rgba(233, 255, 222, var(--tw-text-opacity))
+  color: rgba(233, 255, 222, var(--tw-text-opacity));
 }
 
 .side-menu-button > :not([hidden]) ~ :not([hidden]) {

@@ -16,14 +16,14 @@
         </span>
     </div>
     <div class="2xl:col-span-2 my-auto sm:text-xs 2xl:text-lg 2xl:flex 2xl:items-center space-x-2.5">
-        <x-post-views
+        <x-elements.post-views
             class="h-5 text-gray-500 sm:mr-auto 2xl:mr-2.5 ml-1 w-1/2 2xl:w-auto"
             views="{{ $post->views }}"
-        ></x-post-views>
+        ></x-elements.post-views>
         <span class=" font-bold text-gray-500">{{ $post->created_at->format('d.m.Y') }}</span>
     </div>
     <a href="#" class="2xl:col-span-3 ml-1.5 text-green-500 mr-auto cursor-pointer mt-auto xl:text-xl text-sm truncate max-w-full">
         {{ ucwords($post->user->nickname) }}
     </a>
-    <x-star class="ml-auto absolute top-2 right-2 2xl:bottom-2 2xl:top-auto"></x-star>
+    <x-elements.star class="ml-auto absolute top-2 right-2 2xl:bottom-2 2xl:top-auto"></x-elements.star>
 </div>

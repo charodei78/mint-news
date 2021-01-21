@@ -9,9 +9,9 @@
            @focus="visible = true; blackout.style.display='block'"
     >
     @if(!empty($input))
-        <div x-show="visible" class="absolute z-10 mt-10 w-inherit h-10">
+        <div x-show="visible" class="absolute z-10 mt-10 w-full min-w-96 h-10 result-wrapper">
             @forelse($posts as $post)
-                <x-search.post-in-search :post="$post"></x-search.post-in-search>
+                <x-post.post-in-search :post="$post"></x-post.post-in-search>
             @empty
                 <h3 class="text-black">Ничего не найдено</h3>
             @endforelse
