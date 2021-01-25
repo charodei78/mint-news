@@ -9,16 +9,21 @@ h3 {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.post_preview_image {
+.post-full-width {
+    min-width: 15rem;
+    @apply bg-green-100 shadow-md mb-4 h-60 md:h-80 w-full rounded;
+}
+
+.post-preview-image {
     @apply w-full h-1/2  object-cover rounded-t;
 }
 
-.post_preview_title {
-    @apply font-bold overflow-ellipsis overflow-hidden h-14;
+.post-title {
+    @apply font-bold text-sm sm:text-lg overflow-ellipsis overflow-hidden;
 }
 
-.post_preview_body {
-    @apply overflow-ellipsis overflow-hidden block h-12;
+.post-body {
+    @apply overflow-ellipsis overflow-hidden hidden md:block h-6 lg:h-12;
 }
 
 
@@ -32,6 +37,7 @@ body, html {
 }
 
 header {
+    min-width: 18rem;
     max-height: 45px;
     width: 100%;
     color: rgba(233, 255, 222, 1);
@@ -64,7 +70,7 @@ header {
     margin-top: 45px;
     display: none;
     transition: 0.3s;
-    z-index: 0;
+    z-index: 1;
 }
 
 .search-wrapper {

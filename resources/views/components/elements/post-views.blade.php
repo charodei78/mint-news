@@ -1,5 +1,6 @@
 <div {{ $attributes->merge(['class' => 'items-center flex justify-start space-x-0.5 px-0.5']) }}>
     <img class="h-full" src="/ico/eye.svg">
+    @php($views = $views ?? 0)
     <span>
         {{ $views > 1000000
             ? (int)($views/1000000) . 'M'

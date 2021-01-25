@@ -787,7 +787,25 @@ h3 {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.post_preview_image {
+.post-full-width {
+  min-width: 15rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(233, 255, 222, var(--tw-bg-opacity));
+  border-radius: 0.25rem;
+  height: 15rem;
+  margin-bottom: 1rem;
+  --tw-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .post-full-width {
+    height: 20rem;
+  }
+}
+
+.post-preview-image {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
   height: 50%;
@@ -796,18 +814,38 @@ h3 {
   width: 100%;
 }
 
-.post_preview_title {
+.post-title {
   font-weight: 700;
-  height: 3.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.post_preview_body {
-  display: block;
-  height: 3rem;
+@media (min-width: 640px) {
+  .post-title {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+.post-body {
+  display: none;
+  height: 1.5rem;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .post-body {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .post-body {
+    height: 3rem;
+  }
 }
 
 .shadow-filter:hover {
@@ -821,6 +859,7 @@ body, html {
 }
 
 header {
+  min-width: 18rem;
   max-height: 45px;
   width: 100%;
   color: rgba(233, 255, 222, 1);
@@ -868,7 +907,7 @@ header {
   margin-top: 45px;
   display: none;
   transition: 0.3s;
-  z-index: 0;
+  z-index: 1;
 }
 
 .search-wrapper {

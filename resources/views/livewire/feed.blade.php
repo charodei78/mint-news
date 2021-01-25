@@ -1,3 +1,11 @@
 <div>
-    <x-post.full-width-post class="w-full mb-4  h-80 rounded"></x-post.full-width-post>
+    <span class="text-2xl text-green-100 font-medium block mb-3">Актуальное</span>
+    <x-post.full-width-post ></x-post.full-width-post>
+    <x-post.full-width-post ></x-post.full-width-post>
+    <x-post.full-width-post ></x-post.full-width-post>
+    <x-post.full-width-post ></x-post.full-width-post>
+    <x-post.full-width-post ></x-post.full-width-post>
+    <x-post.full-width-post ></x-post.full-width-post>
+    <x-post.full-width-post ></x-post.full-width-post>
+    <x-post.full-width-post ></x-post.full-width-post>
 </div>
