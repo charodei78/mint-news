@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 
+.w-34r {
+    width: 34rem;
+}
+
 h3 {
     @apply text-xl mb-2
 }
@@ -11,21 +15,17 @@ h3 {
 
 .post-full-width {
     min-width: 15rem;
-    @apply bg-green-100 shadow-md mb-4 h-60 md:h-80 w-full rounded;
+    @apply bg-green-100 shadow-md mb-4 w-full rounded;
 }
 
 .post-preview-image {
-    @apply w-full h-1/2  object-cover rounded-t;
-}
-
-.post-title {
-    @apply font-bold text-sm sm:text-lg overflow-ellipsis overflow-hidden;
+    @apply w-full h-32 md:h-40 object-cover rounded-t;
 }
 
 .post-body {
-    @apply overflow-ellipsis overflow-hidden hidden md:block h-6 lg:h-12;
+    @apply overflow-ellipsis overflow-hidden;
+    max-height: 8rem;
 }
-
 
 .shadow-filter:hover {
     filter: drop-shadow(0px 4px 4px rgba(255, 255, 255, 0.25));

@@ -16,12 +16,12 @@
 <body >
 <div id="blackout" class="bg-black opacity-30 w-full top-0 absolute"></div>
 <x-header.header></x-header.header>
-<div class="flex w-full p-5 md:w-5/6 xl:w-2/3 mx-auto justify-between mt-24">
+<div class="flex w-full p-5 md:w-5/ xl:w-3/4 mx-auto justify-between mt-12">
     <x-sidebar.sidebar class=""></x-sidebar.sidebar>
     <div class="w-full px-5">
         @yield('content')
     </div>
-    <div class="w-1/4 hidden 2xl:block">
+    <div class="w-34r lg:w-1/2 hidden lg:block">
         <livewire:right-sidebar></livewire:right-sidebar>
     </div>
 </div>
