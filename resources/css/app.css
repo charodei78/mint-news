@@ -5,6 +5,10 @@
     width: 34rem;
 }
 
+w-1200 {
+    width: 150rem;
+}
+
 h3 {
     @apply text-xl mb-2
 }
@@ -34,6 +38,15 @@ h3 {
 body, html {
     font-family: 'Montserrat Alternates', sans-serif;
     @apply bg-green-500
+}
+
+.w-1\/10 {
+    width: 10%;
+}
+
+.login-pop-up {
+    width: 27rem;
+    left: calc(47vw - 13.5rem);
 }
 
 header {

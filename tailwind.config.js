@@ -20,6 +20,9 @@ module.exports = {
                     '500': '#009688',
                     '100': '#E9FFDE',
                 }
+            },
+            outline: {
+                green: '1px solid #009688',
             }
         },
         boxShadow: {

@@ -23,7 +23,7 @@
                 ></x-elements.post-views>
                 <div class=" font-bold text-sm text-gray-500">{{ $post->created_at->format('d.m.Y') }}</div>
             </div>
-            <a href="#" class="ml-2 h-5 xl:h-6 text-green-500 mr-auto cursor-pointer mt-auto xl:text-lg text-sm truncate">
+            <a href="#" class="ml-2 h-5 xl:h-5 text-green-500 mr-auto cursor-pointer mt-auto xl:text-md text-sm truncate">
                 {{ ucwords($post->user->nickname) }}
             </a>
             <x-elements.star class="ml-auto absolute top-2 right-2 lg:bottom-2 lg:top-auto"></x-elements.star>
