@@ -842,8 +842,16 @@ body, html {
 }
 
 .login-pop-up {
-  width: 27rem;
-  left: calc(47vw - 13.5rem);
+  width: 95vw;
+  left: 2.5vw;
+  max-height: 66vh;
+}
+
+@media (min-width: 640px) {
+  .login-pop-up {
+    width: 26rem;
+    left: calc(47vw - 13.5rem);
+  }
 }
 
 header {
@@ -893,7 +901,6 @@ header {
 #blackout {
   height: calc(100vh - 45px);
   margin-top: 45px;
-  display: none;
   transition: 0.3s;
   z-index: 1;
 }
