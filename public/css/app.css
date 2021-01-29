@@ -844,7 +844,7 @@ body, html {
 .login-pop-up {
   width: 95vw;
   left: 2.5vw;
-  max-height: 66vh;
+  max-height: 80vh;
 }
 
 @media (min-width: 640px) {
@@ -852,6 +852,41 @@ body, html {
     width: 26rem;
     left: calc(47vw - 13.5rem);
   }
+}
+
+html {
+  scroll-behavior: smooth;
+  /*scrollbar-color: #458245 #714826;     !* «цвет ползунка» «цвет полосы скроллбара» *!*/
+  /*scrollbar-width: thin;*/
+}
+
+::-webkit-scrollbar {
+  width: .8rem; /* ширина для вертикального скролла */
+  --tw-bg-opacity: 1;
+  background-color: rgba(0, 137, 123, var(--tw-bg-opacity));
+}
+
+::-webkit-scrollbar-track {
+  margin: 30px 0 20px;
+}
+
+/* ползунок скроллбара */
+
+::-webkit-scrollbar-thumb {
+  --tw-bg-opacity: 1;
+  background-color: rgba(233, 255, 222, var(--tw-bg-opacity));
+  width: 90%;
+  border-radius: 4rem;
+}
+
+.invert-scrollbar::-webkit-scrollbar {
+  --tw-bg-opacity: 1;
+  background-color: rgba(233, 255, 222, var(--tw-bg-opacity));
+}
+
+.invert-scrollbar::-webkit-scrollbar-thumb {
+  --tw-bg-opacity: 1;
+  background-color: rgba(0, 150, 136, var(--tw-bg-opacity));
 }
 
 header {

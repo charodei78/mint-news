@@ -47,7 +47,7 @@ body, html {
 .login-pop-up {
     width: 95vw;
     left: 2.5vw;
-    max-height: 66vh;
+    max-height: 80vh;
 }
 
 @screen sm {
@@ -55,6 +55,36 @@ body, html {
         width: 26rem;
         left: calc(47vw - 13.5rem);
     }
+}
+
+html {
+    scroll-behavior: smooth;
+    /*scrollbar-color: #458245 #714826;     !* «цвет ползунка» «цвет полосы скроллбара» *!*/
+    /*scrollbar-width: thin;*/
+}
+
+::-webkit-scrollbar {
+    width: .8rem; /* ширина для вертикального скролла */
+    @apply bg-green-600;
+}
+
+::-webkit-scrollbar-track {
+    margin: 30px 0 20px;
+}
+
+    /* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    @apply bg-green-100;
+    width: 90%;
+    border-radius: 4rem;
+}
+
+.invert-scrollbar::-webkit-scrollbar {
+    @apply bg-green-100;
+}
+
+.invert-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-green-500;
 }
 
 header {

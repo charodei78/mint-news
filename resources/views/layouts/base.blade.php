@@ -19,7 +19,7 @@
      x-show="show"
      @blackout-show.window="show = true"
      @blackout-hide.window="show = false"
-     class="bg-black opacity-30 w-full top-0 absolute"
+     class="bg-black opacity-30 w-full top-0 fixed"
 ></div>
 <x-header.header></x-header.header>
 <div class="flex flex-row w-full p-5 xl:w-2/3 mx-auto justify-between mt-12">

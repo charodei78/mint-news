@@ -4,11 +4,11 @@
             <a href="/" id="logo" class="text-4xl w-1/6">Mint</a>
             <livewire:search class="w-7/12 md:w-5/12" />
             <div id="user_bar" class="justify-start space-x-2.5 pl-4 w-1/4 hidden sm:flex">
-                <img class="user_menu shadow-filter " src="/ico/inFavorite.svg">
+                <img class="user_menu shadow-filter " src="/ico/inFavorite.svg" alt="⭐">
                 <x-header.notifications></x-header.notifications>
                 @auth
                     <x-header.user-menu></x-header.user-menu>
-                    <span class="text-xl my-auto hidden lg:block">Константин</span>
+                    <span class="text-xl my-auto hidden lg:block">{{ explode(' ', Auth::user()->name)[0] }}</span>
                 @endauth
                 @guest
                     <a x-data="{}" @click="$dispatch('open-login')" class="flex text-center cursor-pointer">
