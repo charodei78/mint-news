@@ -114,7 +114,7 @@
                     <button class="rounded bg-green-500 p-2 mr-4"
                             :formaction="formType == 'auth' ? '{{ route('login') }}' : '{{ route('register') }}'"
                             :disabled="passwordEqual"
-                    >{{ __('Отправить') }}</button>
+                    >{{ __('Войти') }}</button>
                 </div>
             </form>
         </div>

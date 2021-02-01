@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,8 @@ Route::get('/', function () {
 Route::any('/test',function (\Illuminate\Http\Request $request) {
     dd($request->input('post_data'));
 })->name('test');
+
+Route::resource('posts', Post::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

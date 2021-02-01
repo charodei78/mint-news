@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->string('preview');
             $table->integer('rating')->default(0);
             $table->integer('year_rate')->default(0);
+            $table->string('synopsis')->default('');
             $table->integer('views')->default(0);
             $table->timestamps();
         });

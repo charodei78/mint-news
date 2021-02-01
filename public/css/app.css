@@ -907,6 +907,8 @@ header {
 
 .user_menu {
   border-radius: 9999px;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
   cursor: pointer;
   max-width: -webkit-max-content;
   max-width: -moz-max-content;

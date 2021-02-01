@@ -104,7 +104,7 @@ header {
 }
 
 .user_menu {
-    @apply cursor-pointer rounded-full w-8 max-w-max;
+    @apply cursor-pointer rounded-full rounded-t-2xl w-8 max-w-max;
 }
 
 .bg-dark-green {

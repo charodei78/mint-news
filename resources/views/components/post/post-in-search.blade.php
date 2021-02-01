@@ -1,10 +1,11 @@
 
-<div class="post_in_search relative z-10
-            flex flex-row
+<div class="post_in_search relative z-10 flex flex-row
             rounded-lg p-3 my-3 h-32 w-full text-black bg-green-100
-             shadow-md
-">
-    <img src="{{ $post->preview }}" class="w-28 h-full mr-1 rounded-lg object-cover">
+             shadow-md cursor-pointer
+"
+     onclick="location.href = '{{ route('posts.show', ['post' => $post->id]) }}'"
+>
+    <img src="{{ $post->preview }}" class="w-28 h-full mr-1 rounded-lg object-cover" >
     <div class="flex flex-col w-2/3">
         <div class="overflow-hidden">
             {{--TODO: закинуть классы в css--}}
@@ -12,7 +13,7 @@
                 <b class="overflow-ellipsis  pr-3 block max-h-full">
                     {{ $post->title }}
                 </b>
-                Itaque quod dignissimos cumque dignissimos accusamus repudiandae.Itaque quod dignissimos cumque dignissimos accusamus repudiandae.Itaque quod dignissimos cumque dignissimos accusamus repudiandae.
+                {{ $post->synopsis }}
             </div>
         </div>
         <div class="flex flex-row justify-start mt-auto max-w-full pr-5">
@@ -26,7 +27,10 @@
             <a href="#" class="ml-2 h-5 xl:h-5 text-green-500 mr-auto cursor-pointer mt-auto xl:text-md text-sm truncate">
                 {{ ucwords($post->user->nickname) }}
             </a>
-            <x-elements.star class="ml-auto absolute top-2 right-2 lg:bottom-2 lg:top-auto"></x-elements.star>
+            <x-elements.star
+                    class="ml-auto absolute top-2 right-2 lg:bottom-2 lg:top-auto h-6"
+                    {{ $post->inFavorite ? 'inFavorite' : '' }}
+            ></x-elements.star>
         </div>
     </div>
 </div>

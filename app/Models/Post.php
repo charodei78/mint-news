@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class Post
@@ -39,4 +40,12 @@ class Post extends Model
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    public function inFavorite() {
+        if (Auth::check() &&
+            count(Auth::user()->favorite()->where('post_id', $this->id)->get()))
+            return true;
+        return false;
+    }
+
 }
