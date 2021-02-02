@@ -5,5 +5,5 @@
     }"
     {{ $attributes->merge(['class' => 'cursor-pointer']) }}
 >
-    <img class="max-h-full" :src="position ? on : off" @mouseenter="position=!position;" @mouseout="position=!position;">
+    <img class="max-h-full h-full object-contain" :src="position ? on : off" @mouseenter="position=!position;" @mouseout="position=!position;">
 </div>

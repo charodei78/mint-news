@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Models\Post;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +22,7 @@ Route::any('/test',function (\Illuminate\Http\Request $request) {
     dd($request->input('post_data'));
 })->name('test');
 
-Route::resource('posts', Post::class);
+Route::resource('posts', PostController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -1,5 +1,6 @@
 @extends('layouts.base')
 
+
 @section('content')
 <livewire:feed></livewire:feed>
 

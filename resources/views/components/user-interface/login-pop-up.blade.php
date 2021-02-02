@@ -66,8 +66,10 @@
                         {{ __('Нет') }}
                     </a>
                 </div>
-                <div class="w-10 ml-auto h-10">
-                    <img src="/ico/mocki.svg">
+                <div class="w-10 ml-auto h-10 text-3xl rounded-full bg-gray-800 text-white">
+                    <div class="w-4 m-auto">
+                        ?
+                    </div>
                 </div>
             </div>
             <div x-show.transition.origin.top.duration.800ms="formType.length > 0" class="flex flex-row">

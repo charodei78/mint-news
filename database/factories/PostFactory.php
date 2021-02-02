@@ -23,7 +23,8 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(5),
-            'body' => $this->faker->text(100),
+            'synopsis' => $this->faker->text(100),
+            'body' => $this->faker->randomHtml(),
             'preview' => substr($this->faker->image('public/storage/post_images'), 7),
             'views' => $this->faker->numberBetween(10, 3000000),
         ];

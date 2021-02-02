@@ -5,7 +5,7 @@
 "
      onclick="location.href = '{{ route('posts.show', ['post' => $post->id]) }}'"
 >
-    <img src="{{ $post->preview }}" class="w-28 h-full mr-1 rounded-lg object-cover" >
+    <img src="/{{ $post->preview }}" class="w-28 h-full mr-1 rounded-lg object-cover" >
     <div class="flex flex-col w-2/3">
         <div class="overflow-hidden">
             {{--TODO: закинуть классы в css--}}
@@ -29,7 +29,7 @@
             </a>
             <x-elements.star
                     class="ml-auto absolute top-2 right-2 lg:bottom-2 lg:top-auto h-6"
-                    {{ $post->inFavorite ? 'inFavorite' : '' }}
+                    :inFavorite="$post->inFavorite()"
             ></x-elements.star>
         </div>
     </div>
