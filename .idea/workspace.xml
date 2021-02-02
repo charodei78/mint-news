@@ -2,20 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="185fd07c-5e64-4c88-b739-d059ea74db33" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/components/elements/error-message.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Feed.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Feed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_03_130626_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_03_130626_create_posts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthenticatedSessionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthenticatedSessionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/elements/star.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/elements/star.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/post/full-width-post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/post/full-width-post.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/post/post-in-search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/post/post-in-search.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/post/right-sidebar-post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/post/right-sidebar-post.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/user-interface/login-pop-up.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/user-interface/login-pop-up.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/feed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/feed.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/base.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,6 +212,8 @@
       <workItem from="1611932412915" duration="10630000" />
       <workItem from="1612154332926" duration="33000" />
       <workItem from="1612192051998" duration="7716000" />
+      <workItem from="1612242656030" duration="1821000" />
+      <workItem from="1612272010430" duration="5728000" />
     </task>
     <task id="LOCAL-00001" summary="responsive login added, global blackout function added">
       <created>1611851643494</created>

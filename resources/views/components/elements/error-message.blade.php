@@ -1,0 +1,1 @@
+<div {{ $attributes->merge(['class' => 'w-full p-2 text-center bg-red-300 text-white rounded outline-black']) }}></div>

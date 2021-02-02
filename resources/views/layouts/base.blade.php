@@ -36,7 +36,7 @@
 @endguest
 @yield('script')
 @livewireScripts
-
+<script src="/js/app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@ryangjchandler/spruce@2.x.x/dist/spruce.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js"></script>
 <script>

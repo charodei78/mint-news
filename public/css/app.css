@@ -800,6 +800,8 @@ h3 {
   --tw-bg-opacity: 1;
   background-color: rgba(233, 255, 222, var(--tw-bg-opacity));
   border-radius: 0.25rem;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
   margin-bottom: 1rem;
   --tw-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);

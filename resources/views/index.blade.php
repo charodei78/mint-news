@@ -2,6 +2,7 @@
 
 @section('content')
 <livewire:feed></livewire:feed>
+
     {{--    <form action="/test">--}}
 {{--        <textarea name="post_data" id="editor"></textarea>--}}
 {{--        <input type="submit">--}}

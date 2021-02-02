@@ -19,7 +19,7 @@ h3 {
 
 .post-full-width {
     min-width: 15rem;
-    @apply bg-green-100 shadow-md mb-4 w-full rounded;
+    @apply bg-green-100 shadow-md mb-4 w-full rounded rounded-t-xl;
 }
 
 .post-preview-image {

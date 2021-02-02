@@ -1,11 +1,25 @@
 <div
         x-data="{
-        show: false,
-        formType: '',
-        password: '',
-        passwordConfirm: '',
-        get passwordEqual() {
-            return (this.formType == 'registration') && (this.password != this.passwordConfirm)}
+            show: false,
+            formType: '',
+            password: '',
+            error: [],
+            passwordConfirm: '',
+            get passwordEqual() {
+                return (this.formType == 'registration') && (this.password != this.passwordConfirm)
+            },
+            sendForm (e) {
+                let form = new FormData();
+                for (let i = 0; i < e.target.length; i++) {
+                    let input = e.target[i];
+                    if (input.name)
+                        form.append(input.name, input.value);
+                }
+                axios.post(this.formType == 'auth' ? '{{ route('login') }}' : '{{ route('register') }}', form)
+                    .then(response => { location.href = '/' })
+                    .catch(error => { console.log(error.data)
+                    this.error = error.response.data })
+            }
         }"
         x-show.transition.scale="show"
         @open-login.window="show=true; $dispatch('blackout-show')"
@@ -73,19 +87,22 @@
         <div x-show.transition.origin.top.duration.1200ms="formType.length > 0" class="flex flex-col px-3">
             <div class="flex justify-between my-3">
                 <div
-                        :class="formType == 'registration' ? 'text-green-500 font-medium':'text-black'"
-                        class="cursor-pointer"
-                        @click="formType='registration'"
-                >{{ __('Регистрация') }}</div>
-                <div
                         :class="formType == 'auth' ? 'text-green-500 font-medium':'text-black'"
                         class="cursor-pointer"
                         @click="formType='auth'"
                 >{{ __('Авторизация') }}</div>
+                <div
+                        :class="formType == 'registration' ? 'text-green-500 font-medium':'text-black'"
+                        class="cursor-pointer"
+                        @click="formType='registration'"
+                >{{ __('Регистрация') }}</div>
             </div>
-            <form method="post">
+            <form @submit.prevent="sendForm">
                 @csrf
                 <div class="w-full flex flex-col justify-center space-y-3 mb-3 text-green-500">
+                    <x-elements.error-message x-show="error.auth"
+                                              x-text="error.auth"
+                    ></x-elements.error-message>
                     <template x-if="formType == 'auth'">
                         <input type="text" required name="login" placeholder="nick / e-mail" class="outline-green rounded-md">
                     </template>
