@@ -21286,6 +21286,28 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/css/tailwind.css":
+/*!************************************!*\
+  !*** ./resources/css/tailwind.css ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/css/utilities.css":
+/*!*************************************!*\
+  !*** ./resources/css/utilities.css ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -21333,14 +21355,16 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/css/app.css ***!
-  \***********************************************************/
+/*!**********************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/css/app.css ./resources/css/tailwind.css ./resources/css/utilities.css ***!
+  \**********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\Users\32-ko\Desktop\mint-news\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\32-ko\Desktop\mint-news\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! C:\Users\32-ko\Desktop\mint-news\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! C:\Users\32-ko\Desktop\mint-news\resources\css\tailwind.css */"./resources/css/tailwind.css");
+module.exports = __webpack_require__(/*! C:\Users\32-ko\Desktop\mint-news\resources\css\utilities.css */"./resources/css/utilities.css");
 
 
 /***/ })

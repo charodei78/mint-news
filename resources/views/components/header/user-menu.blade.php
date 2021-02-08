@@ -18,9 +18,9 @@
             </a>
         </li>
         <li class="px-5  hover:bg-green-200 cursor-pointer" @click="location.href = '{{ route('logout') }}'">
-            <a class="w-full h-full" href="">
+            <div class="w-full h-full">
                 {{ __('Выйти') }}
-            </a>
+            </div>
         </li>
     </ul>
 </div>

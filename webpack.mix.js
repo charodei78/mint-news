@@ -11,12 +11,18 @@ require('laravel-mix-postcss-config');
  |
  */
 
+mix.options({
+  postCss: [
+      require('tailwindcss'),
+      require('postcss-cached'),
+      require('postcss-import'),
+      require('autoprefixer'),
+    ]
+})
+
 mix.js('resources/js/app.js', 'public/js')
     .browserSync('localhost:8000')
-    .postCss('resources/css/app.css', 'public/css', [
-        require('tailwindcss'),
-        require('postcss-cached'),
-        require('postcss-import'),
-        require('autoprefixer'),
-    ]);
+    .postCss('resources/css/app.css', 'public/css')
+    .postCss('resources/css/tailwind.css', 'public/css')
+    .postCss('resources/css/utilities.css', 'public/css');
 

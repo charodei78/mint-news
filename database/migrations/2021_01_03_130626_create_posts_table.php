@@ -2,7 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
 
 class CreatePostsTable extends Migration
 {
@@ -34,6 +36,7 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
+        (new Filesystem)->cleanDirectory('storage/app/public/post_images');
         Schema::dropIfExists('posts');
     }
 }

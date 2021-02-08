@@ -1,5 +1,3 @@
-@tailwind base;
-@tailwind components;
 
 .w-34r {
     width: 34rem;
@@ -17,19 +15,108 @@ h3 {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+/* post-full-width */
+
 .post-full-width {
     min-width: 15rem;
-    @apply bg-green-100 shadow-md mb-4 w-full rounded rounded-t-xl;
+    @apply bg-green-100 shadow-md mb-4 w-full rounded rounded-t-xl cursor-pointer;
 }
 
-.post-preview-image {
+.post-full-width .post-preview-image {
     @apply w-full h-32 md:h-40 object-cover rounded-t;
 }
 
-.post-body {
+.post-full-width .post-body-wrapper {
+    @apply p-3 pb-2 flex flex-col justify-between;
+}
+
+.post-full-width .post-body {
     @apply overflow-ellipsis overflow-hidden;
     max-height: 8rem;
 }
+
+.post-full-width .post-title {
+    @apply font-bold text-sm sm:text-lg;
+}
+
+.post-full-width .post-footer {
+    @apply flex justify-start w-full text-sm sm:text-base mt-1;
+}
+
+.post-full-width  .post-nickname {
+    @apply mx-2 sm:mx-4 text-green-500 font-medium;
+}
+
+.post-full-width .post-views {
+    @apply h-5 text-gray-500 w-10;
+}
+
+/* end post-full-width  */
+
+/* post in search */
+
+.post-in-search {
+    @apply relative z-10 flex flex-row rounded-lg p-3 my-3 h-32
+    w-full text-black bg-green-100 shadow-md cursor-pointer;
+    min-width: 270px;
+    animation: search_animation 0.6s ease-out;
+}
+
+.post-in-search .post-body {
+    @apply block h-full w-auto text-sm align-text-top overflow-hidden mr-8 xl:mr-0;
+}
+
+.post-in-search .post-body .post-title {
+    @apply overflow-ellipsis  pr-3 block max-h-full;
+}
+
+.post-in-search .post-footer {
+    @apply flex justify-start mt-auto max-w-full pr-5;
+}
+
+.post-in-search .post-info {
+    @apply mt-auto sm:text-xs lg:text-sm lg:flex
+            lg:items-baseline space-x-2.5
+}
+
+.post-in-search .post-nickname {
+    @apply ml-2 h-5 xl:h-5 text-green-500 mr-auto cursor-pointer
+                mt-auto xl:text-base text-sm truncate;
+}
+
+.post-in-search .post-views {
+    @apply h-5 text-gray-500 sm:mr-auto lg:mr-2.5
+            mt-auto ml-1 w-1/2 lg:w-auto;
+}
+
+.post-in-search .post-star {
+    @apply ml-auto absolute top-2 right-2 lg:bottom-2 lg:top-auto h-6;
+}
+
+/* end post in search */
+
+/* right sidebar post */
+
+.right-sidebar-post {
+    @apply cursor-pointer w-72 h-24 flex flex-row bg-green-100 rounded my-3;
+}
+
+.right-sidebar-post .post-image {
+    @apply w-5/6 h-5/6 m-auto rounded object-cover;
+}
+
+.right-sidebar-post .post-body {
+    @apply w-2/3 p-2 flex flex-col justify-between;
+}
+.right-sidebar-post .post-title {
+    @apply w-full pr-3 overflow-ellipsis overflow-hidden h-5/6 text-sm font-semibold;
+}
+.right-sidebar-post .post-info {
+    @apply flex flex-row justify-between;
+}
+
+/* end right sidebar post */
+
 
 .shadow-filter:hover {
     filter: drop-shadow(0px 4px 4px rgba(255, 255, 255, 0.25));
@@ -69,7 +156,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-    margin: 30px 0 20px;
+    margin: 45px 0 20px;
 }
 
     /* ползунок скроллбара */
@@ -141,7 +228,6 @@ header {
 
 
 
-
 @keyframes search_animation {
     from {
         margin-top: -300px;
@@ -156,11 +242,6 @@ header {
     }
 }
 
-.post_in_search {
-    min-width: 270px;
-    animation: search_animation 0.6s ease-out;
-}
-
 .side-info-items {
     @apply text-xs font-bold opacity-70 text-green-100 leading-5 cursor-pointer hover:opacity-90
 }
@@ -169,4 +250,4 @@ header {
     @apply flex justify-items-center justify-start rounded-lg w-44 text-white p-1.5 cursor-pointer space-x-1 capitalize text-xl ;
 }
 
-@tailwind utilities;
+
