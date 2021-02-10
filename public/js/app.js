@@ -21317,7 +21317,15 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
+__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js"); // window.onpopstate = () => {
+//   Livewire.emit('history-move')
+// }
+
+
+window.onpopstate = function (event) {
+  Livewire.emit('history-move', event.state);
+  console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+};
 
 /***/ }),
 

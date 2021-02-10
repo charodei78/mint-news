@@ -9,7 +9,13 @@ use Livewire\Component;
 class Search extends Component
 {
     public string $input = '';
-    public string $class = '';
+
+    protected $listeners = ['loadPost' => 'resetSearch', 'changeCategory' => 'resetSearch'];
+
+    public function resetSearch() {
+        $this->input = '';
+        $this->dispatchBrowserEvent('reset-search');
+    }
 
     public function render()
     {
@@ -19,7 +25,7 @@ class Search extends Component
 //            ORDER BY sim DESC, created_at DESC
 //            LIMIT 5
 //        ', [$this->input]);
-        $posts = Post::orderBy('created_at', 'desc')->limit(5)->get();
+        $posts = Post::where('title', 'like', '%'.$this->input.'%')->orderBy('created_at', 'desc')->limit(5)->get();
 //            ->where(',', 'like', $this->input.'%')
 //            ->orderBy('created_at', 'desc')
 //            ->limit(5)

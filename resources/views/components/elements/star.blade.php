@@ -1,9 +1,12 @@
 <div x-data="{
-        off: '/ico/toFavorite.svg',
-        on: '/ico/inFavorite.svg',
-        position: {{ $inFavorite ? 'true' : 'false' }},
+        inFavorite: {{ $inFavorite ? 'true' : 'false' }},
+        state: {{ $inFavorite ? 'true' : 'false' }},
     }"
     {{ $attributes->merge(['class' => 'cursor-pointer']) }}
 >
-    <img class="max-h-full h-full object-contain" :src="position ? on : off" @mouseenter="position=!position;" @mouseout="position=!position;">
+    <img class="max-h-full h-full object-contain" :src="'/ico/' + (state ? 'in' : 'to') + 'Favorite.svg'"
+         @mouseenter="state=!state;"
+         @mouseout="state=!state;"
+         x-on:click.stop="Livewire.emit('favoriteChange', inFavorite, {{ $postId }}); inFavorite = !inFavorite; state = !state"
+    >
 </div>

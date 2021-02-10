@@ -21,6 +21,7 @@
             <x-elements.star
                 class="block ml-auto h-5"
                 :inFavorite="$post->inFavorite()"
+                :post_id="$post->id"
             ></x-elements.star>
         </div>
     </div>

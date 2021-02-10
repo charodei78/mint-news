@@ -20,6 +20,6 @@ class Post extends Component
             <div>
                 404
             </div>
-        blade;;
+        blade;
     }
 }
