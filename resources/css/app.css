@@ -15,6 +15,7 @@ h3 {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+
 /* post-full-width */
 
 .post-full-width {
@@ -182,8 +183,12 @@ header {
     background: #00897B;
 }
 
-#logo {
+.mint-font {
     font-family: 'Righteous', cursive;
+}
+
+#logo {
+    @apply mint-font;
 }
 
 .w-inherit {

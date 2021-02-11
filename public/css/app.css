@@ -380,6 +380,10 @@ header {
   background: #00897B;
 }
 
+.mint-font {
+  font-family: 'Righteous', cursive;
+}
+
 #logo {
   font-family: 'Righteous', cursive;
 }

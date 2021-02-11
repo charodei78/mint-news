@@ -14,6 +14,7 @@ class Index extends Component
     public $page = 'feed';
     public $category_id = 0;
     public $post_id = 0;
+    public $preloader = true;
 
     protected $listeners = ['loadPost', 'changeCategory', 'favoriteChange', 'history-move' => 'historyMove'];
 

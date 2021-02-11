@@ -21327,6 +21327,15 @@ window.onpopstate = function (event) {
   console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
 };
 
+document.addEventListener("DOMContentLoaded", function () {
+  Livewire.hook('message.sent', function (message, component) {
+    preloader.style.display = 'flex';
+  });
+  Livewire.hook('element.updated', function (message, component) {
+    preloader.style.display = 'none';
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
