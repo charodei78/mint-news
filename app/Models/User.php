@@ -3,15 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Concerns\HasRelationships;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRelationships;
 
     /**
      * The attributes that are mass assignable.
@@ -57,6 +60,43 @@ class User extends Authenticatable
     public function favorite(): BelongsToMany
     {
         return $this->belongsToMany(Post::class, 'favorite');
+    }
+
+    public function liked(): BelongsToMany
+    {
+        return $this->belongsToMany(Post::class, 'post_likes');
+    }
+
+    public function interests()
+    {
+//        DB::table('post_likes')
+//            ->where('user_id', '=', $this->id)
+//            ->join('posts', 'posts.id')
+//            ->
+
+//        $result = $this->liked()
+//            ->select('categories.*')
+//            ->join('category_post', 'category_post.post_id', '=', 'posts.id' )
+//            ->join('categories', 'categories.id', '=', 'category_id')->get();
+
+//        $result = $this->liked;
+//        Category::where
+//        $result = [];
+//        $liked = $this->liked;
+//        foreach ($liked as $post) {
+//            $result = array_merge($result, $post->categories->all());
+//        }
+//        sort($result);
+//        return (array_unique($result));
+        return Category::join('category_post', 'categories.id', '=', 'category_post.category_id')
+            ->join('posts', 'category_post.post_id', '=', 'posts.id')
+            ->groupBy('categories.id')
+            ->orderBy('count', 'desc')
+            ->get(['categories.*', DB::raw('count(categories.id) as count')]);
+    }
+
+    public function avatar($size = 'md') {
+        return 'tete';
     }
 
 }

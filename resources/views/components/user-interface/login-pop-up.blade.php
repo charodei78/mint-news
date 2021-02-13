@@ -3,22 +3,27 @@
             show: false,
             formType: '',
             password: '',
-            error: [],
+            error: {},
             passwordConfirm: '',
-            get passwordEqual() {
-                return (this.formType == 'registration') && (this.password != this.passwordConfirm)
+            passwordEqual() {
+                return (this.formType != 'registration') || (this.password == this.passwordConfirm)
             },
             sendForm (e) {
+                this.error = {};
+                if (!this.passwordEqual()) {
+                    this.error.password_confirmation = '{{ __('Пароли не совпадают') }}'
+                    return false;
+                }
                 let form = new FormData();
                 for (let i = 0; i < e.target.length; i++) {
                     let input = e.target[i];
                     if (input.name)
                         form.append(input.name, input.value);
                 }
-                axios.post(this.formType == 'auth' ? '{{ route('login') }}' : '{{ route('register') }}', form)
+                axios.post(this.formType == 'auth' ? '{{ route('login', absolute: false) }}' : '{{ route('register', absolute: false) }}', form)
                     .then(response => { location.href = '/' })
-                    .catch(error => { console.log(error.data)
-                    this.error = error.response.data })
+                    .catch(error => {
+                    this.error = error.response.data.errors })
             }
         }"
         x-show.transition.scale="show"
@@ -59,12 +64,12 @@
                     >
                         {{ __('Да') }}
                     </div>
-                    <a
+                    <div
                             class="p-2 font-medium cursor-pointer text-center mx-2 bg-green-600 w-1/2 rounded-xl"
                             @click="formType='registration'; setTimeout(() => $refs.scrollable.scrollTo({top: 400, behavior: 'smooth'}), 300)"
                     >
                         {{ __('Нет') }}
-                    </a>
+                    </div>
                 </div>
                 <div class="w-10 ml-auto h-10 text-3xl rounded-full bg-gray-800 text-white">
                     <div class="w-4 m-auto">
@@ -101,23 +106,26 @@
             </div>
             <form @submit.prevent="sendForm">
                 @csrf
-                <div class="w-full flex flex-col justify-center space-y-3 mb-3 text-green-500">
+                <div class="w-full flex flex-col justify-center mb-3 text-green-500">
+                    <x-elements.error-message x-show="error.register"
+                                              x-text="error.register"
+                    ></x-elements.error-message>
                     <x-elements.error-message x-show="error.auth"
                                               x-text="error.auth"
                     ></x-elements.error-message>
                     <template x-if="formType == 'auth'">
-                        <input type="text" required name="login" placeholder="nick / e-mail" class="outline-green rounded-md">
+                        <x-input.with-error required name="login" placeholder="nick / e-mail" class="input-popup"></x-input.with-error>
                     </template>
                     <template x-if="formType == 'registration'">
-                        <div class="flex flex-col space-b-3">
-                            <input type="text" required name="nickname" max="12" placeholder="nick" class="outline-green rounded-md mb-3">
-                            <input type="text" required name="name" max="255" placeholder="{{ __('Имя') }}" class="outline-green rounded-md mb-3">
-                            <input type="text" required name="email" max="255" placeholder="e-mail" class="outline-green rounded-md">
+                        <div class="flex flex-col">
+                            <x-input.with-error required name="nickname" max="12" placeholder="nick" class="input-popup"></x-input.with-error>
+                            <x-input.with-error required name="name" max="255" placeholder="{{ __('Имя') }}" class="input-popup"></x-input.with-error>
+                            <x-input.with-error type="email" required name="email" max="255" placeholder="e-mail" class="input-popup"></x-input.with-error>
                         </div>
                     </template>
-                    <input type="password" required name="password" x-model="password" min="8" placeholder="{{ __('Пароль') }}" class="outline-green rounded-md">
+                    <x-input.with-error type="password" required x-model="password" name="password" min="8" placeholder="{{ __('Пароль') }}" class="input-popup"></x-input.with-error>
                     <template x-if="formType == 'registration'">
-                        <input type="password" required name="password_confirmation" x-model="passwordConfirm" min="8" placeholder="{{ __('Повторите пароль') }}" class="outline-green rounded-md">
+                        <x-input.with-error type="password" required name="password_confirmation" x-model="passwordConfirm" min="8" placeholder="{{ __('Повторите пароль') }}" class="input-popup"></x-input.with-error>
                     </template>
                     <a href="#" class="text-green-500 ml-auto mr-4 mt-2 mb-2">{{ __('Забыли пароль?') }}</a>
                 </div>
@@ -130,10 +138,10 @@
                             <img src="/ico/google.svg" class="h-full" alt="google.com login">
                         </a>
                     </div>
-                    <button class="rounded bg-green-500 p-2 mr-4"
-                            :formaction="formType == 'auth' ? '{{ route('login') }}' : '{{ route('register') }}'"
-                            :disabled="passwordEqual"
-                    >{{ __('Войти') }}</button>
+                    <button class="send-button"
+                            :formaction="formType == 'auth' ? '{{ route('login', absolute: false) }}' : '{{ route('register', absolute: false) }}'"
+                            x-text="formType == 'auth' ? '{{ __('Войти') }}' : '{{ __('Зарегистрироваться') }}'"
+                    ></button>
                 </div>
             </form>
         </div>

@@ -1,5 +1,5 @@
 <div {{ $attributes->merge(['class' => 'right-sidebar-post' ]) }}
-    onclick="history.pushState({ post: {{ $post->id }} }, '{{ $post->title }}', '?post={{ $post->id }}') ;
+    onclick="history.pushState({ post: {{ $post->id }} }, '{{ $post->title }}', '/?post={{ $post->id }}') ;
               Livewire.emit('loadPost', {{ $post->id }})"
 >
         <div class="w-1/3 h-full flex">

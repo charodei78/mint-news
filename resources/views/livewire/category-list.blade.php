@@ -4,7 +4,7 @@
             selected: history.state?.category || 0,
             title: '',
             sendRequest(value) {
-              history.pushState({ category: value }, this.title, '?category=' + value);
+              history.pushState({ category: value }, this.title, '/?category=' + value);
               Livewire.emit('changeCategory', value);
             }
         }"

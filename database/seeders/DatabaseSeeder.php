@@ -42,11 +42,9 @@ class DatabaseSeeder extends Seeder
             }
 
             $posts = Post::all();
-            $categories = Category::all();
             foreach ($posts as $post) {
-                $post->categories()->attach($categories[rand(0, count($this->categories) - 1)]);
-                $post->categories()->attach($categories[rand(0, count($this->categories) - 1)]);
-                $post->categories()->attach($categories[rand(0, count($this->categories) - 1)]);
+                $categories = Category::inRandomOrder()->limit(3)->get();
+                $post->categories()->attach($categories);
                 $post->save();
             }
         });

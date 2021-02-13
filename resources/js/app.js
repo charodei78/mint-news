@@ -14,7 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
     Livewire.hook('message.sent', (message, component) => {
         preloader.style.display = 'flex';
     })
-    Livewire.hook('element.updated', (message, component) => {
+    Livewire.hook('message.processed', (message, component) => {
         preloader.style.display = 'none';
+        let share = document.querySelector('.ya-share2');
+        if (share)
+        {
+            while (!share.innerHTML.length)
+                Ya.share2(share);
+        }
     })
 });

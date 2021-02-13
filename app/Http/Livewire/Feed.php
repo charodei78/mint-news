@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Feed extends Component
@@ -26,12 +28,33 @@ class Feed extends Component
         }
     }
 
+    protected function getRecommendations($limit) {
+        if (!Auth::check())
+            return Post::limit($limit)->get();
+        $recs = Auth::user()->interests();
+        $total = array_sum(array_map(fn ($category) => $category['count'], $recs->toArray()));
+
+
+        $posts = new Collection();
+
+        foreach ($recs as $rec) {
+            $k = $rec->count / $total;
+            $posts = $posts->merge($rec->posts()
+                ->limit(round($limit * $k + 1, mode: PHP_ROUND_HALF_DOWN))
+                ->offset(rand(0, 10))
+                ->get());
+            echo round($limit * $k, mode: PHP_ROUND_HALF_DOWN).' ';
+        }
+        $left = $limit - count($posts);
+        return $posts;
+    }
+
     public function render()
     {
-        $posts = Post::orderBy('created_at', 'desc')->limit(10);
-        if ($this->categoryId) {
-            $category_id = $this->categoryId;
-            $filteredPosts = Post::whereHas('categories', function (Builder $query) use ($category_id)  { $query->where('id', $category_id); } )
+        $posts = Post::limit(10);
+        $category =  Category::find($this->categoryId);
+        if ($category) {
+            $filteredPosts = $category->posts()
                 ->orderBy('created_at', 'desc')
                 ->limit(10)
                 ->get();
@@ -42,7 +65,7 @@ class Feed extends Component
                 $this->title = '';
             $posts = $filteredPosts == [] ? $posts->get() : $filteredPosts;
         } else {
-            $posts = $posts->get();
+            $posts = $this->getRecommendations(10);
         }
         return view('livewire.feed', compact('posts'));
     }

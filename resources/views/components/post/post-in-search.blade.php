@@ -1,6 +1,6 @@
 
 <div class="post-in-search"
-     onclick="history.pushState({ post: {{ $post->id }} }, '{{ $post->title }}', '?post={{ $post->id }}') ;
+     onclick="history.pushState({ post: {{ $post->id }} }, '{{ $post->title }}', '/?post={{ $post->id }}') ;
                 Livewire.emit('loadPost', {{ $post->id }})"
 >
     <img src="/{{ $post->preview }}" class="w-28 h-full mr-1 rounded-lg object-cover" >

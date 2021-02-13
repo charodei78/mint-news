@@ -32,6 +32,11 @@ class Post extends Model
 
     protected $fillable = ['title', 'user_id', 'content', 'rating', 'year_rate'];
 
+    protected static function booted()
+    {
+        static::addGlobalScope(fn ($query) => $query->orderBy('created_at', 'desc'));
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -47,9 +52,18 @@ class Post extends Model
         return $this->morphMany(Comment::class, 'commentable');
     }
 
-    public function inFavorite() {
+    public function inFavorite(): bool
+    {
         if (Auth::check() &&
             count(Auth::user()->favorite()->where('post_id', $this->id)->get()))
+            return true;
+        return false;
+    }
+
+    public function liked(): bool
+    {
+        if (Auth::check() &&
+            count(Auth::user()->liked()->where('post_id', $this->id)->get()))
             return true;
         return false;
     }

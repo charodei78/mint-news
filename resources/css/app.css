@@ -188,7 +188,7 @@ header {
 }
 
 #logo {
-    @apply mint-font;
+    @apply mint-font text-green-100;
 }
 
 .w-inherit {
@@ -197,6 +197,14 @@ header {
 
 .user_menu {
     @apply cursor-pointer rounded-full rounded-t-2xl w-8 max-w-max;
+}
+
+a {
+    @apply text-green-500;
+}
+
+a:hover {
+    @apply text-green-400;
 }
 
 .bg-dark-green {
@@ -255,4 +263,31 @@ header {
     @apply flex justify-items-center justify-start rounded-lg w-44 text-white p-1.5 cursor-pointer space-x-1 capitalize text-xl ;
 }
 
+.form-input {
+    @apply outline-green rounded-md mb-3;
+}
 
+
+.input-popup .form-input {
+    @apply w-full;
+}
+
+.input-popup {
+    @apply w-full space-y-1 mt-1;
+}
+
+.error-message {
+    @apply w-full p-2 text-center bg-red-300 text-white rounded outline-black;
+}
+
+.settings-input {
+    @apply rounded-2xl border-2 h-7 w-72;
+}
+
+.send-button {
+    @apply rounded bg-green-500 p-2 mr-4 disabled:opacity-30 text-green-100 font-medium;
+}
+
+.transparent-textarea {
+    @apply resize-none border-none overflow-hidden focus:ring-transparent outline-none bg-transparent;
+}

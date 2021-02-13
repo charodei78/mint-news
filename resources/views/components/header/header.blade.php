@@ -13,7 +13,7 @@
                 @guest
                     <a x-data="{}" @click="$dispatch('open-login')" class="flex text-center cursor-pointer">
                         <img src="/ico/login-button.svg" alt="login" class="h-8 mr-2">
-                        <span class="text-xl my-auto hidden lg:block">Вход</span>
+                        <span class="text-xl my-auto hidden lg:block text-green-100">{{ __('Вход') }}</span>
                     </a>
                 @endguest
             </div>

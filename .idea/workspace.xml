@@ -2,13 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="185fd07c-5e64-4c88-b739-d059ea74db33" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/components/elements/like.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/input/with-error.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/55d403ae-4106-4cb8-86cc-ab5f30ab7a40.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/55d403ae-4106-4cb8-86cc-ab5f30ab7a40.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/55d403ae-4106-4cb8-86cc-ab5f30ab7a40/storage_v2/_src_/database/mint_news.kIzMQg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/55d403ae-4106-4cb8-86cc-ab5f30ab7a40/storage_v2/_src_/database/mint_news.kIzMQg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Feed.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Feed.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/elements/error-message.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/elements/error-message.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/header/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/header/user-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header/user-menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/post/post-in-search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/post/post-in-search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/post/right-sidebar-post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/post/right-sidebar-post.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/user-interface/login-pop-up.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/user-interface/login-pop-up.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/base.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/category-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/category-list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/feed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/feed.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/post.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +51,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
@@ -151,11 +173,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/artisan" />
+    <property name="last_opened_file_path" value="D:/ProgramFiles/PHP/ext/php_xdebug.dll" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\32-ko\Desktop\mint-news\resources\views\components\elements" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\32-ko\Desktop\mint-news\resources\views\components\elements" />
       <recent name="C:\Users\32-ko\Desktop\mint-news\resources\views\components\post" />
@@ -163,7 +189,7 @@
       <recent name="C:\Users\32-ko\Desktop\mint-news\resources\views\components\search" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.watch">
+  <component name="RunManager" selected="PHP Script.serve">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
@@ -171,7 +197,7 @@
     <configuration name="serve" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/artisan" scriptParameters="serve">
       <CommandLine>
         <PhpTestInterpreterSettings>
-          <option name="interpreterName" value="PHP 7.4" />
+          <option name="interpreterName" value="PHP 8" />
         </PhpTestInterpreterSettings>
       </CommandLine>
       <method v="2" />
@@ -225,7 +251,10 @@
       <workItem from="1612781620066" duration="20970000" />
       <workItem from="1612853817095" duration="297000" />
       <workItem from="1612966547779" duration="11231000" />
-      <workItem from="1613020016529" duration="4630000" />
+      <workItem from="1613020016529" duration="4695000" />
+      <workItem from="1613064316169" duration="7474000" />
+      <workItem from="1613105783042" duration="7844000" />
+      <workItem from="1613200678287" duration="23011000" />
     </task>
     <task id="LOCAL-00001" summary="responsive login added, global blackout function added">
       <created>1611851643494</created>
@@ -264,5 +293,9 @@
     <MESSAGE value="responsive login added, global blackout function added" />
     <MESSAGE value="Login, register, logout added" />
     <option name="LAST_COMMIT_MESSAGE" value="Login, register, logout added" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

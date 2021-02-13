@@ -21331,8 +21331,15 @@ document.addEventListener("DOMContentLoaded", function () {
   Livewire.hook('message.sent', function (message, component) {
     preloader.style.display = 'flex';
   });
-  Livewire.hook('element.updated', function (message, component) {
+  Livewire.hook('message.processed', function (message, component) {
     preloader.style.display = 'none';
+    var share = document.querySelector('.ya-share2');
+
+    if (share) {
+      while (!share.innerHTML.length) {
+        Ya.share2(share);
+      }
+    }
   });
 });
 

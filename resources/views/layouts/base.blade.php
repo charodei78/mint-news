@@ -37,10 +37,13 @@
     <x-user-interface.login-pop-up></x-user-interface.login-pop-up>
 @endguest
 @yield('script')
+@stack('scripts')
 @livewireScripts
 <script src="/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.6.x/dist/index.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@ryangjchandler/spruce@2.x.x/dist/spruce.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js"></script>
+<script src="https://yastatic.net/share2/share.js" defer></script>
 <script>
     window.Spruce.store('blackout', {
         show: false,
