@@ -5,13 +5,14 @@
     <ul x-show.transition="open"
         style="display:none"
         @click.away="open=false"
-        class="absolute text-gray-900  shadow-md right-0 rounded py-2.5 leading-8 top-16 text-green-500 bg-green-100">
+        class="absolute z-30 text-gray-900  shadow-md right-0 rounded py-2.5 leading-8 top-16 text-green-500 bg-green-100">
         <li class="px-5 text-xl mb-1 text-black">{{ explode(' ', Auth::user()->name)[0] }}</li>
         <li class="px-5  hover:bg-green-200 cursor-pointer">
             <div class="w-full h-full"
-                 onclick="
-                            Livewire.emit('open-settings')
-                            history.pushState({ page: 'settings' }, 'settings', '/settings') ;
+                 @mouseup="
+                        open = false;
+                        Livewire.emit('change-page', 'settings')
+                        history.pushState({ page: 'settings' }, 'settings', '/settings') ;
                     "
             >
                 {{ __('Настройки') }}
@@ -19,9 +20,10 @@
         </li>
         <li class="px-5  hover:bg-green-200 cursor-pointer">
             <div class="w-full h-full"
-                 onclick="
-                            Livewire.emit('open-create-post')
-                            history.pushState({ page: 'create-post' }, 'create post', '/create-post') ;
+                 @mouseup="
+                        open = false;
+                        Livewire.emit('change-page', 'create-post')
+                        history.pushState({ page: 'create-post' }, 'create post', '/create-post') ;
                     "
             >
                 {{ __('Создать пост') }}

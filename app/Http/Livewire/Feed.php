@@ -6,20 +6,28 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Feed extends Component
 {
-    public $categoryId = 0;
-    public $title = '';
+    public int      $categoryId = 0;
+    public string   $title = '';
+    public bool     $favorite = false;
+    public bool     $test = false;
 
     protected $listeners = ['changeCategory'];
+
+//    public function paginationView()
+//    {
+//        return 'tailwind';
+//    }
 
     public function changeCategory($id) {
         $category = Category::find($id);
         if ($category) {
-            $title = $category->name;
+            $this->title = $category->name;
             $this->categoryId = $id;
         }
         else {
@@ -30,7 +38,7 @@ class Feed extends Component
 
     protected function getRecommendations($limit) {
         if (!Auth::check())
-            return Post::limit($limit)->get();
+            return Post::paginate($limit)->get();
         $recs = Auth::user()->interests();
         $total = array_sum(array_map(fn ($category) => $category['count'], $recs->toArray()));
 
@@ -40,33 +48,46 @@ class Feed extends Component
         foreach ($recs as $rec) {
             $k = $rec->count / $total;
             $posts = $posts->merge($rec->posts()
-                ->limit(round($limit * $k + 1, mode: PHP_ROUND_HALF_DOWN))
-                ->offset(rand(0, 10))
-                ->get());
-            echo round($limit * $k, mode: PHP_ROUND_HALF_DOWN).' ';
+                ->paginate(round($limit * $k + 1, mode: PHP_ROUND_HALF_DOWN)));
         }
+
         $left = $limit - count($posts);
+        if ($left > 0) {
+            $posts = $posts->merge(Post::paginate($left));
+        }
+
+        $posts = new LengthAwarePaginator($posts, Post::count(), 15);
         return $posts;
     }
 
     public function render()
     {
-        $posts = Post::limit(10);
-        $category =  Category::find($this->categoryId);
-        if ($category) {
-            $filteredPosts = $category->posts()
-                ->orderBy('created_at', 'desc')
-                ->limit(10)
-                ->get();
+        $posts = false;
+        if ($this->categoryId) {
             $category = Category::find($this->categoryId);
-            if ($category)
+            if ($category) {
+                $filteredPosts = $category->posts()
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(15);
                 $this->title = $category->name;
-            else
-                $this->title = '';
-            $posts = $filteredPosts == [] ? $posts->get() : $filteredPosts;
-        } else {
-            $posts = $this->getRecommendations(10);
+                $posts = $filteredPosts == [] ? false : $filteredPosts;
+            }
         }
+        else {
+            if (Auth::check()) {
+                if ($this->favorite) {
+                    $posts = Auth::user()->favorite()->paginate(15);
+//                    echo 'wafaw';
+                }
+                else
+                    $posts = $this->getRecommendations(15);
+            }
+        }
+        if (!$posts) {
+            $posts = Post::paginate(15);
+        }
+
+
         return view('livewire.feed', compact('posts'));
     }
 

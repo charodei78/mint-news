@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Livewire\Index;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{type?}', \App\Http\Livewire\Index::class)->name('index');
+
 
 Route::any('/test',function (\Illuminate\Http\Request $request) {
     dd($request->input('post_data'));
@@ -27,3 +28,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/{type?}', Index::class)->name('index');
+

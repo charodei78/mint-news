@@ -1,8 +1,8 @@
-<div  class="w-full bg-green-100 rounded py-4 px-8 post-wrapper relative">
+<div  class="w-screen sm:w-full bg-green-100 rounded py-4 px-3 sm:px-8 post-wrapper relative">
     <div class="text-2xl font-bold pr-2">
         {{ $post->title }}
     </div>
-    <x-elements.star class="h-7 absolute right-3 top-3"
+    <x-elements.star class="h-7 absolute right-3 top-12 sm:top-3"
                         :inFavorite="$post->inFavorite()"
                         :post_id="$post->id"
     ></x-elements.star>
@@ -20,15 +20,16 @@
         </div>
         {!! $post->body !!}
     </div>
-    <hr class="w-11/12 ml-auto border-green-500 mt-12 mb-5">
-    <div class="ml-auto w-80 flex items-center space-x-2">
+    <hr class="post-hr">
+    <div class="ml-auto w-full md:w-80 inline-flex items-center justify-end space-x-2">
         <div class="text-green-500 font-bold">{{ __('Поделиться') }}</div>
-        <div class="ya-share2" data-services="vkontakte,twitter,facebook,messenger"></div>
+        <div class="ya-share2" data-curtain data-limit="0" data-more-button-type="short" data-services="messenger,vkontakte,facebook,odnoklassniki,telegram,twitter"></div>
         <x-elements.post-views
-                class="h-10 font-medium opacity-40"
-                :views="$post->views"
+                class="h-10 font-medium opacity-40 hidden sm:flex"
+                :views="$post->views()"
         ></x-elements.post-views>
         <x-elements.like
+                class="min-w-10"
                 :liked="$post->liked()"
                 :post_id="$post->id"
         ></x-elements.like>

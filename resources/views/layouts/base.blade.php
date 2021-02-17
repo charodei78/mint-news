@@ -14,7 +14,7 @@
     @yield('head')
     <title>@yield('title', 'Mint')</title>
 </head>
-<body >
+<body>
 <div id="blackout"
      x-data="{show: false}"
      style="display:none"
@@ -24,9 +24,9 @@
      class="bg-black opacity-30 w-full top-0 fixed"
 ></div>
 <x-header.header></x-header.header>
-<div class="flex flex-row w-full p-5 xl:w-2/3 mx-auto justify-between mt-12">
+<div class="flex flex-row w-full sm:px-5 py-5 xl:w-2/3 mx-auto justify-between mt-12">
     <x-sidebar.sidebar class=""></x-sidebar.sidebar>
-    <div class="w-full px-5">
+    <div class="w-full sm:px-5">
         @yield('content')
     </div>
     <div class="w-34r hidden lg:block">

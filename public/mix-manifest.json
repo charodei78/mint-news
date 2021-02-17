@@ -2,5 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/tailwind.css": "/css/tailwind.css",
-    "/css/utilities.css": "/css/utilities.css"
+    "/css/utilities.css": "/css/utilities.css",
+    "/js/ckeditor.js": "/js/ckeditor.js",
+    "/js/ckeditor-init.js": "/js/ckeditor-init.js"
 }

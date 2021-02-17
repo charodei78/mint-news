@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
  * @property string     $title
  * @property integer    $user_id
  * @property string     $body
+ * @property string     $preview
+ * @property string     $synopsis
  * @property integer    $rating
  * @property integer    $year_rate
  * @property integer    $views
@@ -30,7 +32,7 @@ class Post extends Model
         'created_at' => 'datetime:Y-m-d',
     ];
 
-    protected $fillable = ['title', 'user_id', 'content', 'rating', 'year_rate'];
+    protected $fillable = ['title', 'user_id', 'content', 'rating', 'year_rate', 'synopsis'];
 
     protected static function booted()
     {
@@ -58,6 +60,22 @@ class Post extends Model
             count(Auth::user()->favorite()->where('post_id', $this->id)->get()))
             return true;
         return false;
+    }
+
+    public function viewedBy() {
+        return $this->belongsToMany(User::class, 'views');
+    }
+
+    public function views() {
+        return $this->viewedBy()->count();
+    }
+
+    public function likes() {
+        return $this->likedBy()->count();
+    }
+
+    public function likedBy() {
+        return $this->belongsToMany(User::class, 'likes');
     }
 
     public function liked(): bool

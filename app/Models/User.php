@@ -69,25 +69,6 @@ class User extends Authenticatable
 
     public function interests()
     {
-//        DB::table('post_likes')
-//            ->where('user_id', '=', $this->id)
-//            ->join('posts', 'posts.id')
-//            ->
-
-//        $result = $this->liked()
-//            ->select('categories.*')
-//            ->join('category_post', 'category_post.post_id', '=', 'posts.id' )
-//            ->join('categories', 'categories.id', '=', 'category_id')->get();
-
-//        $result = $this->liked;
-//        Category::where
-//        $result = [];
-//        $liked = $this->liked;
-//        foreach ($liked as $post) {
-//            $result = array_merge($result, $post->categories->all());
-//        }
-//        sort($result);
-//        return (array_unique($result));
         return Category::join('category_post', 'categories.id', '=', 'category_post.category_id')
             ->join('posts', 'category_post.post_id', '=', 'posts.id')
             ->groupBy('categories.id')

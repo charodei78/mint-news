@@ -1,10 +1,11 @@
-<div {{$attributes->merge([])}} x-data="{mobile: false, isOpen: false}"
+<div {{$attributes->merge([])}} :class="{'mx-3': isOpen}" x-data="{mobile: false, isOpen: false}"
      x-on:resize.window="mobile = window.outerWidth > 640 ? false : true"
      x-init="mobile = window.outerWidth > 640 ? false : true"
      @click.away="isOpen = false"
+     @change-category.window="isOpen = false"
 >
     <a
-            class="top-4 left-2 z-20 cursor-pointer fixed sm:hidden"
+            class="top-4 left-2 z-50 cursor-pointer fixed sm:hidden"
             @click="isOpen = !isOpen"
     >
         <img src="/ico/burger.svg">

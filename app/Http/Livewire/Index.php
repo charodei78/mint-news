@@ -17,7 +17,8 @@ class Index extends Component
 
     private const AUTH_ONLY_PAGE = [
         'settings',
-        'create-post'
+        'create-post',
+        'favorite'
     ];
 
     private const PUBLIC_PAGE = [
@@ -31,16 +32,8 @@ class Index extends Component
         'favoriteChange',
         'likeChange',
         'history-move' => 'historyMove',
-        'open-settings' => 'openSettings',
-        'open-create-post' => 'openCreatePost',
+        'change-page' => 'changePage',
     ];
-
-    public function openSettings ()
-    {
-        $this->category_id = 0;
-        $this->post_id = 0;
-        $this->page = 'settings';
-    }
 
     public function historyMove($params)
     {
@@ -53,8 +46,14 @@ class Index extends Component
         $this->page = $params['page'] ?? $this->page;
     }
 
-    public function  openCreatePost() {
-        $this->page = 'create-post';
+    public function  changePage($type = 'feed') {
+        if (array_search($type, self::PUBLIC_PAGE) !== false ||
+            (array_search($type, self::AUTH_ONLY_PAGE) !== false && Auth::check())
+        ) {
+            $this->page = $type;
+        }
+        else
+            $this->page = 'feed';
         $this->post_id = 0;
     }
 
@@ -99,21 +98,13 @@ class Index extends Component
         $post = PostModel::findOrFail($id);
         $this->post_id = $id;
         $this->page = 'post';
-        $this->event_post_id= $id;
         $this->emit('changePage');
     }
 
 
     public function mount($type ='feed')
     {
-        if (array_search($type, self::PUBLIC_PAGE) !== false ||
-            (array_search($type, self::AUTH_ONLY_PAGE) !== false && Auth::check())
-        ) {
-            $this->page = $type;
-        }
-        else
-            $this->page = 'feed';
-
+        $this->changePage($type);
     }
 
     public function render()

@@ -1027,6 +1027,7 @@ UC/10
     </table>
     <table id="39" parent="18" name="category_post">
       <ObjectId>27701</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>4461</StateNumber>
     </table>
@@ -1083,6 +1084,7 @@ UC/10
     </table>
     <table id="50" parent="18" name="views">
       <ObjectId>27688</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>4459</StateNumber>
     </table>

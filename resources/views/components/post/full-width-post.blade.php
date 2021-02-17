@@ -16,7 +16,7 @@
             </a>
             <x-elements.post-views
                 class="post-views"
-                views="{{ $post->views }}"
+                views="{{ $post->views() }}"
             ></x-elements.post-views>
             <x-elements.star
                 class="block ml-auto h-5"
