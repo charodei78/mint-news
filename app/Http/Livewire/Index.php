@@ -24,6 +24,7 @@ class Index extends Component
     private const PUBLIC_PAGE = [
         'feed',
         'post',
+        'policy',
     ];
 
     protected $listeners = [
@@ -55,6 +56,7 @@ class Index extends Component
         else
             $this->page = 'feed';
         $this->post_id = 0;
+        $this->category_id = 0;
     }
 
     public function favoriteChange($inFavorite, $post_id)

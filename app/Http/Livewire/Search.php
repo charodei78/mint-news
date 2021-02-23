@@ -25,7 +25,10 @@ class Search extends Component
 //            ORDER BY sim DESC, created_at DESC
 //            LIMIT 5
 //        ', [$this->input]);
-        $posts = Post::where('title', 'like', '%'.$this->input.'%')->orderBy('created_at', 'desc')->limit(5)->get();
+        if (strlen($this->input) > 3)
+            $posts = Post::where('title', 'ILIKE', '%'.$this->input.'%')->orderBy('created_at', 'desc')->limit(5)->get();
+        else
+            $posts = [];
 //            ->where(',', 'like', $this->input.'%')
 //            ->orderBy('created_at', 'desc')
 //            ->limit(5)

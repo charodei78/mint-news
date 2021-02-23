@@ -23,5 +23,8 @@
     @if($page === 'create-post')
         <livewire:create-post-page></livewire:create-post-page>
     @endif
+    @if($page === 'policy')
+        {{ view('policy') }}
+    @endif
 </div>
 

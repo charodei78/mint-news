@@ -19,11 +19,6 @@ class Feed extends Component
 
     protected $listeners = ['changeCategory'];
 
-//    public function paginationView()
-//    {
-//        return 'tailwind';
-//    }
-
     public function changeCategory($id) {
         $category = Category::find($id);
         if ($category) {
@@ -42,7 +37,6 @@ class Feed extends Component
         $recs = Auth::user()->interests();
         $total = array_sum(array_map(fn ($category) => $category['count'], $recs->toArray()));
 
-
         $posts = new Collection();
 
         foreach ($recs as $rec) {
@@ -55,8 +49,7 @@ class Feed extends Component
         if ($left > 0) {
             $posts = $posts->merge(Post::paginate($left));
         }
-
-        $posts = new LengthAwarePaginator($posts, Post::count(), 15);
+        $posts = new LengthAwarePaginator($posts, Post::all()->count(), 15);
         return $posts;
     }
 
@@ -77,7 +70,6 @@ class Feed extends Component
             if (Auth::check()) {
                 if ($this->favorite) {
                     $posts = Auth::user()->favorite()->paginate(15);
-//                    echo 'wafaw';
                 }
                 else
                     $posts = $this->getRecommendations(15);

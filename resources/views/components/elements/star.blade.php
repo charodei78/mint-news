@@ -1,3 +1,4 @@
+@auth
 <div x-data="{
         inFavorite: {{ $inFavorite ? 'true' : 'false' }},
         state: {{ $inFavorite ? 'true' : 'false' }},
@@ -10,3 +11,4 @@
          x-on:click.stop="Livewire.emit('favoriteChange', inFavorite, {{ $postId }}); inFavorite = !inFavorite; state = !state"
     >
 </div>
+@endauth

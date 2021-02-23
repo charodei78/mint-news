@@ -1,6 +1,6 @@
 @php($liked = intval($liked ?? 0))
+@auth
 <div x-data="{
-        count: {{ $liked }},
         liked: {{ $liked ? 'true' : 'false' }},
         state: {{ $liked ? 'true' : 'false' }},
         }"
@@ -11,15 +11,7 @@
          @mouseout="state=!state;"
          @click.stop="
          Livewire.emit('likeChange', liked, {{ $postId }});
-         count += liked ? -1 : 1;
          liked = !liked; state = !state"
     >
-    <span x-text="
-        count > 1000000
-            ? (int)(count/1000000) + 'M'
-            : (count > 1000
-            ? (int)(count/1000) + 'k'
-            : count)
-     ">
-    </span>
 </div>
+@endauth

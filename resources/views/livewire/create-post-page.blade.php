@@ -56,7 +56,10 @@
                       maxlength="80"
                       minlength="20"
                       required
-                      @input="$event.target.style.height = 'auto'; $event.target.style.height = $event.target.scrollHeight - 25 + 'px'"
+                      @input="$event.target.style.height = 'auto';
+                                $event.target.style.height = $event.target.scrollHeight - 25 + 'px'
+                                $event.target.value = $event.target.value.replace(/\r?\n/g, '')
+                                "
                       placeholder="{{ __('Заголовок') }}"
                       @keydown.enter.prevent=""
                       class="transparent-textarea w-full h-10 text-2xl font-bold"></textarea>
@@ -151,6 +154,7 @@
                     'outdent'
                   ]
                 },
+                placeholder: 'Содержание поста',
                 language: 'ru',
                 blockToolbar: [
                   'imageUpload',

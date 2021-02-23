@@ -26,7 +26,7 @@
             </a>
             <x-elements.star
                     class="post-star"
-                    :inFavorite="$post->inFavorite()"
+                    :inFavorite="$post->in_favorite"
                     :post_id="$post->id"
             ></x-elements.star>
         </div>

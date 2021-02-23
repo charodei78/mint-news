@@ -23,7 +23,7 @@
                 axios.post(this.formType == 'auth' ? '{{ route('login', absolute: false) }}' : '{{ route('register', absolute: false) }}', form)
                     .then(response => { location.href = '/' })
                     .catch(error => {
-                    this.error = error.response.data.errors })
+                    this.error = error.response.data.errors ?? error.response.data ?? {registration: 'Произошла ошибка на сервере 😥'} })
             }
         }"
         x-show.transition.scale="show"

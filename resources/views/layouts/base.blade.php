@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     @livewireStyles
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Righteous&display=swap"
+          rel="stylesheet">
     <link href="/css/tailwind.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/utilities.css" rel="stylesheet">
@@ -24,8 +25,82 @@
      class="bg-black opacity-30 w-full top-0 fixed"
 ></div>
 <x-header.header></x-header.header>
+
+{{-- left sidebar --}}
+
 <div class="flex flex-row w-full sm:px-5 py-5 xl:w-2/3 mx-auto justify-between mt-12">
-    <x-sidebar.sidebar class=""></x-sidebar.sidebar>
+    <div  :class="{'mx-3': isOpen}" x-data="{mobile: false, isOpen: false}"
+          x-on:resize.window="mobile = window.outerWidth > 640 ? false : true"
+          x-init="mobile = window.outerWidth > 640 ? false : true"
+          @click.away="isOpen = false"
+          @change-category.window="isOpen = false"
+    >
+        <a  class="top-4 left-2 z-50 cursor-pointer fixed sm:hidden"
+            @click="isOpen = !isOpen"
+            >
+            <img src="/ico/burger.svg">
+        </a>
+        <div x-show.transition.origin.left="isOpen || !mobile" class="w-44"></div>
+        <div x-show.transition.origin.left="isOpen || !mobile" class="inline-block mr-5 fixed">
+            <div
+                class="flex flex-col space-y-1 {{ $class ?? '' }}"
+                x-data="{
+                    selected: history.state?.category || 0,
+                    title: '',
+                    sendRequest(value) {
+                      history.pushState({ category: value }, this.title, '/?category=' + value);
+                      Livewire.emit('changeCategory', value);
+                      dispatchEvent(new Event('change-category'));
+                    }
+                }"
+                x-init="$watch('selected', sendRequest )"
+            >
+                <div class="bg-green-600 side-menu-button font-extrabold space-x-2 pl-3 text-2xl"
+                     @click="title = 'feed'; selected = 0; sendRequest(0)"
+                >
+                    <img src="/ico/feed.svg">
+                    <span>
+                        {{ __('Лента') }}
+                    </span>
+                </div>
+                <hr class="opacity-40 border-1 rounded">
+                @php($categories = \App\Models\Category::limit(5)->get())
+                @foreach($categories as $category)
+                    <div
+                        :class="{
+                              'bg-green-600': selected == {{ $category->id }},
+                              'hover:bg-green-600 hover:bg-opacity-50': selected != {{ $category->id }}
+                                }"
+                            :key="{{ $category->id }}"
+                            class="side-menu-button"
+                            @click="title = '{{ $category->name }}'; selected = {{ $category->id }}"
+                    >
+                        <img src="/ico/star.svg">
+                        <span>
+                            {{ $category->name }}
+                        </span>
+                    </div>
+                @endforeach
+                <hr class="opacity-40">
+                <br>
+            </div>
+            <div class="flex flex-col {{ $class ?? '' }}">
+                <span class="side-info-items">Мобильная версия</span>
+                <a   class="clear-none side-info-items"
+                     target="_blank"
+                     href="https://kazan.hh.ru/applicant/resumes/view?resume=ba6fd87dff0386373c0039ed1f7a7251564379"
+                >Работодателям</a>
+                <span class="side-info-items">О сервисе</span>
+                <span class="side-info-items"
+                      @click="Livewire.emit('change-page', 'policy')
+                        history.pushState({ page: 'policy' }, 'policy', '/policy') ;"
+                >Политики</span>
+            </div>
+        </div>
+    </div>
+
+    {{-- End left sidebar --}}
+
     <div class="w-full sm:px-5">
         @yield('content')
     </div>
@@ -45,12 +120,12 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js"></script>
 <script src="https://yastatic.net/share2/share.js" defer></script>
 <script>
-    window.Spruce.store('blackout', {
-        show: false,
-    });
-    window.Spruce.store('login', {
-        show: false,
-    });
+  window.Spruce.store('blackout', {
+    show: false,
+  });
+  window.Spruce.store('login', {
+    show: false,
+  });
 </script>
 </body>
 </html>

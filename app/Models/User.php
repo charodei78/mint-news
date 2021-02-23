@@ -12,6 +12,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @property mixed id
+ */
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasRelationships;
@@ -69,8 +72,10 @@ class User extends Authenticatable
 
     public function interests()
     {
+
         return Category::join('category_post', 'categories.id', '=', 'category_post.category_id')
             ->join('posts', 'category_post.post_id', '=', 'posts.id')
+            ->join('post_likes', 'category_post.post_id', '=', 'post_likes.post_id')
             ->groupBy('categories.id')
             ->orderBy('count', 'desc')
             ->get(['categories.*', DB::raw('count(categories.id) as count')]);

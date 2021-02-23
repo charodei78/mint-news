@@ -16,11 +16,11 @@
             </a>
             <x-elements.post-views
                 class="post-views"
-                views="{{ $post->views() }}"
+                views="{{ $post->views }}"
             ></x-elements.post-views>
             <x-elements.star
                 class="block ml-auto h-5"
-                :inFavorite="$post->inFavorite()"
+                :inFavorite="$post->in_favorite"
                 :post_id="$post->id"
             ></x-elements.star>
         </div>

@@ -2,41 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="185fd07c-5e64-4c88-b739-d059ea74db33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/PostRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ico/photo-bg.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/ckeditor-init.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/ckeditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/policy.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/55d403ae-4106-4cb8-86cc-ab5f30ab7a40.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/55d403ae-4106-4cb8-86cc-ab5f30ab7a40.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/55d403ae-4106-4cb8-86cc-ab5f30ab7a40/storage_v2/_src_/database/mint_news.kIzMQg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/55d403ae-4106-4cb8-86cc-ab5f30ab7a40/storage_v2/_src_/database/mint_news.kIzMQg/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CreatePostPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CreatePostPage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Feed.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Feed.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Search.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/SettingsPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/SettingsPage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/auth-card.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/auth-session-status.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/auth-validation-errors.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/dropdown-link.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/elements/like.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/elements/like.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/header/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/header/user-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header/user-menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/elements/star.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/elements/star.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/label.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/nav-link.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/post/full-width-post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/post/full-width-post.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/post/post-in-search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/post/post-in-search.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/post/right-sidebar-post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/post/right-sidebar-post.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar/button.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar/side-info-links.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/user-interface/login-pop-up.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/user-interface/login-pop-up.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/category-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/category-list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/category-list.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/create-post-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/create-post-page.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/feed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/feed.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/post.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/right-sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/right-sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/settings-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/settings-page.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +184,7 @@
     <property name="last_opened_file_path" value="D:/ProgramFiles/PHP/ext/php_xdebug.dll" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -196,6 +197,11 @@
       <recent name="C:\Users\32-ko\Desktop\mint-news\resources\views\components\post" />
       <recent name="C:\Users\32-ko\Desktop\mint-news\resources\views\components\header" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="config/livewire.php" />
+    </option>
   </component>
   <component name="RunManager" selected="npm.watch">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -269,7 +275,15 @@
       <workItem from="1613452466279" duration="267000" />
       <workItem from="1613484095462" duration="14395000" />
       <workItem from="1613538409229" duration="409000" />
-      <workItem from="1613569817043" duration="7909000" />
+      <workItem from="1613569817043" duration="8775000" />
+      <workItem from="1613625178965" duration="15000" />
+      <workItem from="1613670617074" duration="3153000" />
+      <workItem from="1613711069819" duration="4576000" />
+      <workItem from="1613743648892" duration="17873000" />
+      <workItem from="1613797833304" duration="18000" />
+      <workItem from="1613905615399" duration="6576000" />
+      <workItem from="1614010464207" duration="5227000" />
+      <workItem from="1614056799534" duration="1414000" />
     </task>
     <task id="LOCAL-00001" summary="responsive login added, global blackout function added">
       <created>1611851643494</created>

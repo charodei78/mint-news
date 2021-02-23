@@ -11,7 +11,7 @@
             </div>
             <div class="post-info">
                 <div class="text-xs font-medium">{{ $post->created_at->format('d.m.Y') }}</div>
-                <x-elements.post-views class="h-4 text-xs" views="{{ $post->views() }}"></x-elements.post-views>
+                <x-elements.post-views class="h-4 text-xs" views="{{ $post->views }}"></x-elements.post-views>
             </div>
         </div>
 </div>

@@ -784,20 +784,20 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <StartupTime>1613105406</StartupTime>
+      <StartupTime>1613735427</StartupTime>
     </root>
     <database id="2" parent="1" name="mint_news">
       <ObjectId>25334</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>4573</IntrospectionStateNumber>
+      <IntrospectionStateNumber>4844</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|25335|25337|1
-sequence|table|27574|27576|1
-sequence|table|27594|27596|1
-sequence|table|27608|27610|1
-sequence|table|27616|27618|1
-sequence|table|27636|27638|1
-sequence|table|27653|27655|1
+sequence|table|42182|42184|1
+sequence|table|42202|42204|1
+sequence|table|42216|42218|1
+sequence|table|42224|42226|1
+sequence|table|42244|42246|1
+sequence|table|42261|42263|1
 </Relations>
     </database>
     <database id="3" parent="1" name="postgres">
@@ -877,7 +877,7 @@ UC/10
 </Acl>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>4574</IntrospectionStateNumber>
+      <IntrospectionStateNumber>4845</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="19" parent="2" name="plpgsql">
@@ -978,21 +978,21 @@ UC/10
       <Type>index</Type>
     </access-method>
     <sequence id="31" parent="18" name="categories_id_seq">
-      <ObjectId>27608</ObjectId>
+      <ObjectId>42216</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4449</StateNumber>
+      <StateNumber>4648</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
     <sequence id="32" parent="18" name="comments_id_seq">
-      <ObjectId>27636</ObjectId>
+      <ObjectId>42244</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4453</StateNumber>
+      <StateNumber>4652</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
     <sequence id="33" parent="18" name="failed_jobs_id_seq">
-      <ObjectId>27594</ObjectId>
+      <ObjectId>42202</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4447</StateNumber>
+      <StateNumber>4646</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
     <sequence id="34" parent="18" name="migrations_id_seq">
@@ -1002,49 +1002,47 @@ UC/10
       <DataType>integer|0s</DataType>
     </sequence>
     <sequence id="35" parent="18" name="notifications_id_seq">
-      <ObjectId>27653</ObjectId>
+      <ObjectId>42261</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4455</StateNumber>
+      <StateNumber>4654</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
     <sequence id="36" parent="18" name="posts_id_seq">
-      <ObjectId>27616</ObjectId>
+      <ObjectId>42224</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4451</StateNumber>
+      <StateNumber>4650</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
     <sequence id="37" parent="18" name="users_id_seq">
-      <ObjectId>27574</ObjectId>
+      <ObjectId>42182</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4443</StateNumber>
+      <StateNumber>4642</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
     <table id="38" parent="18" name="categories">
-      <ObjectId>27610</ObjectId>
-      <Outdated>1</Outdated>
+      <ObjectId>42218</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4461</StateNumber>
+      <StateNumber>4660</StateNumber>
     </table>
     <table id="39" parent="18" name="category_post">
-      <ObjectId>27701</ObjectId>
-      <Outdated>1</Outdated>
+      <ObjectId>42309</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4461</StateNumber>
+      <StateNumber>4660</StateNumber>
     </table>
     <table id="40" parent="18" name="comments">
-      <ObjectId>27638</ObjectId>
+      <ObjectId>42246</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4453</StateNumber>
+      <StateNumber>4652</StateNumber>
     </table>
     <table id="41" parent="18" name="failed_jobs">
-      <ObjectId>27596</ObjectId>
+      <ObjectId>42204</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4447</StateNumber>
+      <StateNumber>4646</StateNumber>
     </table>
     <table id="42" parent="18" name="favorite">
-      <ObjectId>27675</ObjectId>
+      <ObjectId>42283</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4457</StateNumber>
+      <StateNumber>4656</StateNumber>
     </table>
     <table id="43" parent="18" name="migrations">
       <ObjectId>25337</ObjectId>
@@ -1052,47 +1050,45 @@ UC/10
       <StateNumber>3603</StateNumber>
     </table>
     <table id="44" parent="18" name="notifications">
-      <ObjectId>27655</ObjectId>
+      <ObjectId>42263</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4455</StateNumber>
+      <StateNumber>4654</StateNumber>
     </table>
     <table id="45" parent="18" name="password_resets">
-      <ObjectId>27587</ObjectId>
+      <ObjectId>42195</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4445</StateNumber>
+      <StateNumber>4644</StateNumber>
     </table>
     <table id="46" parent="18" name="post_likes">
-      <ObjectId>42025</ObjectId>
+      <ObjectId>42322</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4569</StateNumber>
+      <StateNumber>4662</StateNumber>
     </table>
     <table id="47" parent="18" name="posts">
-      <ObjectId>27618</ObjectId>
-      <Outdated>1</Outdated>
+      <ObjectId>42226</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4451</StateNumber>
+      <StateNumber>4650</StateNumber>
     </table>
     <table id="48" parent="18" name="user_rec">
-      <ObjectId>42028</ObjectId>
+      <ObjectId>42325</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4571</StateNumber>
+      <StateNumber>4664</StateNumber>
     </table>
     <table id="49" parent="18" name="users">
-      <ObjectId>27576</ObjectId>
+      <ObjectId>42184</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4451</StateNumber>
+      <StateNumber>4841</StateNumber>
     </table>
     <table id="50" parent="18" name="views">
-      <ObjectId>27688</ObjectId>
-      <Outdated>1</Outdated>
+      <ObjectId>42296</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>4459</StateNumber>
+      <StateNumber>4658</StateNumber>
     </table>
     <column id="51" parent="38" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4449</StateNumber>
+      <StateNumber>4648</StateNumber>
       <DefaultExpression>nextval(&apos;categories_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
@@ -1100,12 +1096,12 @@ UC/10
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4449</StateNumber>
+      <StateNumber>4648</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="53" parent="38" name="categories_pkey">
-      <ObjectId>27614</ObjectId>
-      <StateNumber>4449</StateNumber>
+      <ObjectId>42222</ObjectId>
+      <StateNumber>4648</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1114,8 +1110,8 @@ UC/10
       <ClassIds>3124</ClassIds>
     </index>
     <key id="54" parent="38" name="categories_pkey">
-      <ObjectId>27615</ObjectId>
-      <StateNumber>4449</StateNumber>
+      <ObjectId>42223</ObjectId>
+      <StateNumber>4648</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>categories_pkey</UnderlyingIndexName>
@@ -1124,31 +1120,31 @@ UC/10
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4461</StateNumber>
+      <StateNumber>4660</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="56" parent="39" name="category_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4461</StateNumber>
+      <StateNumber>4660</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <foreign-key id="57" parent="39" name="category_post_post_id_foreign">
-      <ObjectId>27704</ObjectId>
-      <StateNumber>4461</StateNumber>
+      <ObjectId>42312</ObjectId>
+      <StateNumber>4660</StateNumber>
       <ColNames>post_id</ColNames>
-      <RefTableId>27618</RefTableId>
+      <RefTableId>42226</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>posts</RefTableName>
       <RefKeyName>posts_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="58" parent="39" name="category_post_category_id_foreign">
-      <ObjectId>27709</ObjectId>
-      <StateNumber>4461</StateNumber>
+      <ObjectId>42317</ObjectId>
+      <StateNumber>4660</StateNumber>
       <ColNames>category_id</ColNames>
-      <RefTableId>27610</RefTableId>
+      <RefTableId>42218</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>categories</RefTableName>
       <RefKeyName>categories_pkey</RefKeyName>
@@ -1158,7 +1154,7 @@ UC/10
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4453</StateNumber>
+      <StateNumber>4652</StateNumber>
       <DefaultExpression>nextval(&apos;comments_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
@@ -1166,45 +1162,45 @@ UC/10
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4453</StateNumber>
+      <StateNumber>4652</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="61" parent="40" name="commentable_id">
       <Position>3</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4453</StateNumber>
+      <StateNumber>4652</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="62" parent="40" name="user_id">
       <Position>4</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4453</StateNumber>
+      <StateNumber>4652</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="63" parent="40" name="body">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4453</StateNumber>
+      <StateNumber>4652</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="64" parent="40" name="created_at">
       <Position>6</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4453</StateNumber>
+      <StateNumber>4652</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="65" parent="40" name="updated_at">
       <Position>7</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4453</StateNumber>
+      <StateNumber>4652</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <index id="66" parent="40" name="comments_pkey">
-      <ObjectId>27645</ObjectId>
-      <StateNumber>4453</StateNumber>
+      <ObjectId>42253</ObjectId>
+      <StateNumber>4652</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1213,8 +1209,8 @@ UC/10
       <ClassIds>3124</ClassIds>
     </index>
     <index id="67" parent="40" name="comments_commentable_type_commentable_id_index">
-      <ObjectId>27647</ObjectId>
-      <StateNumber>4453</StateNumber>
+      <ObjectId>42255</ObjectId>
+      <StateNumber>4652</StateNumber>
       <ColNames>commentable_type
 commentable_id</ColNames>
       <AccessMethodId>403</AccessMethodId>
@@ -1223,17 +1219,17 @@ commentable_id</ColNames>
       <ClassIds>3126,3124</ClassIds>
     </index>
     <key id="68" parent="40" name="comments_pkey">
-      <ObjectId>27646</ObjectId>
-      <StateNumber>4453</StateNumber>
+      <ObjectId>42254</ObjectId>
+      <StateNumber>4652</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>comments_pkey</UnderlyingIndexName>
     </key>
     <foreign-key id="69" parent="40" name="comments_user_id_foreign">
-      <ObjectId>27648</ObjectId>
-      <StateNumber>4453</StateNumber>
+      <ObjectId>42256</ObjectId>
+      <StateNumber>4652</StateNumber>
       <ColNames>user_id</ColNames>
-      <RefTableId>27576</RefTableId>
+      <RefTableId>42184</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
@@ -1244,7 +1240,7 @@ commentable_id</ColNames>
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4447</StateNumber>
+      <StateNumber>4646</StateNumber>
       <DefaultExpression>nextval(&apos;failed_jobs_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
@@ -1252,48 +1248,48 @@ commentable_id</ColNames>
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4447</StateNumber>
+      <StateNumber>4646</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="72" parent="41" name="connection">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4447</StateNumber>
+      <StateNumber>4646</StateNumber>
       <TypeId>25</TypeId>
     </column>
     <column id="73" parent="41" name="queue">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4447</StateNumber>
+      <StateNumber>4646</StateNumber>
       <TypeId>25</TypeId>
     </column>
     <column id="74" parent="41" name="payload">
       <Position>5</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4447</StateNumber>
+      <StateNumber>4646</StateNumber>
       <TypeId>25</TypeId>
     </column>
     <column id="75" parent="41" name="exception">
       <Position>6</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4447</StateNumber>
+      <StateNumber>4646</StateNumber>
       <TypeId>25</TypeId>
     </column>
     <column id="76" parent="41" name="failed_at">
       <Position>7</Position>
       <DataType>timestamp(0)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4447</StateNumber>
+      <StateNumber>4646</StateNumber>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <TypeId>1114</TypeId>
     </column>
     <index id="77" parent="41" name="failed_jobs_pkey">
-      <ObjectId>27604</ObjectId>
-      <StateNumber>4447</StateNumber>
+      <ObjectId>42212</ObjectId>
+      <StateNumber>4646</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1302,8 +1298,8 @@ commentable_id</ColNames>
       <ClassIds>3124</ClassIds>
     </index>
     <index id="78" parent="41" name="failed_jobs_uuid_unique">
-      <ObjectId>27606</ObjectId>
-      <StateNumber>4447</StateNumber>
+      <ObjectId>42214</ObjectId>
+      <StateNumber>4646</StateNumber>
       <ColNames>uuid</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
@@ -1312,15 +1308,15 @@ commentable_id</ColNames>
       <ClassIds>3126</ClassIds>
     </index>
     <key id="79" parent="41" name="failed_jobs_pkey">
-      <ObjectId>27605</ObjectId>
-      <StateNumber>4447</StateNumber>
+      <ObjectId>42213</ObjectId>
+      <StateNumber>4646</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>failed_jobs_pkey</UnderlyingIndexName>
     </key>
     <key id="80" parent="41" name="failed_jobs_uuid_unique">
-      <ObjectId>27607</ObjectId>
-      <StateNumber>4447</StateNumber>
+      <ObjectId>42215</ObjectId>
+      <StateNumber>4646</StateNumber>
       <ColNames>uuid</ColNames>
       <UnderlyingIndexName>failed_jobs_uuid_unique</UnderlyingIndexName>
     </key>
@@ -1328,43 +1324,43 @@ commentable_id</ColNames>
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4457</StateNumber>
+      <StateNumber>4656</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="82" parent="42" name="user_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4457</StateNumber>
+      <StateNumber>4656</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="83" parent="42" name="created_at">
       <Position>3</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4457</StateNumber>
+      <StateNumber>4656</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="84" parent="42" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4457</StateNumber>
+      <StateNumber>4656</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <foreign-key id="85" parent="42" name="favorite_post_id_foreign">
-      <ObjectId>27678</ObjectId>
-      <StateNumber>4457</StateNumber>
+      <ObjectId>42286</ObjectId>
+      <StateNumber>4656</StateNumber>
       <ColNames>post_id</ColNames>
-      <RefTableId>27618</RefTableId>
+      <RefTableId>42226</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>posts</RefTableName>
       <RefKeyName>posts_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="86" parent="42" name="favorite_user_id_foreign">
-      <ObjectId>27683</ObjectId>
-      <StateNumber>4457</StateNumber>
+      <ObjectId>42291</ObjectId>
+      <StateNumber>4656</StateNumber>
       <ColNames>user_id</ColNames>
-      <RefTableId>27576</RefTableId>
+      <RefTableId>42184</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
@@ -1413,7 +1409,7 @@ commentable_id</ColNames>
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4455</StateNumber>
+      <StateNumber>4654</StateNumber>
       <DefaultExpression>nextval(&apos;notifications_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
@@ -1421,53 +1417,53 @@ commentable_id</ColNames>
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4455</StateNumber>
+      <StateNumber>4654</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="94" parent="44" name="sender_id">
       <Position>3</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4455</StateNumber>
+      <StateNumber>4654</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="95" parent="44" name="activity_type">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4455</StateNumber>
+      <StateNumber>4654</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="96" parent="44" name="url">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4455</StateNumber>
+      <StateNumber>4654</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="97" parent="44" name="is_unread">
       <Position>6</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4455</StateNumber>
+      <StateNumber>4654</StateNumber>
       <DefaultExpression>true</DefaultExpression>
       <TypeId>16</TypeId>
     </column>
     <column id="98" parent="44" name="created_at">
       <Position>7</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4455</StateNumber>
+      <StateNumber>4654</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="99" parent="44" name="updated_at">
       <Position>8</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4455</StateNumber>
+      <StateNumber>4654</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <index id="100" parent="44" name="notifications_pkey">
-      <ObjectId>27663</ObjectId>
-      <StateNumber>4455</StateNumber>
+      <ObjectId>42271</ObjectId>
+      <StateNumber>4654</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1476,27 +1472,27 @@ commentable_id</ColNames>
       <ClassIds>3124</ClassIds>
     </index>
     <key id="101" parent="44" name="notifications_pkey">
-      <ObjectId>27664</ObjectId>
-      <StateNumber>4455</StateNumber>
+      <ObjectId>42272</ObjectId>
+      <StateNumber>4654</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>notifications_pkey</UnderlyingIndexName>
     </key>
     <foreign-key id="102" parent="44" name="notifications_recipient_id_foreign">
-      <ObjectId>27665</ObjectId>
-      <StateNumber>4455</StateNumber>
+      <ObjectId>42273</ObjectId>
+      <StateNumber>4654</StateNumber>
       <ColNames>recipient_id</ColNames>
-      <RefTableId>27576</RefTableId>
+      <RefTableId>42184</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="103" parent="44" name="notifications_sender_id_foreign">
-      <ObjectId>27670</ObjectId>
-      <StateNumber>4455</StateNumber>
+      <ObjectId>42278</ObjectId>
+      <StateNumber>4654</StateNumber>
       <ColNames>sender_id</ColNames>
-      <RefTableId>27576</RefTableId>
+      <RefTableId>42184</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
@@ -1506,25 +1502,25 @@ commentable_id</ColNames>
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4445</StateNumber>
+      <StateNumber>4644</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="105" parent="45" name="token">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4445</StateNumber>
+      <StateNumber>4644</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="106" parent="45" name="created_at">
       <Position>3</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4445</StateNumber>
+      <StateNumber>4644</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <index id="107" parent="45" name="password_resets_email_index">
-      <ObjectId>27593</ObjectId>
-      <StateNumber>4445</StateNumber>
+      <ObjectId>42201</ObjectId>
+      <StateNumber>4644</StateNumber>
       <ColNames>email</ColNames>
       <AccessMethodId>403</AccessMethodId>
       <CollationIds>100</CollationIds>
@@ -1535,33 +1531,33 @@ commentable_id</ColNames>
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4569</StateNumber>
+      <StateNumber>4662</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="109" parent="46" name="post_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4569</StateNumber>
+      <StateNumber>4662</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="110" parent="46" name="created_at">
       <Position>3</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4569</StateNumber>
+      <StateNumber>4662</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="111" parent="46" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4569</StateNumber>
+      <StateNumber>4662</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="112" parent="47" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4451</StateNumber>
+      <StateNumber>4650</StateNumber>
       <DefaultExpression>nextval(&apos;posts_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
@@ -1569,35 +1565,35 @@ commentable_id</ColNames>
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4451</StateNumber>
+      <StateNumber>4650</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="114" parent="47" name="user_id">
       <Position>3</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4451</StateNumber>
+      <StateNumber>4650</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="115" parent="47" name="body">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4451</StateNumber>
+      <StateNumber>4650</StateNumber>
       <TypeId>25</TypeId>
     </column>
     <column id="116" parent="47" name="preview">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4451</StateNumber>
+      <StateNumber>4650</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="117" parent="47" name="rating">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4451</StateNumber>
+      <StateNumber>4650</StateNumber>
       <DefaultExpression>0</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
@@ -1605,7 +1601,7 @@ commentable_id</ColNames>
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4451</StateNumber>
+      <StateNumber>4650</StateNumber>
       <DefaultExpression>0</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
@@ -1613,7 +1609,7 @@ commentable_id</ColNames>
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4451</StateNumber>
+      <StateNumber>4650</StateNumber>
       <DefaultExpression>&apos;&apos;::character varying</DefaultExpression>
       <TypeId>1043</TypeId>
     </column>
@@ -1621,25 +1617,25 @@ commentable_id</ColNames>
       <Position>9</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4451</StateNumber>
+      <StateNumber>4650</StateNumber>
       <DefaultExpression>0</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
     <column id="121" parent="47" name="created_at">
       <Position>10</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4451</StateNumber>
+      <StateNumber>4650</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="122" parent="47" name="updated_at">
       <Position>11</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4451</StateNumber>
+      <StateNumber>4650</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <index id="123" parent="47" name="posts_pkey">
-      <ObjectId>27629</ObjectId>
-      <StateNumber>4451</StateNumber>
+      <ObjectId>42237</ObjectId>
+      <StateNumber>4650</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1648,17 +1644,17 @@ commentable_id</ColNames>
       <ClassIds>3124</ClassIds>
     </index>
     <key id="124" parent="47" name="posts_pkey">
-      <ObjectId>27630</ObjectId>
-      <StateNumber>4451</StateNumber>
+      <ObjectId>42238</ObjectId>
+      <StateNumber>4650</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>posts_pkey</UnderlyingIndexName>
     </key>
     <foreign-key id="125" parent="47" name="posts_user_id_foreign">
-      <ObjectId>27631</ObjectId>
-      <StateNumber>4451</StateNumber>
+      <ObjectId>42239</ObjectId>
+      <StateNumber>4650</StateNumber>
       <ColNames>user_id</ColNames>
-      <RefTableId>27576</RefTableId>
+      <RefTableId>42184</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
@@ -1669,33 +1665,33 @@ commentable_id</ColNames>
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4571</StateNumber>
+      <StateNumber>4664</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="127" parent="48" name="category_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4571</StateNumber>
+      <StateNumber>4664</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="128" parent="48" name="created_at">
       <Position>3</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4571</StateNumber>
+      <StateNumber>4664</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="129" parent="48" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4571</StateNumber>
+      <StateNumber>4664</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="130" parent="49" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4443</StateNumber>
+      <StateNumber>4642</StateNumber>
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
@@ -1703,57 +1699,64 @@ commentable_id</ColNames>
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4443</StateNumber>
+      <StateNumber>4642</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="132" parent="49" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4443</StateNumber>
+      <StateNumber>4642</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="133" parent="49" name="email">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4443</StateNumber>
+      <StateNumber>4642</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="134" parent="49" name="email_verified_at">
       <Position>5</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4443</StateNumber>
+      <StateNumber>4642</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="135" parent="49" name="password">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4443</StateNumber>
+      <StateNumber>4642</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="136" parent="49" name="remember_token">
       <Position>7</Position>
       <DataType>varchar(100)|0s</DataType>
-      <StateNumber>4443</StateNumber>
+      <StateNumber>4642</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="137" parent="49" name="created_at">
       <Position>8</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4443</StateNumber>
+      <StateNumber>4642</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="138" parent="49" name="updated_at">
       <Position>9</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4443</StateNumber>
+      <StateNumber>4642</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="139" parent="49" name="users_pkey">
-      <ObjectId>27583</ObjectId>
-      <StateNumber>4443</StateNumber>
+    <column id="139" parent="49" name="avatar">
+      <Position>10</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>4843</StateNumber>
+      <DefaultExpression>&apos;public/user_avatars/0/default.svg&apos;::character varying</DefaultExpression>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="140" parent="49" name="users_pkey">
+      <ObjectId>42191</ObjectId>
+      <StateNumber>4642</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1761,9 +1764,9 @@ commentable_id</ColNames>
       <CollationIds>0</CollationIds>
       <ClassIds>3124</ClassIds>
     </index>
-    <index id="140" parent="49" name="users_email_unique">
-      <ObjectId>27585</ObjectId>
-      <StateNumber>4443</StateNumber>
+    <index id="141" parent="49" name="users_email_unique">
+      <ObjectId>42193</ObjectId>
+      <StateNumber>4642</StateNumber>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
@@ -1771,60 +1774,60 @@ commentable_id</ColNames>
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="141" parent="49" name="users_pkey">
-      <ObjectId>27584</ObjectId>
-      <StateNumber>4443</StateNumber>
+    <key id="142" parent="49" name="users_pkey">
+      <ObjectId>42192</ObjectId>
+      <StateNumber>4642</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
     </key>
-    <key id="142" parent="49" name="users_email_unique">
-      <ObjectId>27586</ObjectId>
-      <StateNumber>4443</StateNumber>
+    <key id="143" parent="49" name="users_email_unique">
+      <ObjectId>42194</ObjectId>
+      <StateNumber>4642</StateNumber>
       <ColNames>email</ColNames>
       <UnderlyingIndexName>users_email_unique</UnderlyingIndexName>
     </key>
-    <column id="143" parent="50" name="post_id">
+    <column id="144" parent="50" name="post_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4459</StateNumber>
+      <StateNumber>4658</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="144" parent="50" name="user_id">
+    <column id="145" parent="50" name="user_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>4459</StateNumber>
+      <StateNumber>4658</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="145" parent="50" name="created_at">
+    <column id="146" parent="50" name="created_at">
       <Position>3</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4459</StateNumber>
+      <StateNumber>4658</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="146" parent="50" name="updated_at">
+    <column id="147" parent="50" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp(0)|0s</DataType>
-      <StateNumber>4459</StateNumber>
+      <StateNumber>4658</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <foreign-key id="147" parent="50" name="views_post_id_foreign">
-      <ObjectId>27691</ObjectId>
-      <StateNumber>4459</StateNumber>
+    <foreign-key id="148" parent="50" name="views_post_id_foreign">
+      <ObjectId>42299</ObjectId>
+      <StateNumber>4658</StateNumber>
       <ColNames>post_id</ColNames>
-      <RefTableId>27618</RefTableId>
+      <RefTableId>42226</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>posts</RefTableName>
       <RefKeyName>posts_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="148" parent="50" name="views_user_id_foreign">
-      <ObjectId>27696</ObjectId>
-      <StateNumber>4459</StateNumber>
+    <foreign-key id="149" parent="50" name="views_user_id_foreign">
+      <ObjectId>42304</ObjectId>
+      <StateNumber>4658</StateNumber>
       <ColNames>user_id</ColNames>
-      <RefTableId>27576</RefTableId>
+      <RefTableId>42184</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
