@@ -48,6 +48,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'avatar' => 'array'
     ];
 
     public function posts(): HasMany
@@ -79,10 +80,6 @@ class User extends Authenticatable
             ->groupBy('categories.id')
             ->orderBy('count', 'desc')
             ->get(['categories.*', DB::raw('count(categories.id) as count')]);
-    }
-
-    public function avatar($size = 'md') {
-        return 'tete';
     }
 
 }

@@ -35,7 +35,7 @@
                     })
             }
         }"
-     @change-page.prevent="console.log"
+     x-init="$watch('error', (value) => { if (value.length) $scroll($el)  })"
 >
     <form class="flex flex-col" x-ref="postForm" @submit.prevent="sendData">
         @csrf

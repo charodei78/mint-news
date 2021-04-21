@@ -1,23 +1,30 @@
 <div class="w-full rounded bg-green-100 py-6 px-10" x-data="">
     <div class="w-full inline-flex">
-        <form wire:submit.prevent="updateAvatar" action="" type="multipart" method="POST" enctype="multipart/form-data">
-            @csrf
+        <div class="w-1/4">
             @error('photo')
             <div class="bg-red-500 w-60 p-1 text-white text-center mb-3 rounded" wire:key="$message">
                 {{ $message }}
             </div>
             @enderror
-            <div class="w-1/5" @click="$refs.avatar.click()">
-                <div class="absolute break-words w-21 text-center opacity-0 hover:opacity-90 m-auto bg-green-100 p-1">Изменить<br>фото</div>
-                <input type="file" name="photo" accept="image/*" x-ref="avatar" wire:model="photo">
-                {{ $photo }}
-                <img class="w-full object-contain rounded-full"
-                     src="{{ $photo && $photo->temporaryUrl() }}"
+            <div class="w-full h-full flex flex-col">
+                <input type="file" class="invisible absolute" name="photo" accept="image/png,image/jpg,image/jpeg" x-ref="avatar" wire:model="avatar">
+                <div @click="$refs.avatar.click()" class="absolute break-words w-32 text-center opacity-0 top-14 cursor-pointer text-lg hover:opacity-90 m-auto bg-green-100 p-1">
+                    {{ __('Изменить фото') }}
+                </div>
+                <img class="w-32 object-cover h-32 rounded-full"
+                     @if($avatar)
+                       src="{{ $avatar->temporaryUrl() }}"
+                     @endif
+                     @if(!$avatar && Auth::user()->avatar)
+                       src="{{ Storage::url(Auth::user()->avatar['sm']) }}"
+                     @endif
                      alt="avatar image"
                 >
+                @if($avatar)
+                <button wire:click="updateAvatar">{{ __('Сохранить') }}</button>
+                @endif
             </div>
-            <button>Обновить</button>
-        </form>
+        </div>
         <div>
             <div class="text-xl font-medium">
                 {{ $user->name }}

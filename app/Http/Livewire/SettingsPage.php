@@ -8,14 +8,21 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Intervention\Image\ImageManager;
 use Livewire\WithFileUploads;
 
 class SettingsPage extends Component
 {
 
+    const AVATAR_SIZES = [
+      'lg' => 256,
+      'sm' => 128,
+      'ico' => 64
+    ];
+
     use WithFileUploads;
 
-    public $photo;
+    public $avatar;
     public string $password = '';
     public string $passwordConfirmation = '';
     public string $oldPassword = '';
@@ -24,24 +31,33 @@ class SettingsPage extends Component
         'password' => 'required|min:6',
     ];
 
-    public function updatedPhoto()
+    public function updatedAvatar()
     {
         $this->validate([
-            'photo' => 'image|max:1024', // 1MB Max
+            'avatar' => 'image|max:1024|mimes:png,jpg', // 1MB Max
         ]);
     }
 
     public function updateAvatar(Request $request) {
-        $this->photo = $request->get('photo');
         $this->validate([
-            'photo' => 'image|max:1024', // 1MB Max
+            'avatar' => 'image|max:1024|mimes:png,jpg', // 1MB Max
         ]);
         $user = Auth::user();
         $path = 'public/user_avatars/'.$user->id;
         if (Storage::exists($path))
             Storage::deleteDirectory($path);
         Storage::makeDirectory($path);
-        $user->avatar = $this->photo->store($path);
+        $manager = new ImageManager;
+        $avatars = [];
+        foreach (self::AVATAR_SIZES as $type => $size) {
+            $image = $manager
+                ->make($this->avatar->getRealPath())
+                ->resize($size, $size)
+                ->interlace()
+                ->save('../storage/app/'.$path.'/'.$type.'.jpg', 90);
+            $avatars[$type] = $path.'/'.$type.'.jpg';
+        }
+        $user->avatar = $avatars;
         $user->save();
     }
 
