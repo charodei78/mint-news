@@ -1,7 +1,7 @@
 <div class="post-full-width"
-     onclick="history.pushState({ post: {{ $post->id }} }, '{{ $post->title }}', '?post={{ $post->id }}') ;
+     onclick="history.pushState({ post: {{ $post->id }}, page: 'post' }, '{{ $post->title }}', '/post?post={{ $post->id }}') ;
          Livewire.emit('loadPost', {{ $post->id }})">
-    <img src="{{ $post->preview }}" class="post-preview-image">
+    <img src="{{ url($post->preview) }}" class="post-preview-image">
     <div class="post-body-wrapper">
         <div class="post-body">
             <div class="post-title">{{ $post->title }}</div>

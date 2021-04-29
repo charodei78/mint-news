@@ -7,31 +7,36 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 /**
  * Class Post
  *
- * @property integer $id
- * @property string $title
- * @property integer $user_id
- * @property string $body
- * @property string $preview
- * @property string $synopsis
- * @property integer $rating
- * @property integer $year_rate
- * @property integer $views
+ * @property integer    id
+ * @property string     title
+ * @property integer    user_id
+ * @property string     body
+ * @property string     preview
+ * @property string     synopsis
+ * @property integer    rating
+ * @property integer    year_rate
+ * @property integer    views
+ * @property int        status // 0 - draft, 1 - on moderation, 2 - publicised
  *
  * @package App\Models
  */
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $casts = [
         'created_at' => 'datetime:Y-m-d',
+        'categories'
     ];
+
+    public const DEFAULT_PREVIEW = '/ico/photo-bg.svg';
 
     protected $fillable = ['title', 'user_id', 'content', 'rating', 'year_rate', 'synopsis'];
 
@@ -103,6 +108,13 @@ class Post extends Model
     public function likedBy()
     {
         return $this->belongsToMany(User::class, 'likes');
+    }
+
+    public function getPreviewAttribute($value)
+    {
+        if (!$value)
+            return self::DEFAULT_PREVIEW;
+        return $value;
     }
 
 //    public function liked(): bool

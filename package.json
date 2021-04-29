@@ -25,7 +25,9 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-build-balloon-block": "^27.1.0",
         "@ckeditor/ckeditor5-upload": "^25.0.0",
+        "@ckeditor/ckeditor5-watchdog": "^27.1.0",
         "laravel-mix-postcss-config": "^1.4.0",
         "postcss": "^8.2.4",
         "postcss-cached": "0.0.4",

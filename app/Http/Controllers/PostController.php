@@ -7,6 +7,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -56,6 +57,17 @@ class PostController extends Controller
             $post->categories()->attach($categories);
         });
 
+    }
+
+    public function uploadImage(Request $request, $id)
+    {
+        $post = Post::findOrFail($id);
+        $file = $request->file('upload') ?? die();
+        $path = 'public/post_images/'.$id;
+        if (!Storage::exists($path))
+            Storage::makeDirectory($path);
+        $url = $file->store($path);
+        return response()->json(['url' => Storage::url($url)]);
     }
 
     /**

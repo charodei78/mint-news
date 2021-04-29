@@ -1,4 +1,4 @@
-<div  class="w-screen sm:w-full bg-green-100 flex flex-col rounded py-4 px-3 sm:px-8 post-wrapper relative">
+<div  class="main-wrapper bg-green-100 post-wrapper">
     <div class="text-2xl font-bold pr-2">
         {{ $post->title }}
     </div>
@@ -13,12 +13,22 @@
         <div class="font-medium">
             {{ $post->created_at->format('d.m.Y') }}
         </div>
+        @can('update', $post)
+            <a  class="cursor-pointer"
+                x-on:click="Livewire.emit('editPost', {{ $post->id }})"
+            >{{ __('Редактировать') }}</a>
+        @endcan
     </div>
     <div>
         <div class="h-96  my-3">
-            <img class="post-image rounded object-cover h-full w-full" src="/{{ $post->preview }}">
+            <img class="post-image rounded object-cover h-full w-full" src="{{ url($post->preview) }}">
         </div>
-        {!! $post->body !!}
+        <div class="font-medium">
+            {{ $post->synopsis }}
+        </div>
+        <div class="post-body">
+            {!! $post->body !!}
+        </div>
     </div>
     <hr class="post-hr">
     <div class="ml-auto w-full md:w-80 inline-flex items-center justify-end space-x-2">

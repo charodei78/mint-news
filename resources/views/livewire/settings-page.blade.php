@@ -1,4 +1,4 @@
-<div class="w-full rounded bg-green-100 py-6 px-10" x-data="">
+<div class="w-full rounded bg-green-100 py-6 px-10" x-data="{}">
     <div class="w-full inline-flex">
         <div class="w-1/4">
             @error('photo')

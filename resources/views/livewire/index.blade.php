@@ -20,8 +20,11 @@
     @if($page === 'settings')
         <livewire:settings-page></livewire:settings-page>
     @endif
-    @if($page === 'create-post')
-        <livewire:create-post-page></livewire:create-post-page>
+    @if($page === 'edit-post')
+        <livewire:edit-post-page :post_id="$post_id"></livewire:edit-post-page>
+    @endif
+    @if($page === 'my-posts')
+        <livewire:my-posts></livewire:my-posts>
     @endif
     @if($page === 'policy')
         {{ view('policy') }}

@@ -17,7 +17,8 @@ class Index extends Component
 
     private const AUTH_ONLY_PAGE = [
         'settings',
-        'create-post',
+        'edit-post',
+        'my-posts',
         'favorite'
     ];
 
@@ -29,6 +30,7 @@ class Index extends Component
 
     protected $listeners = [
         'loadPost',
+        'editPost',
         'changeCategory',
         'favoriteChange',
         'likeChange',
@@ -55,8 +57,6 @@ class Index extends Component
         }
         else
             $this->page = 'feed';
-        $this->post_id = 0;
-        $this->category_id = 0;
     }
 
     public function favoriteChange($inFavorite, $post_id)
@@ -103,6 +103,13 @@ class Index extends Component
         $this->emit('changePage');
     }
 
+    public function editPost($id)
+    {
+        $post = PostModel::findOrFail($id);
+        $this->post_id = $id;
+        $this->page = 'edit-post';
+        $this->emit('changePage');
+    }
 
     public function mount($type ='feed')
     {
@@ -115,8 +122,6 @@ class Index extends Component
             $this->category_id = intval($_GET['category'] ?? 0);
         if (!$this->post_id)
             $this->post_id = intval($_GET['post'] ?? 0) ;
-        if ($this->post_id)
-            $this->page = 'post';
         return view('livewire.index')
             ->extends('layouts.base');
     }
