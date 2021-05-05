@@ -57,7 +57,8 @@
                 }"
             >
                 <div class="bg-green-600 side-menu-button font-extrabold space-x-2 pl-3 text-2xl"
-                     @click="title = 'feed'; selected = 0; changePage('feed', {category_id: 0})"
+                     @click="title = 'feed'; selected = 0; changePage('feed')"
+                     x-on:mousedown="oblank($event, '{{ url('/feed') }}')"
                 >
                     <img src="/ico/feed.svg">
                     <span>
@@ -67,7 +68,7 @@
                 <hr class="opacity-40 border-1 rounded">
                 @php($categories = \App\Models\Category::limit(5)->get())
                 @foreach($categories as $category)
-                    <a href="{{ url('/feed?category_id='.$category->id)  }}"
+                    <div x-on:mousedown="oblank($event, '{{ url('/feed?category_id='.$category->id)  }}')"
                         :class="{
                               'bg-green-600': selected == {{ $category->id }},
                               'hover:bg-green-600 hover:bg-opacity-50': selected != {{ $category->id }}
@@ -80,7 +81,7 @@
                         <span>
                             {{ $category->name }}
                         </span>
-                    </a>
+                    </div>
                 @endforeach
                 <hr class="opacity-40">
                 <br>

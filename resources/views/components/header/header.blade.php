@@ -6,10 +6,9 @@
             <div id="user_bar" class="justify-start space-x-2.5 pl-4 flex w-0 sm:w-1/4">
                 @auth
                     <img class="user_menu shadow-filter hidden sm:flex"
-                         onmouseup="
-                                Livewire.emit('change-page', 'favorite')
-                                history.pushState({ page: 'favorite' }, 'favorite', '/favorite') ;
-                            "
+                         x-data="{}"
+                         onmouseup="changePage('favorite')"
+                         @mousedown="oblank($event, '{{ url('/favorite') }}')"
                          src="/ico/inFavorite.svg" alt="⭐">
                     <x-header.notifications class="hidden sm:flex"></x-header.notifications>
                     <x-header.user-menu></x-header.user-menu>

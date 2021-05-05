@@ -21330,6 +21330,10 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js"); /
 
 window.log = console.log;
 
+window.oblank = function (e, href) {
+  e.button === 1 && window.open(href, '_blank');
+};
+
 window.changePage = function (page) {
   var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var pushState = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;

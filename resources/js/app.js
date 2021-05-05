@@ -8,6 +8,8 @@ require('alpinejs');
 
 window.log = console.log;
 
+window.oblank = (e, href) => { e.button === 1 && window.open(href, '_blank') }
+
 window.changePage = (page, params = {}, pushState = true) =>
 {
     if (pushState) {
@@ -50,3 +52,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const camelToKebabCase = str => str.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`);
+
