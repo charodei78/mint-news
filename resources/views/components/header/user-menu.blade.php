@@ -8,35 +8,19 @@
         class="absolute z-30 text-gray-900  shadow-md right-0 rounded py-2.5 leading-8 top-14 text-green-500 bg-green-100">
         <li class="px-5 text-xl mb-1 text-black">{{ explode(' ', Auth::user()->name)[0] }}</li>
         <li class="px-5  hover:bg-green-200 cursor-pointer">
-            <div class="w-full h-full"
-                 @mouseup="
-                        open = false;
-                        Livewire.emit('change-page', 'settings')
-                        history.pushState({ page: 'settings' }, 'settings', '/settings') ;
-                    "
-            >
+            <div class="w-full h-full" @mouseup="open = false;changePage('settings');">
                 {{ __('Настройки') }}
             </div>
         </li>
         <li class="px-5  hover:bg-green-200 cursor-pointer">
             <div class="w-full h-full"
-                 @mouseup="
-                        open = false;
-                        Livewire.emit('change-page', 'my-posts')
-                        history.pushState({ page: 'my-posts' }, 'my posts', '/my-posts') ;
-                    "
-            >
+                 @mouseup="open = false;changePage('my-posts');">
                 {{ __('Мои посты') }}
             </div>
         </li>
         <li class="px-5  hover:bg-green-200 cursor-pointer">
             <div class="w-full h-full"
-                 @mouseup="
-                        open = false;
-                        Livewire.emit('change-page', 'create-post')
-                        history.pushState({ page: 'create-post' }, 'create post', '/create-post') ;
-                    "
-            >
+                 @mouseup="open = false;changePage('edit-post');">
                 {{ __('Создать пост') }}
             </div>
         </li>
@@ -52,4 +36,3 @@
         </li>
     </ul>
 </div>
-<!-- TODO: add user info-->

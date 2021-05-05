@@ -7,11 +7,14 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use App\Models\Post as PostModel;
 use App\Models\Category;
+use Livewire\WithPagination;
 
 
 class Index extends Component
 {
-    public $page = 'feed';
+    use WithPagination;
+
+    public $pageType = 'feed';
     public $category_id = 0;
     public $post_id = 0;
 
@@ -29,13 +32,10 @@ class Index extends Component
     ];
 
     protected $listeners = [
-        'loadPost',
-        'editPost',
-        'changeCategory',
         'favoriteChange',
         'likeChange',
         'history-move' => 'historyMove',
-        'change-page' => 'changePage',
+        'changePage'
     ];
 
     public function historyMove($params)
@@ -43,20 +43,22 @@ class Index extends Component
         $this->post_id = intval($params['post'] ?? 0) ;
         $this->category_id = intval($params['category'] ?? 0);
         if ($this->post_id)
-            $this->page = 'post';
+            $this->pageType = 'post';
         else
-            $this->page = 'feed';
-        $this->page = $params['page'] ?? $this->page;
+            $this->pageType = 'feed';
+        $this->pageType = $params['page'] ?? $this->pageType;
     }
 
-    public function  changePage($type = 'feed') {
+    public function  changePage($type = 'feed', $params = []) {
         if (array_search($type, self::PUBLIC_PAGE) !== false ||
             (array_search($type, self::AUTH_ONLY_PAGE) !== false && Auth::check())
         ) {
-            $this->page = $type;
+            $this->pageType = $type;
         }
         else
-            $this->page = 'feed';
+            $this->pageType = 'feed';
+        $this->post_id = $params['post_id'] ?? 0;
+        $this->category_id = $params['category_id'] ?? 0;
     }
 
     public function favoriteChange($inFavorite, $post_id)
@@ -83,34 +85,6 @@ class Index extends Component
         }
     }
 
-    public function changeCategory($id)
-    {
-        if ($id)
-            Category::findOrFail($id);
-        $this->post_id = 0;
-        $this->page = 'feed';
-        $this->category_id = $id;
-        $this->emit('changePage');
-    }
-
-    public function loadPost($id)
-    {
-        if (!$id)
-            return;
-        $post = PostModel::findOrFail($id);
-        $this->post_id = $id;
-        $this->page = 'post';
-        $this->emit('changePage');
-    }
-
-    public function editPost($id)
-    {
-        $post = PostModel::findOrFail($id);
-        $this->post_id = $id;
-        $this->page = 'edit-post';
-        $this->emit('changePage');
-    }
-
     public function mount($type ='feed')
     {
         $this->changePage($type);
@@ -119,9 +93,9 @@ class Index extends Component
     public function render()
     {
         if (!$this->category_id)
-            $this->category_id = intval($_GET['category'] ?? 0);
+            $this->category_id = intval($_GET['category_id'] ?? 0);
         if (!$this->post_id)
-            $this->post_id = intval($_GET['post'] ?? 0) ;
+            $this->post_id = intval($_GET['post_id'] ?? 0) ;
         return view('livewire.index')
             ->extends('layouts.base');
     }

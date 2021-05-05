@@ -6,6 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#505953">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#bb5656">
     @livewireStyles
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Righteous&display=swap"
           rel="stylesheet">
@@ -33,7 +40,7 @@
           x-on:resize.window="mobile = window.outerWidth > 640 ? false : true"
           x-init="mobile = window.outerWidth > 640 ? false : true"
           @click.away="isOpen = false"
-          @change-category.window="isOpen = false"
+          @change-page.window="isOpen = false"
     >
         <a  class="top-4 left-2 z-50 cursor-pointer fixed sm:hidden"
             @click="isOpen = !isOpen"
@@ -46,17 +53,11 @@
                 class="flex flex-col space-y-1 {{ $class ?? '' }}"
                 x-data="{
                     selected: history.state?.category || 0,
-                    title: '',
-                    sendRequest(value) {
-                      history.pushState({ category: value }, this.title, '/?category=' + value);
-                      Livewire.emit('changeCategory', value);
-                      dispatchEvent(new Event('change-category'));
-                    }
+                    title: ''
                 }"
-                x-init="$watch('selected', sendRequest )"
             >
                 <div class="bg-green-600 side-menu-button font-extrabold space-x-2 pl-3 text-2xl"
-                     @click="title = 'feed'; selected = 0; sendRequest(0)"
+                     @click="title = 'feed'; selected = 0; changePage('feed', {category_id: 0})"
                 >
                     <img src="/ico/feed.svg">
                     <span>
@@ -66,20 +67,20 @@
                 <hr class="opacity-40 border-1 rounded">
                 @php($categories = \App\Models\Category::limit(5)->get())
                 @foreach($categories as $category)
-                    <div
+                    <a href="{{ url('/feed?category_id='.$category->id)  }}"
                         :class="{
                               'bg-green-600': selected == {{ $category->id }},
                               'hover:bg-green-600 hover:bg-opacity-50': selected != {{ $category->id }}
                                 }"
                             :key="{{ $category->id }}"
                             class="side-menu-button"
-                            @click="title = '{{ $category->name }}'; selected = {{ $category->id }}"
+                            @click="title = '{{ $category->name }}'; selected = {{ $category->id }}; changePage('feed', { category_id: selected})"
                     >
                         <img src="/ico/star.svg">
                         <span>
                             {{ $category->name }}
                         </span>
-                    </div>
+                    </a>
                 @endforeach
                 <hr class="opacity-40">
                 <br>
@@ -92,8 +93,7 @@
                 >Работодателям</a>
                 <span class="side-info-items">О сервисе</span>
                 <span class="side-info-items"
-                      @click="Livewire.emit('change-page', 'policy')
-                        history.pushState({ page: 'policy' }, 'policy', '/policy') ;"
+                      x-on:click="changePage('policy')"
                 >Политики</span>
             </div>
         </div>

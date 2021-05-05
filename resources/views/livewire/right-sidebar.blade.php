@@ -1,9 +1,8 @@
-<div class="fixed">
+<div class="fixed" x-data="{}">
     <span class="text-2xl text-green-100 font-medium block mb-3">{{ __('Актуальное') }}</span>
     @foreach($posts as $post)
         <div class="right-sidebar-post"
-             onclick="history.pushState({ post: {{ $post->id }} }, '{{ $post->title }}', '/post?post={{ $post->id }}') ;
-                Livewire.emit('loadPost', {{ $post->id }})"
+             x-on:click="changePage('post', { post_id: {{ $post->id }} })"
         >
             <div class="w-1/3 h-full flex">
                 <img class="post-image" src="{{ url($post->preview) }}">

@@ -1,6 +1,5 @@
 <div class="post-full-width"
-     onclick="history.pushState({ post: {{ $post->id }}, page: 'post' }, '{{ $post->title }}', '/post?post={{ $post->id }}') ;
-         Livewire.emit('loadPost', {{ $post->id }})">
+     onclick="changePage('post', {post_id: {{ $post->id }}})">
     <img src="{{ url($post->preview) }}" class="post-preview-image">
     <div class="post-body-wrapper">
         <div class="post-body">

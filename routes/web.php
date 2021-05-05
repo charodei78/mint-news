@@ -3,6 +3,7 @@
 use App\Http\Controllers\PostController;
 use App\Http\Livewire\Index;
 use Illuminate\Support\Facades\Route;
+use Intervention\Image\ImageManager;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
 Route::any('/test',function (\Illuminate\Http\Request $request) {
-    dd($request->input('post_data'));
+
 })->name('test');
 
 Route::resource('posts', PostController::class);

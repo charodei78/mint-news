@@ -11,22 +11,22 @@
             M
         </div>
     </div>
-    @if($page === 'post' && $post_id)
-        <livewire:post :post_id="$post_id" :key="$post_id"></livewire:post>
+    @if($pageType === 'post' && $post_id)
+        <livewire:post :post_id="$post_id" :key="$pageType.$post_id"></livewire:post>
     @endif
-    @if($page === 'feed' || $page === 'favorite')
-        <livewire:feed :favorite="$page === 'favorite'" :key="$page.$category_id" :category_id="$category_id"></livewire:feed>
+    @if($pageType === 'feed' || $pageType === 'favorite')
+        <livewire:feed :favorite="$pageType === 'favorite'" :key="$pageType.$category_id" :category_id="$category_id"></livewire:feed>
     @endif
-    @if($page === 'settings')
-        <livewire:settings-page></livewire:settings-page>
+    @if($pageType === 'settings')
+        <livewire:settings-page :key="$pageType"></livewire:settings-page>
     @endif
-    @if($page === 'edit-post')
-        <livewire:edit-post-page :post_id="$post_id"></livewire:edit-post-page>
+    @if($pageType === 'edit-post')
+        <livewire:edit-post-page :post_id="$post_id" :key="$pageType.$post_id"></livewire:edit-post-page>
     @endif
-    @if($page === 'my-posts')
-        <livewire:my-posts></livewire:my-posts>
+    @if($pageType === 'my-posts')
+        <livewire:my-posts :key="$pageType"></livewire:my-posts>
     @endif
-    @if($page === 'policy')
+    @if($pageType === 'policy')
         {{ view('policy') }}
     @endif
 </div>

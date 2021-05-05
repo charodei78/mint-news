@@ -5,9 +5,33 @@ require('alpinejs');
 // window.onpopstate = () => {
 //   Livewire.emit('history-move')
 // }
+
+window.log = console.log;
+
+window.changePage = (page, params = {}, pushState = true) =>
+{
+    if (pushState) {
+        console.log(params)
+        let url = new URL('/' + page, location.href);
+        if (params['page'])
+            delete params['page'];
+        for (let i in params)
+            url.searchParams.append(i, params[i]);
+        url = url.toString();
+        if (url == location.href)
+            return;
+        history.pushState({ page: page, ...params }, page, url);
+    }
+    window.Livewire.emitTo('index','changePage', page, params);
+    dispatchEvent(new Event('change-page'));
+}
+
 window.onpopstate = function(event) {
-    Livewire.emit('history-move', event.state)
-    console.log( "location: " + document.location + ", state: " + JSON.stringify(event.state))
+    let props = {};
+    for (let i in event.state)
+        if (i !== 'livewire')
+            props[i] = event.state[i];
+    changePage( event.state.page, props, false);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,3 +48,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 });
+
+const camelToKebabCase = str => str.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`);
