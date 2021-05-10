@@ -22,10 +22,10 @@
                         <a class="text-red-500" wire:click="deletePost({{ $post->id }})">
                             {{ __('Удалить') }}
                         </a>
-                        <a class="text-blue-500" x-on:click="changePage('edit-post', { post_id: {{ $post->id }} })">
+                        <a class="text-blue-500" x-on:click="changePage('edit-post', { id: {{ $post->id }} })">
                             {{ __('Редактировать') }}
                         </a>
-                        <a class="text-green-500" x-on:click="changePage('post', { post_id: {{ $post->id }} })">
+                        <a class="text-green-500" x-on:click="changePage('post', { id: {{ $post->id }} })">
                             {{ __('Посмотреть') }}
                         </a>
                     </div>

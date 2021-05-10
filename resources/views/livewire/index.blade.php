@@ -11,17 +11,17 @@
             M
         </div>
     </div>
-    @if($pageType === 'post' && $post_id)
-        <livewire:post :post_id="$post_id" :key="$pageType.$post_id"></livewire:post>
+    @if($pageType === 'post' && $ID)
+        @livewire('post', ['postId' => $ID], key($pageType.$ID))
     @endif
     @if($pageType === 'feed' || $pageType === 'favorite')
-        <livewire:feed :favorite="$pageType === 'favorite'" :key="$pageType.$category_id" :category_id="$category_id"></livewire:feed>
+        @livewire('feed', ['favorite' => $pageType === 'favorite', 'categoryId' => $ID], key($pageType.$ID))
     @endif
     @if($pageType === 'settings')
-        <livewire:settings-page :key="$pageType"></livewire:settings-page>
+        @livewire('settings-page', [$ID], key($pageType))
     @endif
     @if($pageType === 'edit-post')
-        <livewire:edit-post-page :post_id="$post_id" :key="$pageType.$post_id"></livewire:edit-post-page>
+        <livewire:edit-post-page :post_id="$ID" :key="$pageType.$ID"></livewire:edit-post-page>
     @endif
     @if($pageType === 'my-posts')
         <livewire:my-posts :key="$pageType"></livewire:my-posts>

@@ -33,7 +33,7 @@ class Feed extends Component
 
     protected function getRecommendations($limit) {
         if (!Auth::check())
-            return Post::paginate($limit)->get();
+            return Post::published()->paginate($limit)->get();
         $recs = Auth::user()->interests();
         $total = array_sum(array_map(fn ($category) => $category['count'], $recs->toArray()));
 
@@ -41,15 +41,15 @@ class Feed extends Component
 
         foreach ($recs as $rec) {
             $k = $rec->count / $total;
-            $posts = $posts->merge($rec->posts()
+            $posts = $posts->merge($rec->posts()->published()
                 ->paginate(round($limit * $k + 1, mode: PHP_ROUND_HALF_DOWN)));
         }
 
         $left = $limit - count($posts);
         if ($left > 0) {
-            $posts = $posts->merge(Post::paginate($left));
+            $posts = $posts->merge(Post::published()->paginate($left));
         }
-        $posts = new LengthAwarePaginator($posts, Post::all()->count(), 15);
+        $posts = new LengthAwarePaginator($posts, Post::published()->count(), 15);
         return $posts;
     }
 
@@ -59,8 +59,7 @@ class Feed extends Component
         if ($this->categoryId) {
             $category = Category::find($this->categoryId);
             if ($category) {
-                $filteredPosts = $category->posts()
-                    ->orderBy('created_at', 'desc')
+                $filteredPosts = $category->posts()->published()
                     ->paginate(15);
                 $this->title = $category->name;
                 $posts = $filteredPosts == [] ? false : $filteredPosts;
@@ -69,14 +68,14 @@ class Feed extends Component
         else {
             if (Auth::check()) {
                 if ($this->favorite) {
-                    $posts = Auth::user()->favorite()->paginate(15);
+                    $posts = Auth::user()->favorite()->published()->paginate(15);
                 }
                 else
                     $posts = $this->getRecommendations(15);
             }
         }
         if (!$posts) {
-            $posts = Post::paginate(15);
+            $posts = Post::published()->paginate(15);
         }
 
 

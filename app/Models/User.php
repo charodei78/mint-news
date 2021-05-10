@@ -13,7 +13,13 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 
 /**
- * @property mixed id
+ * @property integer    id
+ * @property integer    role
+ * @property string     name
+ * @property string     nickname
+ * @property string     email
+ * @property array      avatar
+ *
  */
 class User extends Authenticatable
 {
@@ -51,6 +57,12 @@ class User extends Authenticatable
         'avatar' => 'array'
     ];
 
+    protected const USER_ROLES = [
+        'user',
+        'admin',
+        'moderator'
+    ];
+
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
@@ -80,6 +92,11 @@ class User extends Authenticatable
             ->groupBy('categories.id')
             ->orderBy('count', 'desc')
             ->get(['categories.*', DB::raw('count(categories.id) as count')]);
+    }
+
+    public function role(string $role): bool
+    {
+        return self::USER_ROLES[$this->role] ?? false == mb_strtolower($role);
     }
 
 }

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -40,32 +41,50 @@ class Post extends Model
 
     protected $fillable = ['title', 'user_id', 'content', 'rating', 'year_rate', 'synopsis'];
 
+    protected const POST_STATUS = [
+        'draft',
+        'moderation',
+        'published',
+    ];
+
     // данный запрос будет добавляться ко всем запросам объекта Post
     protected static function booted()
     {
         if (Auth::check()) { // проверка на то, зарегистрирован ли пользователь
-            $user_id = Auth::user()->id;
-            static::addGlobalScope(fn($query) => $query->orderBy('posts.created_at', 'desc')
-                ->leftJoin('post_likes as pl', function ($query) use ($user_id) { // присоединение таблицы post_likes
-                    return $query->on('pl.user_id', '=', DB::raw($user_id))->on('pl.post_id', '=', 'posts.id');
-                })
-                ->leftJoin('favorite as fv', function ($query) use ($user_id) { // присоединение таблицы favorite
-                    return $query->on('fv.user_id', '=', DB::raw($user_id))->on('fv.post_id', '=', 'posts.id');
-                })
-                ->leftJoin('views as vw', 'vw.post_id', '=', 'posts.id') // присоединение таблицы views
-                ->groupBy('posts.id', 'pl.post_id', 'fv.post_id') // группировка по id поста
-                ->select([
-                    'posts.*',
-                    DB::raw('COUNT(pl.post_id) as liked'), // поле-состояние "понравилось"
-                    DB::raw('COUNT(fv.post_id) as in_favorite'), // поле-состояние "в избранном"
-                    DB::raw('COUNT(vw.*) as views') // поле "количество просмотров"
-                ])
-            );
+            static::addGlobalScope(function (Builder $builder) {
+                $user_id = Auth::user()->id;
+                $builder
+                    ->select(
+                        DB::raw('posts.*, COUNT(pl.*) as likes, COUNT(fv.*) as favorite, COUNT(vw.*) as views'),
+                        DB::raw("fv.user_id = $user_id as in_favorite"), // в избранном
+                        ) // понравилось
+                    ->leftJoin(DB::raw('favorite fv'), 'posts.id', '=', 'fv.post_id')
+                    ->leftJoin(DB::raw('views vw'), 'posts.id', '=', 'vw.post_id')
+                    ->leftJoin(DB::raw('post_likes pl'), 'posts.id', '=', 'pl.post_id')
+                    ->groupBy('posts.id', 'fv.user_id')
+                    ->orderBy('posts.created_at');
+            });
         } else
-            static::addGlobalScope(fn($query) => $query->orderBy('created_at', 'desc')
-                ->leftJoin('views as vw', 'vw.post_id', '=', 'posts.id')
-                ->groupBy('posts.id')
-                ->select(['posts.*', DB::raw('COUNT(vw.*) as views')]));
+            static::addGlobalScope(fn($query) => $query
+                    ->orderBy('created_at', 'desc')
+                    ->leftJoin('views as vw', 'vw.post_id', '=', 'posts.id')
+                    ->groupBy('posts.id')
+                    ->select(['posts.*', DB::raw('COUNT(vw.*) as views')]));
+    }
+
+    public function scopePublished(Builder $query): Builder
+    {
+        return $query->where('status', array_search('published', self::POST_STATUS));
+    }
+
+    public function scopeDraft(Builder $query): Builder
+    {
+        return $query->where('status', array_search('draft', self::POST_STATUS));
+    }
+
+    public function scopeModeration($query)
+    {
+        return $query->where('status', array_search('moderation', self::POST_STATUS));
     }
 
     public function user(): BelongsTo
@@ -83,14 +102,6 @@ class Post extends Model
         return $this->morphMany(Comment::class, 'commentable');
     }
 
-//    public function inFavorite(): bool
-//    {
-//        if (Auth::check() &&
-//            count(Auth::user()->favorite()->where('post_id', $this->id)->get()))
-//            return true;
-//        return false;
-//    }
-// TODO: добавить защиту от изменения незарегиститрованными ползователями
     public function viewedBy()
     {
         return $this->belongsToMany(User::class, 'views');
@@ -100,14 +111,18 @@ class Post extends Model
 //        return $this->viewedBy()->count();
 //    }
 
-    public function likes()
-    {
-        return $this->likedBy()->count();
+    public function getLikedAttribute() {
+        return $this->likedBy()->where('user_id', Auth::user()->id)->count();
     }
 
+//    public function likes()
+//    {
+//        return $this->likedBy()->count();
+//    }
+//
     public function likedBy()
     {
-        return $this->belongsToMany(User::class, 'likes');
+        return $this->belongsToMany(User::class, 'post_likes');
     }
 
     public function getPreviewAttribute($value)
@@ -117,12 +132,8 @@ class Post extends Model
         return $value;
     }
 
-//    public function liked(): bool
-//    {
-//        if (Auth::check() &&
-//            count(Auth::user()->liked()->where('post_id', $this->id)->get()))
-//            return true;
-//        return false;
-//    }
-
+    public function status(string $status): bool
+    {
+        return self::POST_STATUS[$this->status] ?? false == $status;
+    }
 }

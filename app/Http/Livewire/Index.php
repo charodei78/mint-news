@@ -14,9 +14,13 @@ class Index extends Component
 {
     use WithPagination;
 
-    public $pageType = 'feed';
-    public $category_id = 0;
-    public $post_id = 0;
+    public string   $pageType = 'feed';
+    public int      $ID = 0;
+
+    private const ADMIN_ONLY_PAGE = [
+        'users',
+        'moderation'
+    ];
 
     private const AUTH_ONLY_PAGE = [
         'settings',
@@ -38,17 +42,6 @@ class Index extends Component
         'changePage'
     ];
 
-    public function historyMove($params)
-    {
-        $this->post_id = intval($params['post'] ?? 0) ;
-        $this->category_id = intval($params['category'] ?? 0);
-        if ($this->post_id)
-            $this->pageType = 'post';
-        else
-            $this->pageType = 'feed';
-        $this->pageType = $params['page'] ?? $this->pageType;
-    }
-
     public function  changePage($type = 'feed', $params = []) {
         if (array_search($type, self::PUBLIC_PAGE) !== false ||
             (array_search($type, self::AUTH_ONLY_PAGE) !== false && Auth::check())
@@ -57,8 +50,7 @@ class Index extends Component
         }
         else
             $this->pageType = 'feed';
-        $this->post_id = $params['post_id'] ?? 0;
-        $this->category_id = $params['category_id'] ?? 0;
+        $this->ID = $params['id'] ?? 0;
     }
 
     public function favoriteChange($inFavorite, $post_id)
@@ -92,10 +84,8 @@ class Index extends Component
 
     public function render()
     {
-        if (!$this->category_id)
-            $this->category_id = intval($_GET['category_id'] ?? 0);
-        if (!$this->post_id)
-            $this->post_id = intval($_GET['post_id'] ?? 0) ;
+        if (!$this->ID)
+            $this->ID = intval($_GET['id'] ?? 0);
         return view('livewire.index')
             ->extends('layouts.base');
     }

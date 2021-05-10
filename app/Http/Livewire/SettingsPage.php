@@ -26,6 +26,7 @@ class SettingsPage extends Component
     public string $password = '';
     public string $passwordConfirmation = '';
     public string $oldPassword = '';
+    public $user_id;
 
     protected $rules = [
         'password' => 'required|min:6',
@@ -38,11 +39,11 @@ class SettingsPage extends Component
         ]);
     }
 
-    public function updateAvatar(Request $request) {
+    public function updateAvatar() {
         $this->validate([
             'avatar' => 'image|max:1024|mimes:png,jpg', // 1MB Max
         ]);
-        $user = Auth::user();
+        $user = $this->user;
         $path = 'public/user_avatars/'.$user->id;
         if (Storage::exists($path))
             Storage::deleteDirectory($path);
@@ -58,6 +59,7 @@ class SettingsPage extends Component
             $avatars[$type] = $path.'/'.$type.'.jpg';
         }
         $user->avatar = $avatars;
+        $this->avatar = null;
         $user->save();
     }
 
@@ -68,7 +70,7 @@ class SettingsPage extends Component
             return;
         }
         $this->validate();
-        $user = Auth::user();
+        $user = $this->user;
 
         if (Auth::attempt(['email' => $user->email, 'password' => $this->oldPassword])) {
             $user->password = Hash::make($this->password);
@@ -80,11 +82,27 @@ class SettingsPage extends Component
         }
     }
 
+    public function mount(int $id = 0)
+    {
+        if (!$id)
+            $id = Auth::user()->id;
+        $this->user_id = $id;
+    }
+
+    public function getUserProperty(): User
+    {
+        $user = User::find($this->user_id);
+        if (!$user || Auth::user()->cannot('update', $user)) {
+            $user = Auth::user();
+        }
+        return $user;
+    }
+
     public function render()
     {
-        $categories = Auth::user()->interests();
+        $user = $this->user;
+        $categories = $user->interests();
 
-        $user = Auth::user();
         return view('livewire.settings-page', compact('user', 'categories'))
             ->extends('layouts.base')
             ->section('content');

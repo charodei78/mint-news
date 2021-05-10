@@ -1,5 +1,5 @@
 <div class="post-full-width"
-     onclick="changePage('post', {post_id: {{ $post->id }}})">
+     onclick="changePage('post', {id: {{ $post->id }}})">
     <img src="{{ url($post->preview) }}" class="post-preview-image">
     <div class="post-body-wrapper">
         <div class="post-body">

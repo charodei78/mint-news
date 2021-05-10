@@ -2,14 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="185fd07c-5e64-4c88-b739-d059ea74db33" name="Default Changelist" comment="Login, register, logout added">
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/Dashboard/Moderation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/Dashboard/Users.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Policies/UserPolicy.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_10_123328_add_roles_to_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/dashboard/moderation.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/dashboard/users.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/55d403ae-4106-4cb8-86cc-ab5f30ab7a40.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/55d403ae-4106-4cb8-86cc-ab5f30ab7a40.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/55d403ae-4106-4cb8-86cc-ab5f30ab7a40/storage_v2/_src_/database/mint_news.kIzMQg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/55d403ae-4106-4cb8-86cc-ab5f30ab7a40/storage_v2/_src_/database/mint_news.kIzMQg/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/header/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/header/user-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header/user-menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Feed.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Feed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/RightSidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/RightSidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Search.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/SettingsPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/SettingsPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/PostPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/PostPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/post/full-width-post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/post/full-width-post.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/base.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/my-posts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/my-posts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/right-sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/right-sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/settings-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/settings-page.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +202,7 @@
       <command value="config/livewire.php" />
     </option>
   </component>
-  <component name="RunManager" selected="PHP Script.serve">
+  <component name="RunManager" selected="npm.watch">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
@@ -280,7 +297,8 @@
       <workItem from="1619592642905" duration="261000" />
       <workItem from="1619697312766" duration="5531000" />
       <workItem from="1620212301161" duration="8666000" />
-      <workItem from="1620229987331" duration="7645000" />
+      <workItem from="1620229987331" duration="7753000" />
+      <workItem from="1620649403555" duration="11879000" />
     </task>
     <task id="LOCAL-00001" summary="responsive login added, global blackout function added">
       <created>1611851643494</created>

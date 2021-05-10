@@ -9,7 +9,7 @@ class RightSidebar extends Component
 {
     public function render()
     {
-        $posts = Post::orderBy('created_at', 'desc')->limit(5)->get();
+        $posts = Post::published()->orderBy('created_at', 'desc')->limit(5)->get();
         return view('livewire.right-sidebar', compact('posts'));
     }
 }

@@ -75,7 +75,7 @@
                                 }"
                             :key="{{ $category->id }}"
                             class="side-menu-button"
-                            @click="title = '{{ $category->name }}'; selected = {{ $category->id }}; changePage('feed', { category_id: selected})"
+                            @click="title = '{{ $category->name }}'; selected = {{ $category->id }}; changePage('feed', { id: selected})"
                     >
                         <img src="/ico/star.svg">
                         <span>

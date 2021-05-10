@@ -13,82 +13,82 @@ class PostPolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\Models\User  $user
-     * @return mixed
+     * @param User $user
+     * @return bool
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Post  $post
-     * @return mixed
+     * @param User $user
+     * @param Post $post
+     * @return bool
      */
-    public function view(User $user, Post $post)
+    public function view(User $user, Post $post): bool
     {
-        //
+        return $post->status('published') || $this->update($user, $post);
     }
 
     /**
      * Determine whether the user can create models.
      *
-     * @param  \App\Models\User  $user
-     * @return mixed
+     * @param User $user
+     * @return bool
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can update the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Post  $post
-     * @return mixed
+     * @param User $user
+     * @param Post $post
+     * @return bool
      */
-    public function update(User $user, Post $post)
+    public function update(User $user, Post $post): bool
     {
-        return $user->id == $post->user_id;
+        return $post->user == $user || $user->role('admin') || $user->role('moderator');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Post  $post
-     * @return mixed
+     * @param User $user
+     * @param Post $post
+     * @return bool
      */
-    public function delete(User $user, Post $post)
+    public function delete(User $user, Post $post): bool
     {
-        //
+        return $post->user == $user;
     }
 
     /**
      * Determine whether the user can restore the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Post  $post
-     * @return mixed
+     * @param User $user
+     * @param Post $post
+     * @return bool
      */
-    public function restore(User $user, Post $post)
+    public function restore(User $user, Post $post): bool
     {
-        //
+        return $post->user == $user;
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Post  $post
-     * @return mixed
+     * @param User $user
+     * @param Post $post
+     * @return bool
      */
     public function forceDelete(User $user, Post $post)
     {
-        //
+        return $post->user == $user || $user->role('admin') || $user->role('moderator');
     }
 }

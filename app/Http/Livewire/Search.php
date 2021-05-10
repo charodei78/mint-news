@@ -26,7 +26,8 @@ class Search extends Component
 //            LIMIT 5
 //        ', [$this->input]);
         if (strlen($this->input) > 2) {
-            $posts = Post::where('title', 'ILIKE', '%' . $this->input . '%')
+            $posts = Post::published()
+                ->where('title', 'ILIKE', '%' . $this->input . '%')
                 ->orderBy('created_at', 'desc')
                 ->limit(5)
                 ->get();

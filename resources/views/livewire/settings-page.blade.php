@@ -1,6 +1,6 @@
 <div class="w-full rounded bg-green-100 py-6 px-10" x-data="{}">
     <div class="w-full inline-flex">
-        <div class="w-1/4">
+        <div class="w-32 mr-4">
             @error('photo')
             <div class="bg-red-500 w-60 p-1 text-white text-center mb-3 rounded" wire:key="$message">
                 {{ $message }}
@@ -14,15 +14,13 @@
                 <img class="w-32 object-cover h-32 rounded-full"
                      @if($avatar)
                        src="{{ $avatar->temporaryUrl() }}"
-                     @endif
-                     @if(!$avatar && Auth::user()->avatar)
-                       src="{{ Storage::url(Auth::user()->avatar['sm']) }}"
+                     @elseif($user->avatar)
+                       src="{{ Storage::url($user->avatar['sm'] ?? reset($user->avatar)) }}"
+                     @else
+                        src="{{ '/user/avatar.png' }}"
                      @endif
                      alt="avatar image"
                 >
-                @if($avatar)
-                <button wire:click="updateAvatar">{{ __('Сохранить') }}</button>
-                @endif
             </div>
         </div>
         <div>
@@ -32,6 +30,9 @@
             <div class="text-lg">
                 {{ $user->nickname }}
             </div>
+            @if($avatar)
+                <button wire:click="updateAvatar" class="send-button">{{ __('Сохранить') }}</button>
+            @endif
         </div>
     </div>
     <div class="w-full mb-7">
@@ -74,11 +75,11 @@
             {{ __('Уведомления') }}
         </div>
         <div class="flex flex-col">
-            <div class="flex w-3/5 justify-between">
+            <div class="flex w-full lg:w-3/5 justify-between">
                 <div>{{ __('Ответы на коментарии') }}</div>
                 <input type="checkbox" class="rounded">
             </div>
-            <div class="flex w-3/5 justify-between">
+            <div class="flex w-full lg:w-3/5 justify-between">
                 <div>{{ __('Новые статьи') }}</div>
                 <input type="checkbox" class="rounded">
             </div>
@@ -90,7 +91,7 @@
         </div>
         <div>
             @forelse($categories as $category)
-                <div class="flex w-1/2 justify-between">
+                <div class="flex w-full lg:w-3/5 justify-between">
                     <div>
                         {{ $category->name }}
                     </div>
