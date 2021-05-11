@@ -8,8 +8,6 @@ require('alpinejs');
 
 window.log = console.log;
 
-window.oblank = (e, href) => { e.button === 1 && window.open(href, '_blank') }
-
 window.changePage = (page, params = {}, pushState = true) =>
 {
     if (pushState) {
@@ -20,9 +18,15 @@ window.changePage = (page, params = {}, pushState = true) =>
         for (let i in params)
             url.searchParams.append(i, params[i]);
         url = url.toString();
-        if (url == location.href)
+        if (event.button === 1) {
+            let win = window.open(url, '_blank', "width=900");
             return;
-        history.pushState({ page: page, ...params }, page, url);
+        }
+
+        else if (url === location.href)
+            return
+        else
+            history.pushState({ page: page, ...params }, page, url);
     }
     window.Livewire.emitTo('index','changePage', page, params);
     dispatchEvent(new Event('change-page'));

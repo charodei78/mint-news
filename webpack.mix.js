@@ -23,7 +23,7 @@ mix.options({
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/ckeditor-init.js', 'public/js')
     .js('resources/js/ckeditor.js', 'public/js')
-    .browserSync('localhost:8000')
+    // .browserSync('localhost:8000')
     .postCss('resources/css/app.css', 'public/css')
     .postCss('resources/css/tailwind.css', 'public/css')
     .postCss('resources/css/utilities.css', 'public/css');

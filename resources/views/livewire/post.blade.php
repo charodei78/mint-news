@@ -15,7 +15,7 @@
         </div>
         @can('update', $post)
             <a  class="cursor-pointer"
-                x-on:click="Livewire.emit('editPost', {{ $post->id }})"
+                x-on:click="changePage('edit-post', { id: {{ $post->id }} })"
             >{{ __('Редактировать') }}</a>
         @endcan
     </div>

@@ -811,7 +811,7 @@ false Zulu
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>7942</IntrospectionStateNumber>
+      <IntrospectionStateNumber>8033</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|25335|25337|1
 sequence|table|42182|42184|1
@@ -897,7 +897,7 @@ sequence|table|42261|42263|1
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>7943</IntrospectionStateNumber>
+      <IntrospectionStateNumber>8034</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="21" parent="3" name="plpgsql">
@@ -1657,7 +1657,8 @@ commentable_id</ColNames>
     <column id="125" parent="49" name="status">
       <Position>14</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>6934</StateNumber>
+      <StateNumber>8029</StateNumber>
+      <DefaultExpression>0</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
     <column id="126" parent="49" name="deleted_at">

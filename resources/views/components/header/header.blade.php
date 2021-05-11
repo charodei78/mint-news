@@ -7,8 +7,7 @@
                 @auth
                     <img class="user_menu shadow-filter hidden sm:flex"
                          x-data="{}"
-                         onmouseup="changePage('favorite')"
-                         @mousedown="oblank($event, '{{ url('/favorite') }}')"
+                         @mousedown="changePage('favorite')"
                          src="/ico/inFavorite.svg" alt="⭐">
                     <x-header.notifications class="hidden sm:flex"></x-header.notifications>
                     <x-header.user-menu></x-header.user-menu>

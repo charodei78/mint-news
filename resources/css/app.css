@@ -320,7 +320,7 @@ a {
 }
 
 .send-button {
-    @apply rounded bg-green-500 p-2 mr-4 disabled:opacity-30 text-green-100 font-medium;
+    @apply rounded bg-green-500 p-2 disabled:opacity-30 text-green-100 font-medium;
 }
 
 .transparent-textarea {

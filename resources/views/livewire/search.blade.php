@@ -25,8 +25,8 @@
         <div x-show="visible" class="absolute z-10 mt-10 w-full min-w-96 h-10 result-wrapper">
             @forelse($posts as $post)
                 <div class="post-in-search" key="{{$post->id}}"
-                     x-on:click="changePage('post', { id: {{ $post->id }} });hide();"
-                     x-on:mousedown="oblank($event, '{{ url('/post?post_id='.$post->id) }}')"
+                     x-on:mousedown="changePage('post', { id: {{ $post->id }} });hide();"
+                     wire:key="{{ "search".$post->id}}"
                 >
                     <img src="{{ url($post->preview) }}" class="w-28 h-full mr-1 rounded-lg object-cover" >
                     <div class="flex flex-col w-2/3">

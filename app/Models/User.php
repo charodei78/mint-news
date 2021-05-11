@@ -94,9 +94,16 @@ class User extends Authenticatable
             ->get(['categories.*', DB::raw('count(categories.id) as count')]);
     }
 
-    public function role(string $role): bool
+    public function role(string ...$roles): bool
     {
-        return self::USER_ROLES[$this->role] ?? false == mb_strtolower($role);
+        $user_role = self::USER_ROLES[$this->role] ?? false;
+        if (!$user_role) return false;
+
+        foreach ($roles as $role) {
+            if ($user_role == mb_strtolower($role))
+                return true;
+        }
+        return false;
     }
 
 }

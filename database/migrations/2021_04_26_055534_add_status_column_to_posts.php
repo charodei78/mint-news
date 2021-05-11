@@ -14,7 +14,7 @@ class AddStatusColumnToPosts extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->addColumn("integer", "status")->nullable();
+            $table->addColumn("integer", "status")->default(0);
         });
     }
 

@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use App\Models\Post;
 use Livewire\WithFileUploads;
-use function Couchbase\defaultDecoder;
 use function Livewire\str;
 
 
@@ -28,11 +27,15 @@ class EditPostPage extends Component
         'post.body' => 'required|min:400|max:16000',
     ];
 
-    public function mount()
+    public function mount($id)
     {
+        if (!$this->postId)
+            $this->postId = $id;
         $post = Post::find($this->postId);
-//        dd($this->postId);
-        if ($post == null){
+
+        if ($post && Auth::user()->cannot('update', $post))
+            abort(403);
+        if ($post == null) {
             $post = new Post;
             $post->user_id = Auth::user()->id;
             $post->title = "";
@@ -40,15 +43,16 @@ class EditPostPage extends Component
             $post->synopsis = "";
             $post->body = "";
             $post->status = 0;
+            $post->save();
         }
-        if ($post->user_id != Auth::user()->id)
-            abort(403);
         $this->post = $post;
-        $this->post->save();
+        $this->checked_categories = $post->categories->getQueueableIds();
     }
 
     public function updated($name, $value)
     {
+        if (Auth::user()->cannot('update', $this->post))
+            abort(403);
         switch ($name) {
             case 'preview':
                 $path = 'public/post_images/'.$this->post->id;
@@ -61,18 +65,27 @@ class EditPostPage extends Component
                 else
                     $this->post->preview = "";
                 break;
-            case 'categories':
+            case 'checked_categories':
                 $this->post->categories()->detach();
-                $this->post->categories()->attach($this->categories);
+                $this->post->categories()->attach($this->checked_categories);
                 break ;
         }
+        if (!$this->post->status('published'))
+            $this->post->save();
+    }
+
+    public function setStatus($status)
+    {
+        $status_id = array_search($status, Post::POST_STATUS);
+        if ($status_id === false)
+            return;
+        $this->post->status = $status_id;
         $this->post->save();
     }
 
     public function render()
     {
         $categories = Category::all();
-
         return view('livewire.edit-post-page', compact('categories'));
     }
 }

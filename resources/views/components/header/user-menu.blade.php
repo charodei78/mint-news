@@ -10,7 +10,6 @@
         <li class="px-5  hover:bg-green-200 cursor-pointer">
             <div class="w-full h-full"
                  @mouseup="open = false;changePage('settings');"
-                 @mousedown="oblank($event, '{{ url('/settings') }}')"
             >
                 {{ __('Настройки') }}
             </div>
@@ -18,17 +17,13 @@
         <li class="px-5  hover:bg-green-200 cursor-pointer">
             <div class="w-full h-full"
                  @mouseup="open = false;changePage('my-posts');"
-                 @mousedown="oblank($event, '{{ url('/my-posts') }}')"
             >
 
                 {{ __('Мои посты') }}
             </div>
         </li>
         <li class="px-5  hover:bg-green-200 cursor-pointer">
-            <div class="w-full h-full"
-                 @mouseup="open = false;changePage('edit-post');"
-                 @mousedown="oblank($event, '{{ url('/edit-post') }}')"
-            >
+            <div class="w-full h-full" @mouseup="open = false;changePage('edit-post');">
 
                 {{ __('Создать пост') }}
             </div>

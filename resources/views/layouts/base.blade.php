@@ -52,13 +52,12 @@
             <div
                 class="flex flex-col space-y-1 {{ $class ?? '' }}"
                 x-data="{
-                    selected: history.state?.category || 0,
+                    selected: {{ request()->get('id') ?? 0 }},
                     title: ''
                 }"
             >
                 <div class="bg-green-600 side-menu-button font-extrabold space-x-2 pl-3 text-2xl"
-                     @click="title = 'feed'; selected = 0; changePage('feed')"
-                     x-on:mousedown="oblank($event, '{{ url('/feed') }}')"
+                     @mouseup="title = 'feed'; selected = 0; changePage('feed')"
                 >
                     <img src="/ico/feed.svg">
                     <span>
@@ -68,14 +67,14 @@
                 <hr class="opacity-40 border-1 rounded">
                 @php($categories = \App\Models\Category::limit(5)->get())
                 @foreach($categories as $category)
-                    <div x-on:mousedown="oblank($event, '{{ url('/feed?category_id='.$category->id)  }}')"
+                    <div
                         :class="{
                               'bg-green-600': selected == {{ $category->id }},
                               'hover:bg-green-600 hover:bg-opacity-50': selected != {{ $category->id }}
                                 }"
-                            :key="{{ $category->id }}"
-                            class="side-menu-button"
-                            @click="title = '{{ $category->name }}'; selected = {{ $category->id }}; changePage('feed', { id: selected})"
+                        :key="{{ $category->id }}"
+                        class="side-menu-button"
+                        @mouseup="title = '{{ $category->name }}'; selected = {{ $category->id }}; changePage('feed', { id: selected})"
                     >
                         <img src="/ico/star.svg">
                         <span>

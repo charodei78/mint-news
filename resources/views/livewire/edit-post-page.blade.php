@@ -3,7 +3,7 @@
             image: null,
             error: '',
             validate() {
-                if (!this.$refs.preview.value.length) {
+                if (this.$refs.preview && !this.$refs.preview.value.length) {
                     this.error = '{{ __('Этому посту не хватает красивого изображения. Мокки любит картинки!') }}'
                     return false;
                 }
@@ -17,28 +17,11 @@
                     return false;
                 }
                 return true;
-            },
-            sendData(e) {
-                if (!this.validate(e))
-                    return false;
-                let formData = new FormData(e.target);
-                let content = document.getElementById('editor');
-                formData.append('body', content.innerHTML);
-                axios.post('{{ route('posts.store')  }}', formData)
-                    .then((response) => {
-                        console.log('success');
-                        location.href = '/';
-                    })
-                    .catch((error) => {
-                        console.log(error.response);
-                        alert('{{ __('Произошла ошибка загрузки') }}');
-                    })
             }
         }"
      x-init="$watch('error', (value) => { if (value.length) $scroll($el)  })"
 >
-    <form class="flex flex-col" x-ref="postForm" @submit.prevent="sendData">
-        @csrf
+    <div class="flex flex-col">
         <div x-show="error.length"
              x-ref="errorMessage"
              @scroll.window="$refs.errorMessage.style.top = document.scrollHeight + 'px'"
@@ -121,20 +104,71 @@
         </div>
         <hr class="post-hr">
         <h2> Категории </h2>
-        <select name="categories[]" wire:model.lazy="checked_categories" required class="rounded shadow-inner bg-transparent" multiple>
+        <select name="categories[]" wire:model="checked_categories" required class="rounded shadow-inner bg-transparent" multiple>
             @foreach($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach
         </select>
-        <button class="send-button mt-2">
-            {{ __('Отправить') }}
-        </button>
-    </form>
+        <div class="w-full flex mt-2 justify-between space-x-2.5">
+
+            {{--      MODERATOR      --}}
+            @can('moderate', $post)
+                @if($post->status('moderation', 'rejected'))
+                <button
+                        class="send-button w-full bg-bg-green-300"
+                        x-on:click.prevent="validate() && $wire.setStatus('published')"
+                        type="button"
+                >
+                    {{ __('Опубликовать') }}
+                </button>
+                <button
+                        x-on:click="$wire.setStatus('rejected')"
+                        class="send-button w-full bg-red-500"
+                        type="button"
+                >
+                    {{ __('Отклонить') }}
+                </button>
+                @endif
+                @if($post->status('published'))
+                    <button
+                            class="send-button w-full bg-red-500"
+                            x-on:click.prevent="$wire.setStatus('rejected')"
+                            type="button"
+                    >
+                        {{ __('Снять с публикации') }}
+                    </button>
+                @endif
+            @endcan
+            {{--    end MODERATOR      --}}
+
+            {{--      USER      --}}
+            @if(Auth::user() == $post->user)
+            @if($post->status('draft', 'rejected') || ($post->status('published') && $post->isDirty()))
+                <button
+                        class="send-button w-full bg-blue-500"
+                        x-on:click="validate() && $wire.setStatus('moderation')"
+                        type="button"
+                >
+                    {{ __('На модерацию') }}
+                </button>
+            @endif
+            @if($post->status('moderated', 'published'))
+                <button
+                        class="send-button w-full bg-red-500"
+                        x-on:click="validate() && $wire.setStatus('draft')"
+                        type="button"
+                >
+                    {{ __('В черновик') }}
+                </button>
+            @endif
+            {{--      end USER      --}}
+
+            @endif
+        </div>
+    </div>
     <script type="module" src="/js/ckeditor-init.js"></script>
     <script>
-      if (!location.href.endsWith('/edit-post?post={{ $post->id }}')) {
-        history.pushState({ page: 'edit-post', post: {{ $post->id }} }, 'Edit post', '/edit-post?post={{ $post->id }}')
-      }
+
       let script = document.querySelector('script[src="/js/ckeditor.js"]');
       if (!script) {
         script = document.createElement('script');
@@ -235,6 +269,7 @@
               console.error(error);
             });
       }
+
 
 
     </script>

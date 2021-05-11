@@ -21,7 +21,7 @@
         @livewire('settings-page', [$ID], key($pageType))
     @endif
     @if($pageType === 'edit-post')
-        <livewire:edit-post-page :post_id="$ID" :key="$pageType.$ID"></livewire:edit-post-page>
+        @livewire('edit-post-page', [$ID], key($pageType.$ID))
     @endif
     @if($pageType === 'my-posts')
         <livewire:my-posts :key="$pageType"></livewire:my-posts>

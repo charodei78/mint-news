@@ -41,10 +41,18 @@ class Post extends Model
 
     protected $fillable = ['title', 'user_id', 'content', 'rating', 'year_rate', 'synopsis'];
 
-    protected const POST_STATUS = [
+    public const POST_STATUS = [
         'draft',
         'moderation',
         'published',
+        'rejected',
+    ];
+
+    public const STATUS_COLOR = [
+        'text-gray-500',
+        'text-blue-500',
+        'text-green-400',
+        'text-red-500'
     ];
 
     // данный запрос будет добавляться ко всем запросам объекта Post
@@ -132,8 +140,16 @@ class Post extends Model
         return $value;
     }
 
-    public function status(string $status): bool
+    public function status(string ...$statuses): bool
     {
-        return self::POST_STATUS[$this->status] ?? false == $status;
+        $post_status = self::POST_STATUS[$this->status] ?? false;
+        if (!$post_status) return false;
+
+        foreach ($statuses as $status) {
+            if ($post_status == mb_strtolower($status))
+                return true;
+        }
+        return false;
     }
+
 }

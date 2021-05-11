@@ -53,7 +53,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post): bool
     {
-        return $post->user == $user || $user->role('admin') || $user->role('moderator');
+        return $post->user == $user || $user->role('admin', 'moderator');
     }
 
     /**
@@ -89,6 +89,11 @@ class PostPolicy
      */
     public function forceDelete(User $user, Post $post)
     {
-        return $post->user == $user || $user->role('admin') || $user->role('moderator');
+        return $post->user == $user || $user->role('admin', 'moderator');
+    }
+
+    public function moderate(User $user, Post $post)
+    {
+        return $user->role('admin', 'moderator');
     }
 }
