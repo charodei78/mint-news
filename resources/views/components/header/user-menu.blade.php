@@ -5,35 +5,45 @@
     <ul x-show.transition="open"
         style="display:none"
         @click.away="open=false"
+        @click="open = false;"
         class="absolute z-30 text-gray-900  shadow-md right-0 rounded py-2.5 leading-8 top-14 text-green-500 bg-green-100">
         <li class="px-5 text-xl mb-1 text-black">{{ explode(' ', Auth::user()->name)[0] }}</li>
-        <li class="px-5  hover:bg-green-200 cursor-pointer">
-            <div class="w-full h-full"
-                 @mouseup="open = false;changePage('settings');"
-            >
+        <li class="px-5 hover:bg-green-200 cursor-pointer">
+            <div class="w-full h-full" @mouseup="changePage('settings');">
                 {{ __('Настройки') }}
             </div>
         </li>
-        <li class="px-5  hover:bg-green-200 cursor-pointer">
-            <div class="w-full h-full"
-                 @mouseup="open = false;changePage('my-posts');"
-            >
-
+        @if(Auth::user()->role('admin'))
+            <li class="px-5 hover:bg-green-200 cursor-pointer">
+                <div class="w-full h-full" @mouseup="changePage('users');">
+                    {{ __('Пользователи') }}
+                </div>
+            </li>
+        @endif
+        @if(Auth::user()->role('admin', 'moderator'))
+            <li class="px-5 hover:bg-green-200 cursor-pointer">
+                <div class="w-full h-full" @mouseup="changePage('moderation');">
+                    {{ __('Модерация') }}
+                </div>
+            </li>
+        @endif
+        <li class="px-5 hover:bg-green-200 cursor-pointer">
+            <div class="w-full h-full" @mouseup="changePage('my-posts');">
                 {{ __('Мои посты') }}
             </div>
         </li>
-        <li class="px-5  hover:bg-green-200 cursor-pointer">
-            <div class="w-full h-full" @mouseup="open = false;changePage('edit-post');">
+        <li class="px-5 hover:bg-green-200 cursor-pointer">
+            <div class="w-full h-full" @mouseup="changePage('edit-post');">
 
                 {{ __('Создать пост') }}
             </div>
         </li>
-        <li class="px-5  hover:bg-green-200 cursor-pointer">
+        <li class="px-5 hover:bg-green-200 cursor-pointer">
             <div class="w-full h-full">
                 {{ __('Помощ') }}
             </div>
         </li>
-        <li class="px-5  hover:bg-green-200 cursor-pointer" @click="location.href = '{{ route('logout') }}'">
+        <li class="px-5 hover:bg-green-200 cursor-pointer" @click="location.href = '{{ route('logout') }}'">
             <div class="w-full h-full">
                 {{ __('Выйти') }}
             </div>

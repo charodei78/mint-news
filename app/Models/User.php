@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @property integer    id
@@ -57,10 +58,16 @@ class User extends Authenticatable
         'avatar' => 'array'
     ];
 
-    protected const USER_ROLES = [
+    public const USER_ROLES = [
         'user',
         'admin',
         'moderator'
+    ];
+
+    protected const USER_ROLES_COLOR = [
+        'text-green-500',
+        'text-red-500',
+        'text-blue-500'
     ];
 
     public function posts(): HasMany
@@ -105,5 +112,25 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function getRole(): string
+    {
+        return self::USER_ROLES[$this->role] ?? 'undefined';
+    }
+
+    public function getRoleColor(): string
+    {
+        return self::USER_ROLES_COLOR[$this->role] ?? 'text-indigo-500';
+    }
+
+    public function getAvatar($size): string
+    {
+        if ($this->avatar[$size] ?? null != null)
+            $path = Storage::url($this->avatar[$size]);
+        else
+            $path = '/user/avatar.png';
+        return $path;
+    }
+
 
 }

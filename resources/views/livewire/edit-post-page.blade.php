@@ -19,18 +19,19 @@
                 return true;
             }
         }"
-     x-init="$watch('error', (value) => { if (value.length) $scroll($el)  })"
+     x-init="$watch('error', (value) => { if (value.length) $scroll($el);})"
 >
     <div class="flex flex-col">
         <div x-show="error.length"
              x-ref="errorMessage"
              @scroll.window="$refs.errorMessage.style.top = document.scrollHeight + 'px'"
-            class="absolute top-72 w-full left-0 z-10"
+             class="absolute top-72 w-full left-0 z-10"
+             style="display: none"
         >
             <div
                  class="rounded m-auto cursor-pointer left-0 right-0 p-3 w-80 mx-auto text-center px-10 bg-green-500 text-green-100 font-medium"
                  x-text="error"
-                 @click.window="error = ''"
+                 @click="error = ''"
             ></div>
         </div>
 

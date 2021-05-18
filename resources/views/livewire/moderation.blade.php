@@ -1,7 +1,7 @@
 <div class="main-wrapper">
     <div class="flex">
         <div class="text-green-100 text-2xl pb-0 font-bold pr-2">{{ __('Мои посты') }}</div>
-        <x-user-interface.filter variable="filter" :value="$filter" :values="$filters"></x-user-interface.filter>
+        <x-user-interface.filter variable="filter" :value="$filter" :values="$filter_values"></x-user-interface.filter>
     </div>
     <div class="mt-6">
         @foreach($posts as $post)
@@ -31,13 +31,7 @@
                         </div>
                     </div>
                     <div class="button-group">
-                        <button wire:click="deletePost({{ $post->id }})">
-                            <img src="/ico/delete.svg" alt="delete">
-                        </button>
                         <button x-on:mouseup="changePage('edit-post', { id: {{ $post->id }} })">
-                            <img src="/ico/edit.svg" alt="edit">
-                        </button>
-                        <button x-on:mouseup="changePage('post', { id: {{ $post->id }} })">
                             <img src="/ico/link.svg" alt="view">
                         </button>
                     </div>

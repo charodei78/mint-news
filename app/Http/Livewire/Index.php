@@ -19,6 +19,9 @@ class Index extends Component
 
     private const ADMIN_ONLY_PAGE = [
         'users',
+    ];
+
+    private const MODERATOR_PAGE = [
         'moderation'
     ];
 
@@ -42,12 +45,23 @@ class Index extends Component
         'changePage'
     ];
 
-    public function  changePage($type = 'feed', $params = []) {
-        if (array_search($type, self::PUBLIC_PAGE) !== false ||
-            (array_search($type, self::AUTH_ONLY_PAGE) !== false && Auth::check())
-        ) {
-            $this->pageType = $type;
+    private function checkAccess(string $type): bool
+    {
+        if (Auth::check()) {
+            if (Auth::user()->role('admin'))
+                return true;
+            if (array_search($type, self::MODERATOR_PAGE) !== false && Auth::user()->role('moderator'))
+                return true;
         }
+        if (array_search($type, self::PUBLIC_PAGE) !== false)
+            return true;
+        return false;
+    }
+
+    public function  changePage($type = 'feed', $params = [])
+    {
+        if ($this->checkAccess($type))
+            $this->pageType = $type;
         else
             $this->pageType = 'feed';
         $this->ID = $params['id'] ?? 0;

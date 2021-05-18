@@ -11,20 +11,27 @@
             M
         </div>
     </div>
+    @php($key = $pageType.$ID.request()->get('page'))
     @if($pageType === 'post' && $ID)
-        @livewire('post', ['postId' => $ID], key($pageType.$ID))
+        @livewire('post', ['postId' => $ID], key($key))
     @endif
     @if($pageType === 'feed' || $pageType === 'favorite')
-        @livewire('feed', ['favorite' => $pageType === 'favorite', 'categoryId' => $ID], key($pageType.$ID))
+        @livewire('feed', ['favorite' => $pageType === 'favorite', 'categoryId' => $ID], key($key))
     @endif
     @if($pageType === 'settings')
-        @livewire('settings-page', [$ID], key($pageType))
+        @livewire('settings-page', [$ID], key($key))
     @endif
     @if($pageType === 'edit-post')
-        @livewire('edit-post-page', [$ID], key($pageType.$ID))
+        @livewire('edit-post-page', [$ID], key($key))
     @endif
     @if($pageType === 'my-posts')
-        <livewire:my-posts :key="$pageType"></livewire:my-posts>
+        @livewire('my-posts', key($key))
+    @endif
+    @if($pageType === 'moderation')
+        @livewire('moderation', key($key))
+    @endif
+    @if($pageType === 'users')
+        @livewire('users-c-p', key($key))
     @endif
     @if($pageType === 'policy')
         {{ view('policy') }}

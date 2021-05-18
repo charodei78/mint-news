@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use App\Models\Post;
 use Livewire\WithPagination;
 
 class MyPosts extends Component
@@ -12,6 +13,7 @@ class MyPosts extends Component
     use WithPagination;
 
     public string   $orderBy = "id";
+    public int      $filter = -1;
     public bool     $asc = false;
     public int      $paginate = 10;
 
@@ -33,9 +35,13 @@ class MyPosts extends Component
     {
         $posts = Auth::user()
             ->posts()
-            ->select('id', 'title', 'synopsys', 'preview', 'synopsis', 'views', 'created_at')
+            ->select('id', 'title', 'synopsys', 'preview', 'views', 'created_at');
+        if ($this->filter != -1)
+            $posts->where('status', $this->filter);
+        $posts = $posts
             ->orderBy($this->orderBy, $this->asc ? 'asc' : 'desc')
             ->paginate($this->paginate);
-        return view('livewire.my-posts', compact('posts'));
+        $filters = [-1 => __('все')] + Post::POST_STATUS;
+        return view('livewire.my-posts', compact('posts','filters'));
     }
 }

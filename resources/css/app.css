@@ -327,6 +327,9 @@ a {
     @apply resize-none border-none overflow-hidden focus:ring-transparent outline-none bg-transparent;
 }
 
+.post-wrapper {
+    @apply py-4 px-3;
+}
 
 .post-wrapper .post-body {
     @apply break-all;
@@ -362,7 +365,7 @@ a {
 /* end Post create */
 
 .main-wrapper {
-    @apply w-screen sm:w-full flex flex-col rounded py-4 px-3 sm:px-8 relative;
+    @apply w-screen sm:w-full flex flex-col rounded sm:px-8 relative;
 }
 
 #editor blockquote, .post-wrapper .post-body blockquote {
@@ -374,3 +377,85 @@ a {
     margin-left: 0;
     margin-right: 0;
 }
+
+
+/* posts in list */
+
+.post-in-list
+{
+    @apply w-full flex h-40 justify-between space-x-2 rounded-md bg-green-100 mb-4 p-3;
+}
+
+.post-in-list .post-preview-image
+{
+    @apply h-full;
+    min-width: 9rem;
+}
+
+.post-in-list .post-preview-image img
+{
+    @apply h-full rounded object-cover;
+}
+
+.post-in-list .post-body-wrapper
+{
+    @apply grid flex-col w-full;
+    grid-template-columns: 50% 25% 25%;
+    grid-template-rows: 25% 50% 25%;
+    grid-template-areas:    "body body status"
+                            "body body buttons"
+                            "info info buttons"
+}
+
+@screen md {
+.post-in-list .post-body-wrapper {
+    grid-template-areas:    "body body status"
+                            "body body status"
+                            "info buttons buttons"
+}
+}
+
+.post-in-list .post-body-wrapper .post-body
+{
+    @apply h-24 w-full ellipsis mb-2;
+    grid-area: body;
+}
+
+.post-in-list .post-body-wrapper .status-label
+{
+    @apply text-right overflow-ellipsis overflow-hidden;
+    grid-area: status;
+}
+
+.post-in-list .post-body-wrapper .button-group
+{
+    @apply flex flex-col md:flex-row mt-auto space-y-1.5 md:space-y-0 md:space-x-2 w-content ml-auto cursor-pointer;
+    grid-area: buttons;
+}
+
+.post-in-list .post-body-wrapper .button-group img
+{
+    min-height: 2rem;
+    min-width: 2rem;
+}
+
+.post-in-list .post-body-wrapper .post-info
+{
+    @apply flex items-end space-x-2;
+    grid-area: info;
+}
+
+.post-in-list .post-body-wrapper .synopsis
+{
+    @apply h-content w-full ellipsis paragraph;
+}
+
+/* user control panel */
+
+.users-control-panel .user-card
+{
+    @apply bg-green-100 h-24 flex rounded space-x-2 my-1 p-3;
+    width: 19rem;
+}
+
+/* end user control panel */
