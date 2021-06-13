@@ -21431,10 +21431,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\32-ko\Desktop\mint-news\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Users\32-ko\Desktop\mint-news\resources\css\app.css */"./resources/css/app.css");
-__webpack_require__(/*! C:\Users\32-ko\Desktop\mint-news\resources\css\tailwind.css */"./resources/css/tailwind.css");
-module.exports = __webpack_require__(/*! C:\Users\32-ko\Desktop\mint-news\resources\css\utilities.css */"./resources/css/utilities.css");
+__webpack_require__(/*! /var/www/mint-news/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /var/www/mint-news/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! /var/www/mint-news/resources/css/tailwind.css */"./resources/css/tailwind.css");
+module.exports = __webpack_require__(/*! /var/www/mint-news/resources/css/utilities.css */"./resources/css/utilities.css");
 
 
 /***/ })
