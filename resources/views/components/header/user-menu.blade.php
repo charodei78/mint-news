@@ -1,6 +1,12 @@
 <div x-data="{open: false}" class="{{ $class ?? '' }} relative">
-    <a @click="open=!open">
-        <img class="user_menu shadow-filter" src="{{ Storage::url(Auth::user()->avatar['ico']) }}">
+     <a @click="open=!open">
+        <img class="user_menu shadow-filter"
+                @if(count(Auth::user()->avatar))
+                       src="{{ Storage::url(Auth::user()->avatar['ico']) }}"
+                @else
+                        src="{{ '/user/avatar.png' }}"
+                @endif
+        >
     </a>
     <ul x-show.transition="open"
         style="display:none"
