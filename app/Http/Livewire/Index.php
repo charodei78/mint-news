@@ -52,6 +52,8 @@ class Index extends Component
                 return true;
             if (array_search($type, self::MODERATOR_PAGE) !== false && Auth::user()->role('moderator'))
                 return true;
+            if (array_search($type, self::AUTH_ONLY_PAGE) !== false)
+                return true;
         }
         if (array_search($type, self::PUBLIC_PAGE) !== false)
             return true;
@@ -64,6 +66,7 @@ class Index extends Component
             $this->pageType = $type;
         else
             $this->pageType = 'feed';
+
         $this->ID = $params['id'] ?? 0;
     }
 

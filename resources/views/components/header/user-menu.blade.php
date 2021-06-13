@@ -6,8 +6,7 @@
                 @else
                         src="{{ '/user/avatar.png' }}"
                 @endif
-
-	> 
+        >
     </a>
     <ul x-show.transition="open"
         style="display:none"
