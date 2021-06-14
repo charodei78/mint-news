@@ -3,7 +3,7 @@
     @foreach($posts as $post)
         <div class="right-sidebar-post"
              wire:key="{{ "right-side".$post->id}}"
-             x-on:mouseup="changePage('post', { id: {{ $post->id }} })"
+             x-on:mouseup="changePage('post', { itemId: {{ $post->id }} })"
         >
             <div class="w-1/3 h-full flex">
                 <img class="post-image" src="{{ url($post->preview) }}">

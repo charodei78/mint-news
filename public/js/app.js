@@ -21315,12 +21315,6 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js"); // window.onpopstate = () => {
@@ -21333,39 +21327,33 @@ window.log = console.log;
 window.changePage = function (page) {
   var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var pushState = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+  console.log(event.button);
+  if (event.button !== 1 && event.button !== 0) return;
+  var url = new URL('/' + page, location.href);
 
-  if (pushState) {
-    console.log(params);
-    var url = new URL('/' + page, location.href);
-    if (params['page']) delete params['page'];
+  for (var i in params) {
+    url.searchParams.append(i, params[i]);
+  }
 
-    for (var i in params) {
-      url.searchParams.append(i, params[i]);
-    }
+  var urlString = url.toString();
+  console.log(urlString);
 
-    url = url.toString();
-
-    if (event.button === 1) {
-      var win = window.open(url, '_blank', "width=900");
-      return;
-    } else if (url === location.href) return;else history.pushState(_objectSpread({
-      page: page
-    }, params), page, url);
+  if (event.button === 1) {
+    var win = window.open(urlString, '_blank', "width=900");
+    return;
   }
 
   window.Livewire.emitTo('index', 'changePage', page, params);
+  history.replaceState(history.state, page, urlString);
   dispatchEvent(new Event('change-page'));
-};
+}; // window.onpopstate = function(event) {
+//     let props = {};
+//     for (let i in event.state)
+//         if (i !== 'livewire')
+//             props[i] = event.state[i];
+//     changePage( event.state.page, props, false);
+// };
 
-window.onpopstate = function (event) {
-  var props = {};
-
-  for (var i in event.state) {
-    if (i !== 'livewire') props[i] = event.state[i];
-  }
-
-  changePage(event.state.page, props, false);
-};
 
 document.addEventListener("DOMContentLoaded", function () {
   Livewire.hook('message.sent', function (message, component) {

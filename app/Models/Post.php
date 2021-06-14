@@ -70,7 +70,7 @@ class Post extends Model
                     ->leftJoin(DB::raw('views vw'), 'posts.id', '=', 'vw.post_id')
                     ->leftJoin(DB::raw('post_likes pl'), 'posts.id', '=', 'pl.post_id')
                     ->groupBy('posts.id', 'fv.user_id')
-                    ->orderBy('posts.created_at');
+                    ->orderBy('posts.created_at', 'desc');
             });
         } else
             static::addGlobalScope(fn($query) => $query

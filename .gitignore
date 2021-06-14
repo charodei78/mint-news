@@ -2,3 +2,4 @@ node_modules
 vendor
 public/js
 public/css
+storage/framework

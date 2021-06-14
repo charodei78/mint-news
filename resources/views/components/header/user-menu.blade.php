@@ -2,17 +2,17 @@
     <a @click="open=!open">
 	<img class="user_menu shadow-filter" 
 		@if(count(Auth::user()->avatar))
-                       src="{{ Storage::url(Auth::user()->avatar['ico']) }}"
-                @else
-                        src="{{ '/user/avatar.png' }}"
-                @endif
+            src="{{ Storage::url(Auth::user()->avatar['ico']) }}"
+        @else
+            src="{{ '/user/avatar.png' }}"
+        @endif
         >
     </a>
     <ul x-show.transition="open"
         style="display:none"
         @click.away="open=false"
         @click="open = false;"
-        class="absolute z-30 text-gray-900  shadow-md right-0 rounded py-2.5 leading-8 top-14 text-green-500 bg-green-100">
+        class="absolute z-30 text-gray-900 w-48 shadow-md right-0 rounded py-2.5 leading-8 top-14 text-green-500 bg-green-100">
         <li class="px-5 text-xl mb-1 text-black">{{ explode(' ', Auth::user()->name)[0] }}</li>
         <li class="px-5 hover:bg-green-200 cursor-pointer">
             <div class="w-full h-full" @mouseup="changePage('settings');">
@@ -44,7 +44,7 @@
                 {{ __('Создать пост') }}
             </div>
         </li>
-        <li class="px-5 hover:bg-green-200 cursor-pointer">
+        <li class="px-5 hover:bg-green-200 cursor-pointer" @click="window.open('mailto:hheimerd@yandex.ru')">
             <div class="w-full h-full">
                 {{ __('Помощ') }}
             </div>

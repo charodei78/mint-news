@@ -1,6 +1,8 @@
 <div class="post-full-width"
-     onmouseup="changePage('post', {id: {{ $post->id }}})">
-    <img src="{{ url($post->preview) }}" class="post-preview-image">
+     onmouseup="changePage('post', {itemId: {{ $post->id }}})">
+    <div class="post-preview-image">
+        <img src="{{ url($post->preview) }}" class="post-preview-image">
+    </div>
     <div class="post-body-wrapper">
         <div class="post-body">
             <div class="post-title">{{ $post->title }}</div>

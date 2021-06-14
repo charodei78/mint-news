@@ -17,7 +17,7 @@
                         <button wire:click="deleteUser({{ $user->id }})">
                             <img src="/ico/delete.svg" alt="delete">
                         </button>
-                        <button x-on:mouseup="changePage('settings', { id: {{ $user->id }} })">
+                        <button x-on:mouseup="changePage('settings', { itemId: {{ $user->id }} })">
                             <img src="/ico/edit.svg" alt="edit">
                         </button>
                     </div>

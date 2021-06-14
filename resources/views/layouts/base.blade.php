@@ -65,28 +65,29 @@
                     </span>
                 </div>
                 <hr class="opacity-40 border-1 rounded">
-                @php($categories = \App\Models\Category::limit(5)->get())
-                @foreach($categories as $category)
-                    <div
-                        :class="{
-                              'bg-green-600': selected == {{ $category->id }},
-                              'hover:bg-green-600 hover:bg-opacity-50': selected != {{ $category->id }}
-                                }"
-                        :key="{{ $category->id }}"
-                        class="side-menu-button"
-                        @mouseup="title = '{{ $category->name }}'; selected = {{ $category->id }}; changePage('feed', { id: selected})"
-                    >
-                        <img src="/ico/star.svg">
-                        <span>
-                            {{ $category->name }}
-                        </span>
-                    </div>
-                @endforeach
+                @php($categories = \App\Models\Category::all())
+                <div class="h-60 hover:overflow-y-auto overflow-x-hidden overflow-y-hidden">
+                    @foreach($categories as $category)
+                        <div
+                            :class="{
+                                  'bg-green-600': selected == {{ $category->id }},
+                                  'hover:bg-green-600 hover:bg-opacity-50': selected != {{ $category->id }}
+                                    }"
+                            :key="{{ $category->id }}"
+                            class="side-menu-button"
+                            @mouseup="title = '{{ $category->name }}'; selected = {{ $category->id }}; changePage('feed', { itemId: selected})"
+                        >
+                            <img src="/ico/star.svg">
+                            <span class="marquee">
+                                {{ $category->name }}
+                            </span>
+                        </div>
+                    @endforeach
+                </div>
                 <hr class="opacity-40">
                 <br>
             </div>
             <div class="flex flex-col {{ $class ?? '' }}">
-                <span class="side-info-items">Мобильная версия</span>
                 <a   class="clear-none side-info-items"
                      target="_blank"
                      href="https://kazan.hh.ru/applicant/resumes/view?resume=ba6fd87dff0386373c0039ed1f7a7251564379"
