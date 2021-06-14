@@ -40,14 +40,10 @@
                       maxlength="80"
                       minlength="20"
                       required
-                      @input="$event.target.style.height = 'auto';
-                                $event.target.style.height = $event.target.scrollHeight - 25 + 'px'
-                                $event.target.value = $event.target.value.replace(/\r?\n/g, '')
-                                "
                       wire:model.lazy="post.title"
                       placeholder="{{ __('Заголовок') }}"
                       @keydown.enter.prevent=""
-                      class="transparent-textarea w-full h-10 text-2xl font-bold"></textarea>
+                      class="transparent-textarea w-full h-32 text-2xl font-bold"></textarea>
         </div>
         @error('preview') <span class="error">{{ $message }}</span> @enderror
 
@@ -95,11 +91,10 @@
                   minlength="20"
                   required
                   @keydown.enter.prevent=""
-                  @input="$event.target.style.height = 'auto'; $event.target.style.height = $event.target.scrollHeight - 22 + 'px'"
                   maxlength="160"
                   placeholder="{{ __('Краткое содержание') }}"
-                  class="transparent-textarea font-medium"
-        >{{ $post->synopsis }}</textarea>
+                  class="transparent-textarea h-40 font-medium"
+        ></textarea>
         <div x-on:blur="$wire.set('post.body', watchdog.editor.getData())" id="editor" x-ref="editor" wire:ignore class="max-w-full break-all">
             {!! $post->body !!}
         </div>
@@ -107,7 +102,7 @@
         <h2> Категории </h2>
         <select name="categories[]" wire:model="checked_categories" required class="rounded shadow-inner bg-transparent" multiple>
             @foreach($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                <option value="{{ $category->id }}" wire:key="$category->id">{{ $category->name }}</option>
             @endforeach
         </select>
         <div class="w-full flex mt-2 justify-between space-x-2.5">

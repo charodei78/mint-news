@@ -15,7 +15,9 @@ class Index extends Component
     use WithPagination;
 
     public string   $pageType = 'feed';
-    public int      $ID = 0;
+    public int      $itemId = 0;
+
+    protected $queryString = ['pageType', 'itemId'];
 
     private const ADMIN_ONLY_PAGE = [
         'users',
@@ -62,12 +64,15 @@ class Index extends Component
 
     public function  changePage($type = 'feed', $params = [])
     {
+        if ($this->pageType != $type)
+            $this->itemId = 0;
         if ($this->checkAccess($type))
             $this->pageType = $type;
         else
             $this->pageType = 'feed';
 
-        $this->ID = $params['id'] ?? 0;
+        if (isset($params['itemId']))
+            $this->itemId = $params['itemId'];
     }
 
     public function favoriteChange($inFavorite, $post_id)
@@ -101,8 +106,8 @@ class Index extends Component
 
     public function render()
     {
-        if (!$this->ID)
-            $this->ID = intval($_GET['id'] ?? 0);
+        if (!$this->itemId)
+            $this->itemId = intval($_GET['id'] ?? 0);
         return view('livewire.index')
             ->extends('layouts.base');
     }

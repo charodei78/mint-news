@@ -11,18 +11,18 @@
             M
         </div>
     </div>
-    @php($key = $pageType.$ID.request()->get('page'))
-    @if($pageType === 'post' && $ID)
-        @livewire('post', ['postId' => $ID], key($key))
+    @php($key = $pageType.$itemId.request()->get('page'))
+    @if($pageType === 'post' && $itemId)
+        @livewire('post', ['postId' => $itemId], key($key))
     @endif
     @if($pageType === 'feed' || $pageType === 'favorite')
-        @livewire('feed', ['favorite' => $pageType === 'favorite', 'categoryId' => $ID], key($key))
+        @livewire('feed', ['favorite' => $pageType === 'favorite', 'categoryId' => $itemId], key($key))
     @endif
     @if($pageType === 'settings')
-        @livewire('settings-page', [$ID], key($key))
+        @livewire('settings-page', [$itemId], key($key))
     @endif
     @if($pageType === 'edit-post')
-        @livewire('edit-post-page', [$ID], key($key))
+        @livewire('edit-post-page', [$itemId], key($key))
     @endif
     @if($pageType === 'my-posts')
         @livewire('my-posts', key($key))

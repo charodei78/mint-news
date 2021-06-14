@@ -3,3 +3,4 @@ vendor
 public/js
 public/css
 storage/app/public/post_images
+storage/framework

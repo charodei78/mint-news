@@ -15,7 +15,7 @@
         </div>
         @can('update', $post)
             <a  class="cursor-pointer"
-                x-on:click="changePage('edit-post', { id: {{ $post->id }} })"
+                x-on:click="changePage('edit-post', { itemId: {{ $post->id }} })"
             >{{ __('Редактировать') }}</a>
         @endcan
     </div>
@@ -34,11 +34,13 @@
     <div class="ml-auto w-full md:w-80 inline-flex items-center justify-end space-x-2">
         <div class="text-green-500 font-bold">{{ __('Поделиться') }}</div>
         <div class="ya-share2" data-curtain data-limit="0" data-more-button-type="short" data-services="messenger,vkontakte,facebook,odnoklassniki,telegram,twitter"></div>
+        @auth
         <x-elements.like
                 class="min-w-10"
                 :liked="$post->liked"
                 :post_id="$post->id"
         ></x-elements.like>
+        @endauth
         <x-elements.post-views
                 class="h-10 font-medium opacity-40 hidden sm:flex"
                 :views="$post->views"

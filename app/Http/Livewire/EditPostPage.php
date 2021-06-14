@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Category;
+use http\QueryString;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -16,9 +17,11 @@ class EditPostPage extends Component
     use WithFileUploads;
 
     public Post     $post;
-    public array    $checked_categories = [];
+    public array    $checked_categories;
     public          $preview;
     public          $postId = 0;
+
+    protected $queryString = ['postId'];
 
     protected array $rules = [
         'post.title' => 'required|min:20|max:80',
@@ -46,6 +49,7 @@ class EditPostPage extends Component
             $post->save();
         }
         $this->post = $post;
+        $this->postId = $post->id;
         $this->checked_categories = $post->categories->getQueueableIds();
     }
 
@@ -78,6 +82,8 @@ class EditPostPage extends Component
     {
         $status_id = array_search($status, Post::POST_STATUS);
         if ($status_id === false)
+            return;
+        if ($status != 'moderation' && $status != 'draft' && Auth::user()->role('user'))
             return;
         $this->post->status = $status_id;
         $this->post->save();

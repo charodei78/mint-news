@@ -34,10 +34,10 @@
                         <button wire:click="deletePost({{ $post->id }})">
                             <img src="/ico/delete.svg" alt="delete">
                         </button>
-                        <button x-on:mouseup="changePage('edit-post', { id: {{ $post->id }} })">
+                        <button x-on:mouseup="changePage('edit-post', { itemId: {{ $post->id }} })">
                             <img src="/ico/edit.svg" alt="edit">
                         </button>
-                        <button x-on:mouseup="changePage('post', { id: {{ $post->id }} })">
+                        <button x-on:mouseup="changePage('post', { itemId: {{ $post->id }} })">
                             <img src="/ico/link.svg" alt="view">
                         </button>
                     </div>

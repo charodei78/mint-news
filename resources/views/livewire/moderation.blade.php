@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="button-group">
-                        <button x-on:mouseup="changePage('edit-post', { id: {{ $post->id }} })">
+                        <button x-on:mouseup="changePage('edit-post', { itemId: {{ $post->id }} })">
                             <img src="/ico/link.svg" alt="view">
                         </button>
                     </div>
