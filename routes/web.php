@@ -4,7 +4,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Livewire\Index;
 use Illuminate\Support\Facades\Route;
 use Intervention\Image\ImageManager;
-
+use \Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +16,13 @@ use Intervention\Image\ImageManager;
 |
 */
 
-Route::any('/test',function (\Illuminate\Http\Request $request) {
+Route::any('/test',function (Request $request) {
 
 })->name('test');
+
+//Route::get('/livewire/preview-file/{file}', function (Request $request, string $file) {
+//    return Storage::download('livewire-tmp/' + $file);
+//});
 
 Route::resource('posts', PostController::class);
 

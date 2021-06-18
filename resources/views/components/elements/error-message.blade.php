@@ -1,1 +1,1 @@
-<div {{ $attributes->merge(['class' => 'error-message']) }}></div>
+<div {{ $attributes->merge(['class' => 'error-message outline-none']) }}></div>

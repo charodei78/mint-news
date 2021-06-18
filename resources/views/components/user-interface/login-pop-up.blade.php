@@ -26,8 +26,9 @@
                     this.error = error.response.data.errors ?? error.response.data ?? {registration: 'Произошла ошибка на сервере 😥'} })
             }
         }"
+        x-on:open-login.window="$nextTick(() => $dispatch('blackout-show'));show=true"
+        x-on:change-page.window="show=false; $dispatch('blackout-hide')"
         x-show.transition.scale="show"
-        @open-login.window="show=true; $dispatch('blackout-show')"
         @mousedown.away="$dispatch('blackout-hide'); show=false"
         {{ $attributes->merge(['class' => 'text-green-100 bg-green-100 shadow-lg login-pop-up fixed top-24 rounded-lg pb-3 z-30 flex flex-col']) }}
         style="display:none"
@@ -114,11 +115,11 @@
                                               x-text="error.auth"
                     ></x-elements.error-message>
                     <template x-if="formType == 'auth'">
-                        <x-input.with-error required name="login" placeholder="nick / e-mail" class="input-popup"></x-input.with-error>
+                        <x-input.with-error required name="login" placeholder="Nick / e-mail" class="input-popup"></x-input.with-error>
                     </template>
                     <template x-if="formType == 'registration'">
                         <div class="flex flex-col">
-                            <x-input.with-error required name="nickname" max="12" placeholder="nick" class="input-popup"></x-input.with-error>
+                            <x-input.with-error required name="nickname" max="12" placeholder="Nick" class="input-popup"></x-input.with-error>
                             <x-input.with-error required name="name" max="255" placeholder="{{ __('Имя') }}" class="input-popup"></x-input.with-error>
                             <x-input.with-error type="email" required name="email" max="255" placeholder="e-mail" class="input-popup"></x-input.with-error>
                         </div>
@@ -126,17 +127,24 @@
                     <x-input.with-error type="password" required x-model="password" name="password" min="8" placeholder="{{ __('Пароль') }}" class="input-popup"></x-input.with-error>
                     <template x-if="formType == 'registration'">
                         <x-input.with-error type="password" required name="password_confirmation" x-model="passwordConfirm" min="8" placeholder="{{ __('Повторите пароль') }}" class="input-popup"></x-input.with-error>
+                        <div class="flex mt-2 space-x-2 items-center justify-between">
+                            <div>
+                                Принимаю все <a @click="changePage('policy')" class="text-red-600 cursor-pointer hover:text-green-600">политики</a>
+                            </div>
+                            <x-input.with-error type="checkbox" class="h-4" name="accept" required></x-input.with-error>
+                        </div>
                     </template>
+
                     <a href="#" class="text-green-500 ml-auto mr-4 mt-2 mb-2">{{ __('Забыли пароль?') }}</a>
                 </div>
                 <div class="flex justify-between items-end">
                     <div class="flex h-10 space-x-2">
-                        <a href="#">
-                            <img src="/ico/vk.svg" class="h-full" alt="vk.com login">
-                        </a>
-                        <a href="#">
-                            <img src="/ico/google.svg" class="h-full" alt="google.com login">
-                        </a>
+{{--                        <a href="#">--}}
+{{--                            <img src="/ico/vk.svg" class="h-full" alt="vk.com login">--}}
+{{--                        </a>--}}
+{{--                        <a href="#">--}}
+{{--                            <img src="/ico/google.svg" class="h-full" alt="google.com login">--}}
+{{--                        </a>--}}
                     </div>
                     <button class="send-button"
                             :formaction="formType == 'auth' ? '{{ route('login', absolute: false) }}' : '{{ route('register', absolute: false) }}'"

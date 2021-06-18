@@ -15,7 +15,7 @@ class Index extends Component
     use WithPagination;
 
     public string   $pageType = 'feed';
-    public int      $itemId = 0;
+    public int      $itemId = -1;
 
     protected $queryString = ['pageType', 'itemId'];
 
@@ -73,6 +73,8 @@ class Index extends Component
 
         if (isset($params['itemId']))
             $this->itemId = $params['itemId'];
+        else
+            $this->itemId = 0;
     }
 
     public function favoriteChange($inFavorite, $post_id)
@@ -101,13 +103,13 @@ class Index extends Component
 
     public function mount($type ='feed')
     {
-        $this->changePage($type);
+        $this->changePage($type, request()->all());
     }
 
     public function render()
     {
-        if (!$this->itemId)
-            $this->itemId = intval($_GET['id'] ?? 0);
+        if (!$this->itemId === -1)
+            $this->itemId = intval($_GET['itemId'] ?? 0);
         return view('livewire.index')
             ->extends('layouts.base');
     }

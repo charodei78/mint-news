@@ -10,7 +10,6 @@ window.log = console.log;
 
 window.changePage = (page, params = {}, pushState = true) =>
 {
-    console.log(event.button)
     if (event.button !== 1 && event.button !== 0)
         return;
 
@@ -23,8 +22,6 @@ window.changePage = (page, params = {}, pushState = true) =>
 
     let urlString = url.toString();
 
-    console.log(urlString)
-
     if (event.button === 1) {
         let win = window.open(urlString, '_blank', "width=900");
         return;
@@ -34,6 +31,7 @@ window.changePage = (page, params = {}, pushState = true) =>
     history.replaceState(history.state, page, urlString);
 
     dispatchEvent(new Event('change-page'));
+    scrollTo(0, 0);
 }
 
 // window.onpopstate = function(event) {

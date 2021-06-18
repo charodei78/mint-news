@@ -78,9 +78,11 @@
                             @mouseup="title = '{{ $category->name }}'; selected = {{ $category->id }}; changePage('feed', { itemId: selected})"
                         >
                             <img src="/ico/star.svg">
-                            <span class="marquee">
-                                {{ $category->name }}
-                            </span>
+                            <div class="if-marquee">
+                                <span>
+                                    {{ $category->name }}
+                                </span>
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -127,6 +129,19 @@
   window.Spruce.store('login', {
     show: false,
   });
+
+  window.addEventListener('load', () => {
+      let categories = document.querySelectorAll('.if-marquee');
+
+      for (let wrapper of categories)
+      {
+          if (wrapper.children[0].offsetWidth > 145)
+              wrapper.classList.add('marquee')
+      }
+
+  })
+
+
 </script>
 </body>
 </html>

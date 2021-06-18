@@ -1,11 +1,11 @@
 <div x-data="{
                 input: '',
                 visible: false,
-                hide() { dispatchEvent(new Event('blackout-hide')); this.visible = false;},
+                hide() { if (!this.visible) return; dispatchEvent(new Event('blackout-hide')); this.visible = false;},
                 show() { dispatchEvent(new Event('blackout-show')); this.visible = true;}
             }"
      class="search-wrapper relative {{ $class ?? '' }}"
-        @click.away="hide()"
+        @mousedown.away="hide()"
         x-init="$watch('input', input => input.length > 0 ? show() : hide())"
 >
     <img src="/ico/lens.svg" class="absolute my-1.5 mx-1.5">

@@ -14,6 +14,11 @@
         @click="open = false;"
         class="absolute z-30 text-gray-900 w-48 shadow-md right-0 rounded py-2.5 leading-8 top-14 text-green-500 bg-green-100">
         <li class="px-5 text-xl mb-1 text-black">{{ explode(' ', Auth::user()->name)[0] }}</li>
+        <li class="px-5 hover:bg-green-200 cursor-pointer sm:hidden">
+            <div class="w-full h-full" @mouseup="changePage('favorite');">
+                {{ __('Избранное') }}
+            </div>
+        </li>
         <li class="px-5 hover:bg-green-200 cursor-pointer">
             <div class="w-full h-full" @mouseup="changePage('settings');">
                 {{ __('Настройки') }}
@@ -46,7 +51,7 @@
         </li>
         <li class="px-5 hover:bg-green-200 cursor-pointer" @click="window.open('mailto:hheimerd@yandex.ru')">
             <div class="w-full h-full">
-                {{ __('Помощ') }}
+                {{ __('Помощь') }}
             </div>
         </li>
         <li class="px-5 hover:bg-green-200 cursor-pointer" @click="location.href = '{{ route('logout') }}'">

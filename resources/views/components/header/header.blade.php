@@ -9,7 +9,7 @@
                          x-data="{}"
                          @mousedown="changePage('favorite')"
                          src="/ico/inFavorite.svg" alt="⭐">
-                    <x-header.notifications class="hidden sm:flex"></x-header.notifications>
+                    {{--<x-header.notifications class="hidden sm:flex"></x-header.notifications>--}}
                     <x-header.user-menu></x-header.user-menu>
                     <span class="text-xl my-auto hidden lg:block">{{ explode(' ', Auth::user()->name)[0] }}</span>
                 @endauth

@@ -1,2 +1,11 @@
 User-agent: *
-Disallow:
+Allow: /
+Allow: /edit-post
+Allow: /my-posts
+Allow: /favorit
+Allow: /feed
+Allow: /post
+Allow: /policy
+
+Disallow: /moderation
+Disallow: /users

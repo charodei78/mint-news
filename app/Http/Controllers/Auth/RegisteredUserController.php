@@ -32,6 +32,10 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->merge([
+            'nickname' => mb_strtolower($request->get('nickname')),
+            'email' => mb_strtolower($request->get('email'))
+        ]);
         $request->validate([
             'name' => 'required|string|max:255',
             'nickname' => 'required|string|max:12|unique:users',
@@ -42,6 +46,7 @@ class RegisteredUserController extends Controller
         Auth::login($user = User::create([
             'nickname' => $request->nickname,
             'name' => $request->name,
+            'avatar' => [],
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]));

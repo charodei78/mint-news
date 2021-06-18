@@ -75,7 +75,7 @@ class Feed extends Component
             }
         }
         if (!$posts) {
-            $posts = Post::published()->paginate(15);
+            $posts = Post::published()->inRandomOrder()->paginate(15);
         }
 
 

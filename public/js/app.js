@@ -21327,7 +21327,6 @@ window.log = console.log;
 window.changePage = function (page) {
   var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var pushState = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-  console.log(event.button);
   if (event.button !== 1 && event.button !== 0) return;
   var url = new URL('/' + page, location.href);
 
@@ -21336,7 +21335,6 @@ window.changePage = function (page) {
   }
 
   var urlString = url.toString();
-  console.log(urlString);
 
   if (event.button === 1) {
     var win = window.open(urlString, '_blank', "width=900");
@@ -21346,6 +21344,7 @@ window.changePage = function (page) {
   window.Livewire.emitTo('index', 'changePage', page, params);
   history.replaceState(history.state, page, urlString);
   dispatchEvent(new Event('change-page'));
+  scrollTo(0, 0);
 }; // window.onpopstate = function(event) {
 //     let props = {};
 //     for (let i in event.state)

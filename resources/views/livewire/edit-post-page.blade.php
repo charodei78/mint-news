@@ -226,7 +226,7 @@
                     'imageStyle:side'
                   ]
                 },
-
+                placeholder: 'Основной текст',
                 licenseKey: '',
                 simpleUpload: {
                   // The URL that the images are uploaded to.

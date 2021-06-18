@@ -70,21 +70,21 @@
             {{ __('Изменить') }}
         </button>
     </div>
-    <div>
-        <div class="text-2xl font-medium">
-            {{ __('Уведомления') }}
-        </div>
-        <div class="flex flex-col">
-            <div class="flex w-full lg:w-3/5 justify-between">
-                <div>{{ __('Ответы на коментарии') }}</div>
-                <input type="checkbox" class="rounded">
-            </div>
-            <div class="flex w-full lg:w-3/5 justify-between">
-                <div>{{ __('Новые статьи') }}</div>
-                <input type="checkbox" class="rounded">
-            </div>
-        </div>
-    </div>
+    {{--<div>--}}
+        {{--<div class="text-2xl font-medium">--}}
+            {{--{{ __('Уведомления') }}--}}
+        {{--</div>--}}
+        {{--<div class="flex flex-col">--}}
+            {{--<div class="flex w-full lg:w-3/5 justify-between">--}}
+                {{--<div>{{ __('Ответы на коментарии') }}</div>--}}
+                {{--<input type="checkbox" class="rounded">--}}
+            {{--</div>--}}
+            {{--<div class="flex w-full lg:w-3/5 justify-between">--}}
+                {{--<div>{{ __('Новые статьи') }}</div>--}}
+                {{--<input type="checkbox" class="rounded">--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
     <div>
         <div class="text-2xl font-medium">
             {{ __('Интересы') }}
